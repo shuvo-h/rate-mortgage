@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Paving = ({paving,idx}) => {
     return (
@@ -12,7 +13,7 @@ const Paving = ({paving,idx}) => {
                 </output>
                 <p style={{fontSize:"25px"}}>{paving.info}</p>
                 <div>
-                    <a style={{textDecoration:"none", color:"#6495ED", fontSize:"22px",fontWeight:700}} href={paving.url}>{paving.btn}</a>
+                    <NavLink style={{textDecoration:"none", color:"#6495ED", fontSize:"22px",fontWeight:700}} to={paving.url}>{paving.btn}</NavLink>
                 </div>
             </div>
         </div>

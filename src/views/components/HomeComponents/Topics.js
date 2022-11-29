@@ -24,7 +24,7 @@ const Topics = () => {
                 </div>
             </div>
             <div>
-                <img style={{width:"100%"}} src={"/assets/images/topic.png"} alt="banner" />
+                <img style={{width:"100%"}} src={"/assets/images/topic.png"} alt="topics" />
             </div>
         </section>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Paving from './Paving';
 
 const pavingsData = [
@@ -18,15 +19,15 @@ const Pavings = () => {
                     }
                 </div>
             </div>
-            <div style={{display:"grid", gridTemplateColumns:"300px 1fr"}}>
+            
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"1rem", padding:"3rem"}}>
+                <img style={{width:"150px"}} src={"/assets/images/satisfaction.png"} alt="satisfaction" />
                 <div>
-                    <img style={{width:"100%"}} src={"/assets/images/satisfaction.png"} alt="satisfaction" />
-                </div>
-                <div>
-                    <p>100% satisfaction guaranteed, only from Guaranteed Rate.</p>
-                    <a href="/">view details</a>
+                    <p  style={{display:"inline", color:"grey"}}>100% satisfaction guaranteed, only from Guaranteed Rate. {" "}</p>
+                    <NavLink style={{color:"grey"}} href="/">view details</NavLink>
                 </div>
             </div>
+            <p style={{fontSize:"14px"}}>*96% Customer Satisfaction: Data Source: Guaranteed Rate’s Client Satisfaction Surveys (Averaged 2021)</p>
         </section>
     );
 };

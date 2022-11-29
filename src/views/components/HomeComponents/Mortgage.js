@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import MortgageCard from './MortgageCard';
 
 const mortgageData = {
@@ -21,7 +22,7 @@ const Mortgage = () => {
         <section className="container">
             <div style={{display:"grid", gridTemplateColumns:"2fr 1fr", alignItems:"center"}}>
                 <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{mortgageData.title}</h2>
-                <a style={{ color:"#6495ED", fontSize:"20px",textAlign:"right",textDecoration:"none", fontWeight:600}} href='/'>{mortgageData.viewBtn}</a>
+                <NavLink style={{ color:"#6495ED", fontSize:"20px",textAlign:"right",textDecoration:"none", fontWeight:600}} to='/'>{mortgageData.viewBtn}</NavLink>
             </div>
             <p style={{fontSize:"20px"}}>{mortgageData.info}</p>
             <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)", gap:"2rem"}}>
