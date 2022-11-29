@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Step from './Step';
 
 const steps = [
@@ -29,13 +29,26 @@ const steps = [
 ]
 
 const PurchaseWork = () => {
+    const [isOpen,setIsOpen] = useState(false);
     return (
-        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}} className="container">
-            <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>How home purchases work</h2>
-            <div>
-            {
-                steps.map(step =><Step step={step} totalSteps={steps.length} key={step.number}></Step>)
-            }
+        <section className="container">
+            <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>
+                How home {" "}
+                <span style={{position:"relative",}}>
+                    <span style={{cursor:"pointer", color:"#6495ED"}} onClick={()=>setIsOpen(!isOpen)}>purchases</span>
+                    {
+                        isOpen &&  <span style={{position:"absolute", fontSize:"18px", fontWeight:400,top:"60px", left:"0", lineHeight:"30px"}}>
+                            <p style={{margin:0}}>Purchase</p>
+                            <p style={{margin:0}}>refinance</p>
+                        </span>
+                    }
+                </span> 
+                {" "} work
+            </h2>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}}>
+                {
+                    steps.map(step =><Step step={step} totalSteps={steps.length} key={step.number}></Step>)
+                }
             </div>
         </section>
     );
