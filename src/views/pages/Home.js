@@ -1,6 +1,6 @@
 import React from 'react';
-import BottomFooter from '../components/BottomFooter';
-import Footer from '../components/Footer';
+import BottomFooter from '../components/common/footer/BottomFooter';
+import Footer from '../components/common/footer/Footer';
 import Banner from '../components/HomeComponents/Banner';
 import Calculator from '../components/HomeComponents/Calculator';
 import DigitalPersonal from '../components/HomeComponents/DigitalPersonal';
@@ -8,7 +8,7 @@ import Mortgage from '../components/HomeComponents/Mortgage';
 import Paving from '../components/HomeComponents/Pavings';
 import PurchaseWork from '../components/HomeComponents/PurchaseWork';
 import Topics from '../components/HomeComponents/Topics';
-import NavBar from '../components/NavBar';
+import NavBar from '../components/common/navbar/NavBar';
 
 const Home = () => {
     return (

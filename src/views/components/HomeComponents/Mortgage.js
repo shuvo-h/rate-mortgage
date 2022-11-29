@@ -19,7 +19,7 @@ const mortgageData = {
 const Mortgage = () => {
     return (
         
-        <section className="container">
+        <section style={{marginTop:"2rem", marginBottom:"4rem"}} className="container">
             <div style={{display:"grid", gridTemplateColumns:"2fr 1fr", alignItems:"center"}}>
                 <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{mortgageData.title}</h2>
                 <NavLink style={{ color:"#6495ED", fontSize:"20px",textAlign:"right",textDecoration:"none", fontWeight:600}} to='/'>{mortgageData.viewBtn}</NavLink>
