@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+/* home page styles  */
+.banner_buttons{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 2rem;
+}
+.banner_buttons button{
+  padding: 14px;
+  font-weight: 700;
+  font-size: 22px;
+  cursor: pointer;
+  color: red;
+  border: 2px solid red;
+  border-radius: 8px;
+  transition: all 0.4s ease-in-out;
+}
+.banner_buttons button:hover{
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
+}
+
+.purchase_btn{
+  background-color: red;
+  color: white !important;
+}
+.refinancing_btn:hover{
+}
