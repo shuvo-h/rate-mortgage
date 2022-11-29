@@ -40,6 +40,9 @@
 
 
 /* home page styles  */
+.container{
+  margin: 0 10%;
+}
 .banner_buttons{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -65,4 +68,19 @@
   color: white !important;
 }
 .refinancing_btn:hover{
+}
+
+.calc_Input_wrapper{
+  
+  color: rgb(73, 88, 100);
+  padding: 8px;
+  border: 1px solid skyblue;
+  border-radius: 4px;
+  background-color: rgb(239, 244, 245);
+}
+
+.calc_input{
+  border: none;
+  background-color: transparent;
+  outline: none;
 }
