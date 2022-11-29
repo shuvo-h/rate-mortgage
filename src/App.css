@@ -98,3 +98,18 @@
   transform: scale(1.1);
   transition: all 0.4s ease-in-out;
 }
+
+.topic{
+  border: 1px solid skyblue;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.4s ease-in-out;
+}
+
+.topic:hover{
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
+}

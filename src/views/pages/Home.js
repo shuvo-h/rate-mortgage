@@ -5,6 +5,7 @@ import Calculator from '../components/HomeComponents/Calculator';
 import DigitalPersonal from '../components/HomeComponents/DigitalPersonal';
 import Mortgage from '../components/HomeComponents/Mortgage';
 import PurchaseWork from '../components/HomeComponents/PurchaseWork';
+import Topics from '../components/HomeComponents/Topics';
 import NavBar from '../components/NavBar';
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
                 {/* <PurchaseWork></PurchaseWork> */}
                 {/* <DigitalPersonal></DigitalPersonal> */}
                 {/* <Mortgage></Mortgage> */}
-
+                <Topics></Topics>
             </body>
             <footer>
                 <Footer></Footer>
