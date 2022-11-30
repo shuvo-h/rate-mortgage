@@ -1,11 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { BadgeAwardIcon, BranchLocationIcon, DollarsIcon } from '../../../utils/icons/HomePageIcons';
 import Paving from './Paving';
 
 const pavingsData = [
-    {icon:"icon", amount: 70, sign:"$", unit:"B", info:"Branches serving all 50 states",btn:"our story", url:"/"},
-    {icon:"icon", amount: 96, sign:"", unit:"%", info:"Branches serving all 50 states",btn:"our story", url:"/"},
-    {icon:"icon", amount: 70, sign:"$", unit:"B", info:"Branches serving all 50 states",btn:"our story", url:"/"},
+    {icon: <DollarsIcon width={35} height={35} />, amount: 70, sign:"$", unit:"B", info:"Branches serving all 50 states",btn:"our story", url:"/"},
+    {icon: <BadgeAwardIcon width={35} height={35} />, amount: 96, sign:"", unit:"%", info:"Branches serving all 50 states",btn:"our story", url:"/"},
+    {icon: <BranchLocationIcon width={35} height={35} />, amount: 70, sign:"$", unit:"B", info:"Branches serving all 50 states",btn:"our story", url:"/"},
 ]
 
 const Pavings = () => {

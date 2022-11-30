@@ -91,13 +91,15 @@ const NavBar = () => {
 
     return (
         <nav className='container nav_container'>
+            <div className='nav-toggle'>Icon</div>
             <div>
                 <img style={{width:"150px"}} src={"/assets/images/granteeIcon.png"} alt="granteeIcon" />
             </div>
             <div className='nav_middle'>
                 {
                     navMiddle.map(navItem => <div className='nav_middle_items' key={navItem.name}>
-                        <NavLink className={"link_style"} to={navItem.url}>{navItem.name}</NavLink>
+                        {/* <NavLink className={"link_style"} to={navItem.url}><>{navItem.name} <span >></span></></NavLink> */}
+                        <span>{navItem.name} <span >></span></span>
                         {
                             navItem.childs && <div className={'nav_childs_wrapper'}>
                                 <div className='nav_childs'>

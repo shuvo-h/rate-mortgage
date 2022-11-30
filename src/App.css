@@ -119,3 +119,40 @@
   transform: scale(1.1);
   transition: all 0.4s ease-in-out;
 }
+
+
+
+
+
+/* Breakpoints  */
+/* Extra small  */
+@media (max-width: 410px) {
+    
+}
+  
+/* small device  */
+@media (min-width: 411px) and (max-width: 576px) {
+    
+}
+  
+/* landscape large mobile  */
+@media (min-width: 577px) and (max-width: 768px) {
+    
+}
+  /* iphone ipad  */
+@media (min-width: 769px) and (max-width: 992px) {
+    
+}
+  /* mini dextop laptop  */
+@media (min-width: 993px) and (max-width: 1200px) {
+    
+}
+  
+/* large device  */
+@media (min-width: 1201px) and (max-width: 1400px) {
+       
+}
+/* Extra large device */
+@media (min-width: 1401px) {
+    
+}

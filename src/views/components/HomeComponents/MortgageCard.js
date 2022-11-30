@@ -5,7 +5,7 @@ const MortgageCard = ({mortgage}) => {
     return (
         <div>
             <div className='mortgage_card'>
-                <div>(icon)</div>
+                <div>{mortgage.icon}</div>
                 <div>
                     <h4>{mortgage.title}</h4>
                 </div>
