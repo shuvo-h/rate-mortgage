@@ -11,7 +11,7 @@ const pavingsData = [
 
 const Pavings = () => {
     return (
-        <section style={{borderBottom:"1px solid skyblue", padding:"3rem 0"}} className="container">
+        <section style={{borderBottom:"1px solid skyblue", padding:"3rem 0"}} className="base_container">
             <div>
                 <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>Paving the way since Y2K</h2>
                 <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", textAlign:"center"}}>

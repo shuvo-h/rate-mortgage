@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GrapgMortgage from './GrapgMortgage';
+import "../../pages/Home/home.css";
 
 
 const dataForGraph = [
@@ -10,7 +11,7 @@ const dataForGraph = [
     { name: 'HOA fees', value: 50 },
   ];
   
-  const COLORSForGraph = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+  const COLORSForGraph = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042',"#000"];
   
   
 
@@ -45,11 +46,11 @@ const Calculator = () => {
 
     
     return (
-        <section style={{display:"grid",}} className="container">
-            <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{calculatorData.title}</h2>
-            <p style={{fontSize:"1.5rem", lineHeight:"2rem"}}>{calculatorData.info}</p>
-            <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}}>
-                <div>
+        <section className="base_container">
+            <h2 className='fs-1 lh-2 mb-3'>{calculatorData.title}</h2>
+            <div className='row gx-5'>
+                <div className='col'>
+                    <p className='fs-4 lh-1'>{calculatorData.info}</p>
                     <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}}>
                         <div className='calc_Input_wrapper'>
                             <p style={{margin:0}}>Home Price</p>
@@ -107,7 +108,7 @@ const Calculator = () => {
                         
                     </div>
                 </div>
-                <div style={{border:"1px solid skyblue", borderRadius:"8px", display:""}}>
+                <div className='col p-4' style={{border:"1px solid skyblue", borderRadius:"8px"}}>
                     <div style={{textAlign:"center"}}>
                         <p>Your monthly payment would be</p>
                         <h2 style={{fontSize:"2.5rem", margin:0}}>$2500</h2>
@@ -120,24 +121,23 @@ const Calculator = () => {
                             <h5 style={{textAlign:"center"}}>Breakdown</h5>
                             <div style={{width:"fit-content"}}>
                                 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
-                                    <span style={{width:"5px", height:"5px", background: "red"}}></span>
-                                    <p style={{margin: "8px", marginLeft:0}} data-amount="10">Principal and interest</p>
+                                    <p className='boolet_style m-2 ml-0' style={{"--colordynamic":COLORSForGraph[0 % COLORSForGraph.length]}}>Principal and interest</p>
                                     <h5 style={{margin:"8px"}}>$3654</h5>
                                 </div>
                                 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
-                                    <p style={{margin: "8px"}}>PMI</p>
+                                    <p className='boolet_style m-2 ml-0'  style={{"--colordynamic":COLORSForGraph[1 % COLORSForGraph.length]}} >PMI</p>
                                     <h5 style={{margin: "8px"}}>$223</h5>
                                 </div>
                                 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
-                                    <p style={{margin:"8px"}}>Property taxes</p>
+                                    <p className='boolet_style m-2 ml-0'  style={{"--colordynamic":COLORSForGraph[2 % COLORSForGraph.length]}} >Property taxes</p>
                                     <h5 style={{margin:"8px"}}>$17</h5>
                                 </div>
                                 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
-                                    <p style={{margin:"8px"}}>Insurance</p>
+                                    <p className='boolet_style m-2 ml-0'  style={{"--colordynamic":COLORSForGraph[3 % COLORSForGraph.length]}} >Insurance</p>
                                     <h5 style={{margin: "8px"}}>$45</h5>
                                 </div>
                                 <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
-                                    <p style={{margin:"8px"}}>HOA fees</p>
+                                    <p className='boolet_style m-2 ml-0'  style={{"--colordynamic":COLORSForGraph[4 % COLORSForGraph.length]}} >HOA fees</p>
                                     <h5 style={{margin:"8px"}}>$0</h5>
                                 </div>
                             </div>

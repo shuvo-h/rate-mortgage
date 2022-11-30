@@ -12,7 +12,7 @@ const bannerData = {
 
 const Banner = () => {
     return (
-        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}} className="container">
+        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}} className="base_container">
             <div>
                 <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{bannerData.title}</h2>
                 <p style={{fontSize:"1.5rem", lineHeight:"2rem"}}>{bannerData.info}</p>

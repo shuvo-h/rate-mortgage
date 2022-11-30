@@ -36,7 +36,7 @@ const PurchaseWork = () => {
     const {elementRef,isVisiable,setIsVisiable,handleClickInSideElement} = useElementVisiable(false);
     console.log(isVisiable);
     return (
-        <section className="container">
+        <section className="base_container mt-5 pt-4">
             <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>
                 How home {" "}
                 <span style={{position:"relative",}} ref={elementRef} onClick={handleClickInSideElement}>

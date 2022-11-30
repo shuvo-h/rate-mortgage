@@ -11,6 +11,7 @@ import Topics from '../../components/HomeComponents/Topics';
 import NavBar from '../../components/common/navbar/NavBar';
 
 const Home = () => {
+
     return (
         <div>
             <header>

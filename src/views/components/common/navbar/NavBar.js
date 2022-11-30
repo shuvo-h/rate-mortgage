@@ -90,7 +90,7 @@ const navRight = [
 const NavBar = () => {
 
     return (
-        <nav className='container nav_container'>
+        <nav className='base_container nav_container'>
             <div className='nav-toggle'>Icon</div>
             <div>
                 <img style={{width:"150px"}} src={"/assets/images/granteeIcon.png"} alt="granteeIcon" />

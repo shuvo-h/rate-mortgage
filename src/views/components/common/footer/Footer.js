@@ -53,7 +53,7 @@ const shortedLinks = [
 
 const Footer = () => {
     return (
-        <div className='container'>
+        <div className='base_container'>
             <div style={{display:"grid", gridTemplateColumns:"repeat(5,1fr)"}}>
                 {
                     footerData.map(footerItem =><div key={footerItem.title}>

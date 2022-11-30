@@ -9,7 +9,7 @@ const digitalPersonData = {
 
 const DigitalPersonal = () => {
     return (
-        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem", borderTop:"1px solid lightgrey",borderBottom:"1px solid lightgrey", padding:"3rem 0"}} className="container">
+        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem", borderTop:"1px solid lightgrey",borderBottom:"1px solid lightgrey", padding:"3rem 0"}} className="base_container">
             <div>
                 <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{digitalPersonData.title}</h2>
                 <h4 style={{fontSize:"2rem", lineHeight:"2.5rem", margin:0}}>{digitalPersonData.sub_title}</h4>
