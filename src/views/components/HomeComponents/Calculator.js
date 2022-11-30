@@ -1,6 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import GrapgMortgage from './GrapgMortgage';
 
+
+const dataForGraph = [
+    { name: 'Principal and Interest', value: 700 },
+    { name: 'PMI', value: 300 },
+    { name: 'Property taxes', value: 300 },
+    { name: 'Insurance', value: 200 },
+    { name: 'HOA fees', value: 50 },
+  ];
+  
+  const COLORSForGraph = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+  
+  
+
 const calculatorData = {
     title: "Mortgage calculator",
     info:"Get a sense of the costs of buying a home with our monthly mortgage calculator.",
@@ -32,7 +45,7 @@ const Calculator = () => {
 
     
     return (
-        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}} className="container">
+        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem",}} className="container">
             <div>
                 <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{calculatorData.title}</h2>
                 <p style={{fontSize:"1.5rem", lineHeight:"2rem"}}>{calculatorData.info}</p>
@@ -93,9 +106,41 @@ const Calculator = () => {
                     
                 </div>
             </div>
-            <div>
-                <h1>Graph Show</h1>
-                <GrapgMortgage></GrapgMortgage>
+            <div style={{border:"1px solid skyblue", borderRadius:"8px"}}>
+                <div style={{textAlign:"center"}}>
+                    <p>Your monthly payment would be</p>
+                    <h2 style={{fontSize:"2.5rem", margin:0}}>$2500</h2>
+                </div>
+                <div style={{display:"flex", }}>
+                    <div style={{ width:"250px", height:"300px"}}>
+                        <GrapgMortgage graphData={dataForGraph} graphColors={COLORSForGraph}></GrapgMortgage>
+                    </div>
+                    <div>
+                        <h5 style={{textAlign:"center"}}>Breakdown</h5>
+                        <div style={{width:"fit-content"}}>
+                            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
+                                <p style={{margin: "8px"}}><span style={{}}></span> Principal and interest</p>
+                                <h5 style={{margin:"8px"}}>$3654</h5>
+                            </div>
+                            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
+                                <p style={{margin: "8px"}}>PMI</p>
+                                <h5 style={{margin: "8px"}}>$223</h5>
+                            </div>
+                            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
+                                <p style={{margin:"8px"}}>Property taxes</p>
+                                <h5 style={{margin:"8px"}}>$17</h5>
+                            </div>
+                            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
+                                <p style={{margin:"8px"}}>Insurance</p>
+                                <h5 style={{margin: "8px"}}>$45</h5>
+                            </div>
+                            <div style={{display:"flex", justifyContent:"space-between", alignItems:"center",gap:"2rem"}}>
+                                <p style={{margin:"8px"}}>HOA fees</p>
+                                <h5 style={{margin:"8px"}}>$0</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );
