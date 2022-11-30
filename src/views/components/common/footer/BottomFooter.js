@@ -11,7 +11,7 @@ const bottomFooterLinks = [
 
 const BottomFooter = () => {
     return (
-        <div style={{borderTop:"1px solid lightgrey", marginBottom:"3rem"}} className='base_container'>
+        <div className='container my-5 pb-5'>
             <div style={{margin:"20px 0",}}>
                 {
                     bottomFooterLinks.map((shortLink,idx) => <NavLink style={{color:"black", textDecoration:"none"}} to={shortLink.url} key={idx}>{shortLink.name}{idx !== bottomFooterLinks.length -1 ? " | ":""}</NavLink>)

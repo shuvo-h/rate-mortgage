@@ -9,17 +9,20 @@ const digitalPersonData = {
 
 const DigitalPersonal = () => {
     return (
-        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem", borderTop:"1px solid lightgrey",borderBottom:"1px solid lightgrey", padding:"3rem 0"}} className="base_container">
-            <div>
-                <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{digitalPersonData.title}</h2>
-                <h4 style={{fontSize:"2rem", lineHeight:"2.5rem", margin:0}}>{digitalPersonData.sub_title}</h4>
-                <p style={{fontSize:"1rem", lineHeight:"1.5rem"}}>{digitalPersonData.info}</p>
-                <div className='banner_buttons' style={{display:"block"}}>
-                    <button className='refinancing_btn'>{digitalPersonData.btn}</button>
+        // <section className='container' style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem", borderTop:"1px solid lightgrey",borderBottom:"1px solid lightgrey", padding:"3rem 0"}}>
+        <section className='container my-5'>
+            <div className='row justify-content-center'>
+                <div className='col-12 col-md-6'>
+                    <h2 className='fs-1 my-4'>{digitalPersonData.title}</h2>
+                    <h4 className='fs-3 my-3'>{digitalPersonData.sub_title}</h4>
+                    <p className='py-3 fs-5 lh-sm'>{digitalPersonData.info}</p>
+                    <div className='banner_buttons my-5' style={{display:"block"}}>
+                        <button className='refinancing_btn'>{digitalPersonData.btn}</button>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <img style={{width:"100%", height:"100%"}} src={"/assets/images/digital.png"} alt="banner" />
+                <div className='col-12 col-sm-6 order-first order-md-last'>
+                    <img className='w-100' src={"/assets/images/digital.png"} alt="banner" />
+                </div>
             </div>
         </section>
     );

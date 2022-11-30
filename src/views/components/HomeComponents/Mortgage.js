@@ -20,17 +20,16 @@ const mortgageData = {
 const Mortgage = () => {
     return (
         
-        <section style={{marginTop:"2rem", marginBottom:"4rem"}} className="base_container">
-            <div style={{display:"grid", gridTemplateColumns:"2fr 1fr", alignItems:"center"}}>
-                <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{mortgageData.title}</h2>
-                <NavLink style={{ color:"#6495ED", fontSize:"20px",textAlign:"right",textDecoration:"none", fontWeight:600}} to='/'>{mortgageData.viewBtn}</NavLink>
+        <section className="container my-5">
+            <div className='d-flex flex-wrap justify-content-between my-4'>
+                <div >
+                    <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>{mortgageData.title}</h2>
+                    <p style={{fontSize:"20px"}}>{mortgageData.info}</p>
+                </div>
+                    <NavLink className={"mt-3 text-decoration-none text-end"} style={{ color:"#6495ED", fontSize:"20px", fontWeight:600}} to='/'>{mortgageData.viewBtn}</NavLink>
             </div>
-            <p style={{fontSize:"20px"}}>{mortgageData.info}</p>
 
-            
-
-
-            <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)", gap:"2rem"}}>
+            <div className='row g-4'>
                 {
                     mortgageData.mortgages.map((mortgage,idx) =><MortgageCard mortgage={mortgage}  key={idx}></MortgageCard>)
                 }

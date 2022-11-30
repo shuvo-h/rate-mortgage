@@ -34,15 +34,15 @@ const steps = [
 const PurchaseWork = () => {
     
     const {elementRef,isVisiable,setIsVisiable,handleClickInSideElement} = useElementVisiable(false);
-    console.log(isVisiable);
+    
     return (
-        <section className="base_container mt-5 pt-4">
+        <section className="container mt-5 pt-4">
             <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>
                 How home {" "}
                 <span style={{position:"relative",}} ref={elementRef} onClick={handleClickInSideElement}>
                     <span style={{cursor:"pointer", color:"#6495ED"}}>purchases</span>
                     {
-                        isVisiable &&  <span style={{position:"absolute", fontSize:"18px", fontWeight:400,top:"65px", left:"0", lineHeight:"30px", border:"1px solid skyblue", borderRadius:"5px"}}>
+                        isVisiable &&  <span style={{position:"absolute", fontSize:"18px", fontWeight:400,top:"65px", left:"0", lineHeight:"30px", border:"1px solid skyblue", borderRadius:"5px", backgroundColor:"#fff"}}>
                             <NavLink style={{display:"block", textDecoration:"none", padding:"8px"}} to={""} >Purchase</NavLink>
                             <NavLink style={{display:"block", textDecoration:"none", padding:"8px"}} to={""} >Refinance</NavLink>
                         </span>
@@ -54,10 +54,12 @@ const PurchaseWork = () => {
                 </span>
                 {" "} work
             </h2>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}}>
-                {
-                    steps.map(step =><Step step={step} totalSteps={steps.length} key={step.number}></Step>)
-                }
+            <div>
+                <div className='row'>
+                    {
+                        steps.map(step =><Step step={step} totalSteps={steps.length} key={step.number}></Step>)
+                    }
+                </div>
             </div>
         </section>
     );

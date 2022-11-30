@@ -3,7 +3,7 @@ import { ActiveServiceFlagIcon, BeforeBuyTipsIcon, BuyHomeTipIcon, CreditCardIco
 import Topic from './Topic';
 
 const topics = [
-    {icon: <BuyHomeTipIcon width={40} height={40} />, title:"buy a home tips"},
+    {icon: <BuyHomeTipIcon width={40} height={40} />, title:"Buy a home tips"},
     {icon: <HomeOwnerCashIcon width={40} height={40} />, title:"Refinance tips"},
     {icon: <MortgageProcessIcon width={40} height={40} />, title:"Mortgage process"},
     {icon: <BeforeBuyTipsIcon width={40} height={40} />, title:"Before you buy tips"},
@@ -16,17 +16,19 @@ const topics = [
 
 const Topics = () => {
     return (
-        <section style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem", borderTop:"1px solid skyblue", borderBottom:"1px solid skyblue", padding:"3rem 0"}} className="base_container">
-            <div>
-                <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>Popular topics</h2>
-                <div style={{display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:"2rem"}}>
-                    {
-                        topics.map(topic => <Topic topic={topic} key={topic.title}></Topic>)
-                    }
+        <section className="container">
+            <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>Popular topics</h2>
+            <div className='row  g-4  align-items-center'>
+                <div className='col-12 col-lg-6 '>
+                    <div className='row g-2 g-md-4'>
+                        {
+                            topics.map(topic => <Topic topic={topic} key={topic.title}></Topic>)
+                        }
+                    </div>
                 </div>
-            </div>
-            <div>
-                <img style={{width:"100%"}} src={"/assets/images/topic.png"} alt="topics" />
+                <div className='col-12 col-lg-6 order-sm-first order-lg-last '>
+                    <img className='w-100' src={"/assets/images/topic.png"} alt="topics" />
+                </div>
             </div>
         </section>
     );

@@ -9,3 +9,19 @@
     color: transparent;
     display: inline-block;
 }
+
+
+/* calculator styles  */
+.disclosure_box{
+    max-height: var(--disclose_box_height);
+    overflow: hidden;
+    border-radius: 8px;
+    transition: all 0.7s ease-in-out;
+}
+.disclosure_icon{
+    position: absolute;
+    transform: rotate(var(--diclosureDegree));
+    top: var(--diclosureTopPos);
+    right: -20px;
+    transition: all 0.7s ease-in-out;
+}

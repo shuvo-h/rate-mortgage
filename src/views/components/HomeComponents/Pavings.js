@@ -4,26 +4,27 @@ import { BadgeAwardIcon, BranchLocationIcon, DollarsIcon } from '../../../utils/
 import Paving from './Paving';
 
 const pavingsData = [
-    {icon: <DollarsIcon width={35} height={35} />, amount: 70, sign:"$", unit:"B", info:"Branches serving all 50 states",btn:"our story", url:"/"},
-    {icon: <BadgeAwardIcon width={35} height={35} />, amount: 96, sign:"", unit:"%", info:"Branches serving all 50 states",btn:"our story", url:"/"},
-    {icon: <BranchLocationIcon width={35} height={35} />, amount: 70, sign:"$", unit:"B", info:"Branches serving all 50 states",btn:"our story", url:"/"},
+    {icon: <DollarsIcon width={35} height={35} />, amount: 70, sign:"$", unit:"B", info:"unded loans in 2021",btn:"our story", url:"/"},
+    {icon: <BadgeAwardIcon width={35} height={35} />, amount: 96, sign:"", unit:"%", info:"Customer Satisfaction Score*",btn:"Why you’ll love us", url:"/"},
+    {icon: <BranchLocationIcon width={35} height={35} />, amount: 500, sign:"$", unit:"+", info:"Branches serving all 50 states",btn:"Find a branch near you", url:"/"},
 ]
 
 const Pavings = () => {
     return (
-        <section style={{borderBottom:"1px solid skyblue", padding:"3rem 0"}} className="base_container">
+        <section className="container my-5">
             <div>
-                <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>Paving the way since Y2K</h2>
-                <div style={{display:"grid", gridTemplateColumns:"repeat(3,1fr)", textAlign:"center"}}>
+                <h2 className='fs-1 my-5'>Paving the way since Y2K</h2>
+                <div className='row g-3 text-center'>
                     {
                         pavingsData.map((paving,idx) => <Paving paving={paving} idx={idx} key={paving.info}></Paving>)
                     }
                 </div>
             </div>
             
-            <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"1rem", padding:"3rem"}}>
-                <img style={{width:"150px"}} src={"/assets/images/satisfaction.png"} alt="satisfaction" />
-                <div>
+            {/* <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"1rem", padding:"3rem"}}> */}
+            <div className='d-md-flex align-items-center p-3'>
+                <img className='d-block m-auto m-md-0' style={{width:"150px"}} src={"/assets/images/satisfaction.png"} alt="satisfaction" />
+                <div className='ms-4'>
                     <p  style={{display:"inline", color:"grey"}}>100% satisfaction guaranteed, only from Guaranteed Rate. {" "}</p>
                     <NavLink style={{color:"grey"}} href="/">view details</NavLink>
                 </div>

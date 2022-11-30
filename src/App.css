@@ -40,18 +40,16 @@
 
 
 /* home page styles  */
-.base_container{
-  margin: 0 10%;
-}
+
 .link_style{
   text-decoration: none;
   color: black;
   font-weight: 500;
 }
 .banner_buttons{
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(2,1fr);
-  gap: 2rem;
+  gap: 2rem; */
 }
 .banner_buttons button{
   padding: 14px;
@@ -88,7 +86,13 @@
   border: none;
   background-color: transparent;
   outline: none;
-  font-size: 18px;
+  font-size: 20px;
+  -moz-appearance:textfield;  /* hide up-down arrow mozila*/
+}
+.calc_input::-webkit-inner-spin-button,
+.calc_input::-webkit-outer-spin-button{
+  appearance: none;
+  -webkit-appearance: none;   /* hide up-down arrow chorom and safari*/
 }
 
 .mortgage_card{
@@ -97,7 +101,8 @@
   padding: 1rem;
   border-radius: 8px;
   text-align: center;
-  max-width: 200px;
+  max-width: 220px;
+  min-height: 200px;
   transition: all 0.4s ease-in-out;
 }
 .mortgage_card:hover{
@@ -105,13 +110,12 @@
   transition: all 0.4s ease-in-out;
 }
 
+.topic-wraper{
+}
 .topic{
-  border: 1px solid skyblue;
-  padding: 1rem;
   border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  border: 1px solid skyblue;
+  cursor: pointer;
   transition: all 0.4s ease-in-out;
 }
 
@@ -120,7 +124,19 @@
   transition: all 0.4s ease-in-out;
 }
 
+.pavingCard{
+  border-left: 1px solid skyblue;
+  border-right: 1px solid skyblue;
+}
 
+.footer_items_container{
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+.footer_items{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
 
 
 
@@ -128,6 +144,28 @@
 /* Extra small  */
 @media (max-width: 410px) {
     
+}
+@media (max-width: 769px) {
+  
+  .pavingCard{
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid skyblue;
+    border-bottom: 1px solid skyblue;
+  }
+
+}
+  
+@media (max-width: 992px) {
+  .footer_items_container{
+    display: block;
+  }
+  .footer_items{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+
 }
   
 /* small device  */
@@ -154,5 +192,5 @@
 }
 /* Extra large device */
 @media (min-width: 1401px) {
-    
+ 
 }

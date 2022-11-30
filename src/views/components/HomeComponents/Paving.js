@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Paving = ({paving,idx}) => {
     return (
-        <div style={{borderLeft: (idx === 1 || idx === 2) ? "1px solid lightgrey" :""}}>
+        <div className={`col-12 col-md-4 p-3 ${idx===1 && "pavingCard"}`}>
             <div>
                 <div>{paving.icon}</div>
                 <output style={{fontSize:"50px", fontWeight:700}}>
