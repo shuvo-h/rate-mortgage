@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import GrapgMortgage from './GrapgMortgage';
 
 const calculatorData = {
     title: "Mortgage calculator",
@@ -94,6 +95,7 @@ const Calculator = () => {
             </div>
             <div>
                 <h1>Graph Show</h1>
+                <GrapgMortgage></GrapgMortgage>
             </div>
         </section>
     );
