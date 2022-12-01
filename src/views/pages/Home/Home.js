@@ -21,7 +21,7 @@ const Home = () => {
     return (
         <div>
             <header>
-                {/* <NavBar></NavBar> */}
+                <NavBar></NavBar>
                 <NavbarDrawer />
             </header>
             <main>

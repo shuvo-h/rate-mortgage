@@ -2,9 +2,12 @@
     --navTopPadding: 20px;
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 10px;
     padding-top: var(--navTopPadding);
+    padding-right: 3rem;
+    padding-left: 3rem;
     height: var(--navHeight);
+    white-space: nowrap;
     /* position: relative; */
 }
 
@@ -15,6 +18,9 @@
 }
 .nav_middle_items{
     position: relative;
+}
+.nav_middle_title:hover{
+    cursor: pointer;
 }
 .nav_childs_wrapper{
     position: absolute;
@@ -51,6 +57,7 @@
 }
 .nav_sub{
     padding-left: 30px !important;
+    cursor: pointer;
 }
 
 .nav_right{
@@ -85,11 +92,81 @@
 
 
 
+
+
+/* Drawer Nav CSS styles  start */
+.nav_drawer_container{
+    position: relative;
+}
+
+.nav-toggle{
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 30px;
+}
+
+.nav_drawer_middle{
+    position: absolute;
+    top: var(--navHeight);
+    left: 0;
+    width: calc(100vw - 18px);
+    height: auto;
+    background-color: var(--drawer_open_shade);
+    border-top: 1px solid var(--drawer_open_shade);
+    height: var(--full_page_height);
+    z-index: 1;
+}
+.nav_drawer_middle_wrapper{
+    width: 350px;
+    /* min-height: calc(100vh - var(--navHeight )); */
+    height: var(--full_page_height);
+    background-color: #fff;
+    padding: 2rem;
+}
+.child_close_btn{
+    font-weight: 500;
+    color: rgb(57, 179, 228);
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.nav_drawer_search_wraper{
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 4px;
+    border-radius: 4px;
+}
+.nav_drawer_search{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 2px;
+}
+.nav_drawer_middle_items{
+    font-weight: 700;
+}
+.nav_drawer_item{
+    margin: 0;
+    padding: 8px 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav_drawer_item:hover{
+    /* background-color: rgb(233, 238, 240); */
+    color: skyblue;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+/* Drawer Nav CSS styles  end */
+
+
+
+
+
 /* Extra small  */
 @media (max-width: 410px) {
-    .nav-toggle{
-        background-color: black;
-    }
+   
     .nav_middle{
         position: absolute;
         top: 60px ;
@@ -101,32 +178,11 @@
         position: relative;
         flex-direction: row;
     }
+    .nav_drawer_right{
+        top: 0;
+    }
 }
   
-
-/* Drawer Nav CSS styles  start */
-.nav_drawer_container{
-    position: relative;
-}
-.nav_drawer_middle{
-    position: absolute;
-    top: var(--navHeight);
-    left: 0;
-    width: calc(100vw - 18px);
-    height: auto;
-    background-color: var(--drawer_open_shade);
-    height: var(--full_page_height);
-    z-index: 1;
-}
-.nav_drawer_middle_wrapper{
-    width: 350px;
-    /* min-height: calc(100vh - var(--navHeight )); */
-    height: var(--full_page_height);
-    background-color: #fff;
-    padding: 1rem;
-}
-/* Drawer Nav CSS styles  end */
-
 
 /* small device  */
 @media (min-width: 411px) and (max-width: 576px) {
@@ -156,3 +212,17 @@
 @media (min-width: 1401px) {
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

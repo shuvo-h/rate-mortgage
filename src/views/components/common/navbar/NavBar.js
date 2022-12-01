@@ -2,6 +2,7 @@ import React from 'react';
 import "./navbar.css";
 import { NavLink } from 'react-router-dom';
 import SearchIcon from '../../../../utils/icons/SearchIcon';
+import { RightArrow } from '../../../../utils/icons/Arrows';
 
 
 export const navMiddle = [
@@ -90,8 +91,7 @@ const navRight = [
 const NavBar = () => {
 
     return (
-        <nav className='base_container nav_container'>
-            <div className='nav-toggle'>Icon</div>
+        <nav className='base_container nav_container d-none d-lg-flex'>
             <div>
                 <img style={{width:"150px"}} src={"/assets/images/granteeIcon.png"} alt="granteeIcon" />
             </div>
@@ -99,7 +99,7 @@ const NavBar = () => {
                 {
                     navMiddle.map(navItem => <div className='nav_middle_items' key={navItem.name}>
                         {/* <NavLink className={"link_style"} to={navItem.url}><>{navItem.name} <span >></span></></NavLink> */}
-                        <span>{navItem.name} <span >></span></span>
+                        <span className='nav_middle_title'>{navItem.name} <span > <RightArrow width={10} height={10} /> </span></span>
                         {
                             navItem.childs && <div className={'nav_childs_wrapper'}>
                                 <div className='nav_childs'>
