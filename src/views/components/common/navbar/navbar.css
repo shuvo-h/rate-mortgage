@@ -1,8 +1,10 @@
 .nav_container{
+    --navTopPadding: 20px;
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin-top: 20px;
+    padding-top: var(--navTopPadding);
+    height: var(--navHeight);
     /* position: relative; */
 }
 
@@ -101,6 +103,31 @@
     }
 }
   
+
+/* Drawer Nav CSS styles  start */
+.nav_drawer_container{
+    position: relative;
+}
+.nav_drawer_middle{
+    position: absolute;
+    top: var(--navHeight);
+    left: 0;
+    width: calc(100vw - 18px);
+    height: auto;
+    background-color: var(--drawer_open_shade);
+    height: var(--full_page_height);
+    z-index: 1;
+}
+.nav_drawer_middle_wrapper{
+    width: 350px;
+    /* min-height: calc(100vh - var(--navHeight )); */
+    height: var(--full_page_height);
+    background-color: #fff;
+    padding: 1rem;
+}
+/* Drawer Nav CSS styles  end */
+
+
 /* small device  */
 @media (min-width: 411px) and (max-width: 576px) {
     

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import SearchIcon from '../../../../utils/icons/SearchIcon';
 
 
-const navMiddle = [
+export const navMiddle = [
     {
         name:"current rates",
         url:"/",

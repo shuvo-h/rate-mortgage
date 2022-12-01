@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./home.css";
 import BottomFooter from '../../components/common/footer/BottomFooter';
 import Footer from '../../components/common/footer/Footer';
@@ -10,15 +10,19 @@ import Paving from '../../components/HomeComponents/Pavings';
 import PurchaseWork from '../../components/HomeComponents/PurchaseWork';
 import Topics from '../../components/HomeComponents/Topics';
 import NavBar from '../../components/common/navbar/NavBar';
-import NavigationBar from '../../components/common/navbar/NavigationBar';
+import NavbarDrawer from '../../components/common/navbar/NavbarDrawer';
+
 
 const Home = () => {
-
+    useEffect(()=>{
+        // set the page full height vass value (for navbar drawer)
+        document.documentElement.style.setProperty("--full_page_height",`${document.documentElement.scrollHeight}px`)
+    },[])
     return (
         <div>
             <header>
                 {/* <NavBar></NavBar> */}
-                <NavigationBar></NavigationBar>
+                <NavbarDrawer />
             </header>
             <main>
                 <Banner></Banner>
