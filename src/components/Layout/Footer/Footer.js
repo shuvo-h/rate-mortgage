@@ -7,34 +7,35 @@ import FooterColumn from './FooterColumn';
 
 const footerMortgage = [
     {name:"Sign in to your account", url:""},
-    {name:"Pay your mortgage", url:""},
-    {name:"Contact us", url:""},
+    {name:"Pay your mortgage", url:"/servicing"},
+    {name:"Contact us", url:"/contact-us"},
 ]
 const granteeData = [
-    {name:"About us", url:""},
-    {name:"Careers", url:""},
-    {name:"Press", url:""},
-    {name:"Insurance", url:""},
-    {name:"HELOC", url:""},
+    {name:"About us", url:"/about-us"},
+    {name:"Careers", url:"/careers"},
+    {name:"Press", url:"/news"},
+    {name:"Insurance", url:"/insurance"},
+    {name:"HELOC", url:"/heloc"},
 ]
 const careerData = [
-    {name:"Loan office", url:""},
-    {name:"Operations", url:""},
-    {name:"Tech", url:""},
-    {name:"All open positions", url:""},
+    {name:"Loan office", url:"/careers/loan-officers"},
+    {name:"Operations", url:"/careers/operations"},
+    {name:"Tech", url:"/careers/gr-tech"},
+    {name:"All open positions", url:"/careers/open-positions"},
 ]
 const websiteData = [
-    {name:"Graunteed Rate Insurance", url:""},
-    {name:"Owning", url:""},
-    {name:"Ravenswood Title", url:""},
-    {name:"Agent Advantage", url:""},
+    {name:"Graunteed Rate Insurance", url:"/insurance"},
+    {name:"Owning", url:"https://www.owning.com/"},
+    {name:"Ravenswood Title", url:"https://www.ravenswoodtitle.com/"},
+    {name:"Agent Advantage", url:"https://agents.rate.com/"},
 ]
+
 const contactIcons = [
-    {name: <YoutubeIcon width={30}  height={30} />, url:"",},
-    {name: <InstagramIcon width={30}  height={30} />, url:"",},
-    {name: <LinkedINIcon width={30}  height={30} /> , url:"",},
-    {name: <TwitterIcon  width={30}  height={30} />, url:"",},
-    {name: <FBicon width={30}  height={30} />, url:"",},
+    {name: <YoutubeIcon width={30}  height={30} />, url:"https://www.youtube.com/channel/UCc4dTfT3Eh1lU59jjsp4EuQ",},
+    {name: <InstagramIcon width={30}  height={30} />, url:"https://www.instagram.com/guaranteedrate/",},
+    {name: <LinkedINIcon width={30}  height={30} /> , url:"https://www.linkedin.com/company/guaranteed-rate",},
+    {name: <TwitterIcon  width={30}  height={30} />, url:"https://twitter.com/guaranteedrate",},
+    {name: <FBicon width={30}  height={30} />, url:"https://www.facebook.com/guaranteedRate",},
 ]
 
 const footerData = [
@@ -46,12 +47,12 @@ const footerData = [
 ]
 
 const shortedLinks = [
-    {name:"Accessibility", url:"/"},
-    {name:"Licensing ", url:"/"},
-    {name:"Notice to Vendors", url:"/"},
-    {name:"Privacy Policies", url:"/"},
-    {name:"SMS Terms", url:"/"},
-    {name:"Terms of Use", url:"/"},
+    {name:"Accessibility", url:"/accessibility"},
+    {name:"Licensing ", url:"/licensing"},
+    {name:"Notice to Vendors", url:"/notice-to-vendor"},
+    {name:"Privacy Policies", url:"/privacy"},
+    {name:"SMS Terms", url:"/sms-terms"},
+    {name:"Terms of Use", url:"/terms"},
     {name:"NMLS Consumer Access", url:"/"},
 ]
 

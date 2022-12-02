@@ -17,19 +17,19 @@ export const navMiddle = [
         url:"/",
         childs: [
             {
-                name:"Mortgage Overview", url:"", 
+                name:"Mortgage Overview", url:"/buying-a-house", 
                 sub_childs:[
-                    {name:"Mortgage news", url:"",},
-                    {name:"Mortgage rates today", url:"",},
-                    {name:"Mortgage pre-approval", url:"",},
-                    {name:"Mortgage propcess", url:"",},
-                    {name:"Mortgage calculator", url:"",},
+                    {name:"Mortgage news", url:"/resources/mortgage-news",},
+                    {name:"Mortgage rates today", url:"/mortgage-rates",},
+                    {name:"Mortgage pre-approval", url:"/powerbid",},
+                    {name:"Mortgage propcess", url:"/mortgage-process",},
+                    {name:"Mortgage calculator", url:"/mortgage-calculators",},
                 ]
             },
             {
-                name:"Refinance", url:"", 
+                name:"Refinance", url:"/refinance-mortgage", 
                 sub_childs:[
-                    {name:"Cash-out refinance", url:"",},
+                    {name:"Cash-out refinance", url:"/cash-out-refinance",},
                 ]
             },
         ]
@@ -40,26 +40,26 @@ export const navMiddle = [
         url:"/",
         childs: [
             {
-                name:"Fixed Loans", url:"", 
+                name:"Fixed Loans", url:"/home-loans/fixed-rate-mortgage", 
                 sub_childs:[
-                    {name:"15-years fixed loans", url:"",},
-                    {name:"30-years fixed loans", url:"",},
+                    {name:"15-years fixed loans", url:"/mortgage-rates/assumptions/15-year_fixed_conforming",},
+                    {name:"30-years fixed loans", url:"/mortgage-rates/assumptions/30-year_fixed_conforming",},
                 ]
             },
             {
-                name:"ARM Loans", url:"", 
+                name:"ARM Loans", url:"/home-loans/adjustable-rate-mortgage-arm", 
                 sub_childs:[
-                    {name:"5-years ARM loans", url:"",},
-                    {name:"7-years ARM loans", url:"",},
-                    {name:"10-years ARM loans", url:"",},
+                    {name:"5-years ARM loans", url:"/mortgage-rates/assumptions/5-year_arm_conforming",},
+                    {name:"7-years ARM loans", url:"/mortgage-rates/assumptions/7-year_arm_conforming",},
+                    {name:"10-years ARM loans", url:"/mortgage-rates/assumptions/10-year_arm_conforming",},
                 ]
             },
-            {name:"FHA loans", url:"", },
-            {name:"Interest only loans", url:"", },
-            {name:"VA loans", url:"", },
-            {name:"Jumbo loans", url:"", },
-            {name:"Personal loans", url:"", },
-            {name:"HELOC", url:"", },
+            {name:"FHA loans", url:"/mortgage-rates/assumptions/fha_30-year_fixed_conforming", },
+            {name:"Interest only loans", url:"/home-loans/interest-only-mortgage", },
+            {name:"VA loans", url:"/mortgage-rates/assumptions/va_30-year_fixed_conforming", },
+            {name:"Jumbo loans", url:"/home-loans/jumbo-mortgage", },
+            {name:"Personal loans", url:"/personal-loans", },
+            {name:"HELOC", url:"/heloc", },
         ]
     },
     {
@@ -67,17 +67,17 @@ export const navMiddle = [
         url:"/",
         childs: [
             {
-                name:"Closing cost calculator", url:"", 
+                name:"Closing cost calculators", url:"/mortgage-calculators", 
                 sub_childs:[
-                    {name:"Closing cost calculator", url:"",},
-                    {name:"Refinance calculator", url:"",},
-                    {name:"Affordability calculator", url:"",},
-                    {name:"Extra payment calculator", url:"",},
-                    {name:"Points calculator", url:"",},
+                    {name:"Closing cost calculator", url:"/mortgage-calculators/closing-cost-calculator",},
+                    {name:"Refinance calculator", url:"/mortgage-calculators/should-i-refinance-calculator",},
+                    {name:"Affordability calculator", url:"/mortgage-calculators/how-much-home-can-i-buy-calculator",},
+                    {name:"Extra payment calculator", url:"/mortgage-calculators/should-i-make-extra-payments-calculator",},
+                    {name:"Points calculator", url:"/mortgage-calculators/when-to-pay-points-to-lower-rate-calculator",},
                 ]
             },
-            {name:"Home valuation tool", url:"",},
-            {name:"House market research", url:"",},
+            {name:"Home valuation tool", url:"/home-valuation",},
+            {name:"House market research", url:"/research",},
         ]
     },
     
@@ -87,7 +87,7 @@ const navRight = [
     {name:"Get started", url:""},
     {name:"(886) 934-721", url:""},
     {name:"Log in", url:""},
-    {name:"Espanol", url:""},
+    // {name:"Espanol", url:""},
 ]
 
 
@@ -135,7 +135,7 @@ const Navbar = () => {
                 {
                     navRight.map(navItem => <Link className={"link_style"} to={navItem.url} key={navItem.name}>{navItem.name}</Link>)
                 }
-                <Link className={`link_style ${search_icon}`} to={""}><SearchIcon></SearchIcon></Link>
+                <Link className={`link_style ${search_icon}`} to={"/site-search"}><SearchIcon></SearchIcon></Link>
             </div>
 
         </nav>

@@ -5,8 +5,8 @@ import React from 'react';
 
 
 const bottomFooterLinks = [
-    {name:"Delaware Licensed Loan Officers", url:"/"},
-    {name:"Texas consumer", url:"/"},
+    {name:"Delaware Licensed Loan Officers", url:"/delaware-licensed-loan-officers"},
+    {name:"Texas consumer", url:"/texas-consumers-how-to-file-complaint"},
     {name:" Do not sell my personal information", url:"/"},
 ]
 
