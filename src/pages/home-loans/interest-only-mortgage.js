@@ -1,10 +1,11 @@
 import React from 'react';
+import Layout from '../../components/Layout/layout';
 
 const InterestOnlyMortgage = () => {
     return (
-        <div>
+        <Layout className='container'>
             <h2>Interest only mortgages</h2>
-        </div>
+        </Layout>
     );
 };
 

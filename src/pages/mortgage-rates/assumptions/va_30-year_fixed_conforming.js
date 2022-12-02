@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '../../components/Layout/layout';
+import Layout from '../../../components/Layout/layout';
 
 const Va_ThirtyYear_fixed_conforming = () => {
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import Layout from '../../components/Layout/layout';
 
 const Gr_tech = () => {
     return (
