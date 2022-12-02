@@ -1,0 +1,22 @@
+/* button style start  */
+.btn_common{
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+.btn_common:hover{
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
+}
+/* button style end  */
+/* accordian style start  */
+.accordian_btn{
+    color: rgb(69, 174, 216);
+    position: relative;
+}
+
+.accordian_btn_expand .accordian_btn_icon{
+    position: absolute;
+    transform: rotate(180deg);
+    top: 5px;
+}
+/* accordian style end  */

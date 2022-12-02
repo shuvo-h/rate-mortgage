@@ -1,0 +1,231 @@
+.nav_container{
+    --navTopPadding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: var(--navTopPadding);
+    padding-right: 3rem;
+    padding-left: 3rem;
+    height: var(--navHeight);
+    white-space: nowrap;
+    /* position: relative; */
+}
+
+
+.nav_middle{
+    display: flex;
+    gap: 1rem;
+}
+.nav_middle_items{
+    position: relative;
+}
+.nav_middle_title{
+    font-weight: 500;
+}
+.nav_middle_title:hover{
+    cursor: pointer;
+}
+.nav_childs_wrapper{
+    position: absolute;
+    top: 22px;
+    left: 0;
+    padding-top: 25px;
+    display: none;
+    z-index: 1;
+}
+.nav_childs{
+    border: 1px solid rgb(77, 179, 219);
+    box-shadow: 0 0 5px 1px lightgray;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* .nav_middle_items:hover .nav_childs{ */
+.nav_middle_items:hover .nav_childs_wrapper{
+    display: block;
+}
+
+.nav_child_link{
+    padding: 10px !important;
+    display: block;
+    padding: 10px 0;
+    white-space: nowrap;
+    font-weight: 400;
+    transition: all 0.2s ease-in-out;
+}
+.nav_child_link:hover{
+    background-color: rgb(233, 238, 240);
+    transition: all 0.2s ease-in-out;
+
+}
+.nav_sub{
+    padding-left: 30px !important;
+    cursor: pointer;
+}
+
+.nav_right{
+    margin-left: auto;
+}
+
+.get_start_btn{
+    color: red;
+    border: 1px solid red;
+    border-radius: 10px;
+    padding: 3px 5px;
+    transition: all 0.2s ease-in-out;
+}
+.get_start_btn:hover{
+    background-color: rgb(243, 222, 222);
+    transition: all 0.2s ease-in-out;
+}
+.search_icon{
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+}
+.search_icon:hover{
+    background-color: rgb(238, 223, 223);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+
+
+
+/* Drawer Nav CSS styles  start */
+.nav_drawer_container{
+    position: relative;
+}
+
+.nav_toggle{
+    margin-left: 1rem;
+    cursor: pointer;
+    width: 30px;
+}
+
+.nav_drawer_middle{
+    position: absolute;
+    top: var(--navHeight);
+    left: 0;
+    width: calc(100vw - 18px);
+    height: auto;
+    background-color: var(--drawer_open_shade);
+    border-top: 1px solid var(--drawer_open_shade);
+    height: var(--full_page_height);
+    z-index: 1;
+}
+.nav_drawer_middle_wrapper{
+    width: 350px;
+    /* min-height: calc(100vh - var(--navHeight )); */
+    height: var(--full_page_height);
+    background-color: #fff;
+    padding: 2rem;
+}
+.child_close_btn{
+    font-weight: 500;
+    color: rgb(57, 179, 228);
+    cursor: pointer;
+    margin-bottom: 1rem;
+}
+.nav_drawer_search_wraper{
+    border: 1px solid lightgray;
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    padding: 4px;
+    border-radius: 4px;
+}
+.nav_drawer_search{
+    width: 100%;
+    outline: none;
+    border: none;
+    padding: 2px;
+}
+.nav_drawer_middle_items{
+    font-weight: 700;
+}
+.nav_drawer_item{
+    margin: 0;
+    padding: 8px 8px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav_drawer_item:hover{
+    /* background-color: rgb(233, 238, 240); */
+    color: skyblue;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+/* Drawer Nav CSS styles  end */
+
+
+
+
+
+/* Extra small  */
+@media (max-width: 410px) {
+   
+    .nav_middle{
+        position: absolute;
+        top: 60px ;
+        left: 0;
+       flex-direction: column;
+        /* background-color: lightseagreen; */
+    }
+    .nav_right{
+        position: relative;
+        flex-direction: row;
+    }
+    .nav_drawer_right{
+        top: 0;
+    }
+}
+  
+
+/* small device  */
+@media (min-width: 411px) and (max-width: 576px) {
+    
+}
+  
+/* landscape large mobile  */
+@media (min-width: 577px) and (max-width: 768px) {
+    
+}
+  /* iphone ipad  */
+@media (min-width: 769px) and (max-width: 992px) {
+    
+}
+  /* mini dextop laptop  */
+@media (min-width: 993px) and (max-width: 1200px) {
+    
+}
+  
+/* large device  */
+@media (min-width: 1201px) and (max-width: 1400px) {
+    
+        
+}
+
+/* Extra large device */
+@media (min-width: 1401px) {
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
