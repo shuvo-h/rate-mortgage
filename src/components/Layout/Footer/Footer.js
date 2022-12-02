@@ -11,7 +11,7 @@ const footerMortgage = [
     {name:"Contact us", url:"/contact-us"},
 ]
 const granteeData = [
-    {name:"About us", url:"/about-us"},
+    {name:"About us", url:"/about_us"},
     {name:"Careers", url:"/careers"},
     {name:"Press", url:"/news"},
     {name:"Insurance", url:"/insurance"},
