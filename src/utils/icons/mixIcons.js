@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 
 export const DangerIcon = ({width = 40,height = 40}) =><svg  width={width} height={height} viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
 <title>Icon / Interface 119 - 24px</title>
@@ -29,12 +29,12 @@ export const ImproveFinanceIcon = ({width = 40,height = 40}) =><svg width={width
             <line x1="28.4943167" y1="28.2218625" x2="28.4933583" y2="26.1959458" id="Stroke-5" stroke="#25282A"></line>
             <line x1="28.4933583" y1="36.9156708" x2="28.4943167" y2="34.8926292" id="Stroke-6" stroke="#25282A"></line>
             <polyline id="Stroke-7" stroke="#25282A" stroke-linejoin="bevel" points="24.1031375 38.8323375 26.0198042 40.7490042 24.1031375 42.6656708"></polyline>
-            <polyline id="Stroke-8" stroke="#25282A" stroke-linecap="square" points="5.88637083 24.8975958 5.88637083 40.7493875 25.0616625 40.7493875"></polyline>
-            <line x1="9.71970417" y1="40.7490042" x2="9.71970417" y2="34.9990042" id="Stroke-9" stroke="#25282A" stroke-linecap="square"></line>
-            <line x1="13.5530375" y1="40.7490042" x2="13.5530375" y2="30.3654625" id="Stroke-10" stroke="#25282A" stroke-linecap="square"></line>
-            <line x1="17.3863708" y1="40.7490042" x2="17.3863708" y2="34.9990042" id="Stroke-11" stroke="#25282A" stroke-linecap="square"></line>
-            <line x1="21.2197042" y1="40.7490042" x2="21.2197042" y2="33.0823375" id="Stroke-12" stroke="#25282A" stroke-linecap="square"></line>
-            <polyline id="Stroke-13" stroke="#25282A" stroke-linecap="square" points="21.4172167 27.2920875 20.8910917 27.2920875 17.6940917 29.6869625 16.7913417 29.6869625 13.85405 24.8972125 13.0413833 24.8972125 10.04755 29.2490042 9.59521667 29.2490042"></polyline>
+            <polyline id="Stroke-8" stroke="#25282A" strokeLinecap="square" points="5.88637083 24.8975958 5.88637083 40.7493875 25.0616625 40.7493875"></polyline>
+            <line x1="9.71970417" y1="40.7490042" x2="9.71970417" y2="34.9990042" id="Stroke-9" stroke="#25282A" strokeLinecap="square"></line>
+            <line x1="13.5530375" y1="40.7490042" x2="13.5530375" y2="30.3654625" id="Stroke-10" stroke="#25282A" strokeLinecap="square"></line>
+            <line x1="17.3863708" y1="40.7490042" x2="17.3863708" y2="34.9990042" id="Stroke-11" stroke="#25282A" strokeLinecap="square"></line>
+            <line x1="21.2197042" y1="40.7490042" x2="21.2197042" y2="33.0823375" id="Stroke-12" stroke="#25282A" strokeLinecap="square"></line>
+            <polyline id="Stroke-13" stroke="#25282A" strokeLinecap="square" points="21.4172167 27.2920875 20.8910917 27.2920875 17.6940917 29.6869625 16.7913417 29.6869625 13.85405 24.8972125 13.0413833 24.8972125 10.04755 29.2490042 9.59521667 29.2490042"></polyline>
             <polygon id="Stroke-14" stroke="#25282A" points="5.88704167 10.4717083 10.0404583 10.4717083 10.0404583 6.31925 5.88704167 6.31925"></polygon>
             <polygon id="Stroke-15" stroke="#25282A" points="10.0404583 10.4717083 30.8037083 10.4717083 30.8037083 6.31925 10.0404583 6.31925"></polygon>
             <polygon id="Stroke-16" stroke="#25282A" points="5.88704167 14.6241667 10.0404583 14.6241667 10.0404583 10.4717083 5.88704167 10.4717083"></polygon>
@@ -70,7 +70,7 @@ export const WatchMarketIcon = ({width = 40,height = 40}) => <svg width={width} 
             <line x1="2.9948526" y1="7.39648729" x2="2.9948526" y2="15.8040368" id="Stroke-11" stroke="#25282A" strokeWidth="2"></line>
             <polyline id="Stroke-12" stroke="#25282A" strokeWidth="2" points="0 10.3913399 2.9948526 7.39648729 5.98970519 10.3913399"></polyline>
             <polyline id="Stroke-14" stroke="#25282A" strokeWidth="2" points="16.8991546 4.16963344 19.8940072 1.17478085 22.8888598 4.16963344"></polyline>
-            <line x1="36.97455" y1="0.961247855" x2="19.8210326" y2="18.1147652" id="Stroke-15" stroke="#25282A" strokeWidth="2" stroke-linecap="square"></line>
+            <line x1="36.97455" y1="0.961247855" x2="19.8210326" y2="18.1147652" id="Stroke-15" stroke="#25282A" strokeWidth="2" strokeLinecap="square"></line>
             <polygon id="Stroke-16" stroke="#25282A" strokeWidth="2" points="0 47.9996007 39.931368 47.9996007 39.931368 26.1032351 0 26.1032351"></polygon>
             <path d="M0,41.5341132 C3.57186086,41.5341132 6.46588676,44.4281391 6.46588676,48" id="Stroke-18" stroke="#25282A"></path>
             <path d="M6.46588676,26.1036344 C6.46588676,29.6734987 3.57186086,32.5685229 0,32.5685229" id="Stroke-19" stroke="#25282A"></path>

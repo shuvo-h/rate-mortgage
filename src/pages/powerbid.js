@@ -7,9 +7,11 @@ import PowerbidBanner from '../components/PowerbidCmp/PowerbidBanner';
 
 const Powerbid = () => {
     return (
-        <Layout className='container'>
-            <h1>Put our power behind your bid.</h1>
+        <Layout>
             <PowerbidBanner />
+            <div>
+                <p>Want to see what you can afford first? Try our mortgage calculator Try our mortgage calculator</p>
+            </div>
             <Cachets />
             <HowWorkBanner />
             <FreeGuidBanner />

@@ -22,7 +22,7 @@ const DigitalPersonal = () => {
                     </div>
                 </div>
                 <div className='col-12 col-sm-6 order-first order-md-last' >
-                    <StaticImage src='../../images/Home_img/digital.png' alt='banner' />
+                    {/* <StaticImage src='../../images/Home_img/digital.png' alt='banner' /> */}
                 </div>
             </div>
         </section>

@@ -27,7 +27,7 @@ const Pavings = () => {
             
             
             <div className='d-md-flex align-items-center p-3'>
-                <StaticImage src='../../../images/Home_img/satisfaction.png' width={150} alt='satisfaction' />
+                {/* <StaticImage src='../../../images/Home_img/satisfaction.png' width={150} alt='satisfaction' /> */}
                 <div className='ms-4'>
                     <p  style={{display:"inline", color:"grey"}}>100% satisfaction guaranteed, only from Guaranteed Rate. {" "}</p>
                     <Link className='text-decoration-none' style={{fontWeight:400}} style={{color:"grey"}} to="/">view details</Link>

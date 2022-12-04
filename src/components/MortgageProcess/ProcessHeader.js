@@ -1,9 +1,11 @@
+import { Link } from 'gatsby';
 import React from 'react';
 
-const ProcessHeader = () => {
+const ProcessHeader = ({banner}) => {
     return (
         <section>
-            <h1>ProcessHeader</h1>
+            {banner.img}
+            <Link to={banner.url}>{banner.button}</Link>
         </section>
     );
 };

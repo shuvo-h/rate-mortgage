@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Cachet = () => {
+const Cachet = ({cachet}) => {
     return (
         <div>
-            <em>Cachets</em>
+            <div>image</div>
+            <h3>{cachet.title}</h3>
+            <p>{cachet.description}</p>
         </div>
     );
 };

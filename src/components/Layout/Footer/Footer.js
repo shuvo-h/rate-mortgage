@@ -88,7 +88,7 @@ const Footer = () => {
                     }
                 </div>
                 <div>
-                    <StaticImage src='../../../images/Home_img/granteeIcon.png' width={100} alt="granteeIcon" />
+                    {/* <StaticImage src='../../../images/Home_img/granteeIcon.png' width={100} alt="granteeIcon" /> */}
                 </div>
             </div>
         </div>

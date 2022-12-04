@@ -1,3 +1,4 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import Layout from '../components/Layout/layout';
 import CompareCurrentRate from '../components/MortgageRate/CompareCurrentRate';
@@ -7,7 +8,7 @@ import RecentMortgageArticles from '../components/MortgageRate/RecentMortgageArt
 import TableOfContents from '../components/MortgageRate/TableOfContents/TableOfContents';
 
 const MortgageRates = () => {
-
+   
     return (
         <Layout className='container'>
             <CompareCurrentRate />

@@ -90,7 +90,7 @@ const CompareCurrentRate = () => {
                 </div>
             </div>
             <div className='py-5'>
-                <StaticImage src='../../images/mix_images/best_banner.png' style={{width:"100%"}} ></StaticImage>
+                {/* <StaticImage src='../../images/mix_images/best_banner.png' style={{width:"100%"}} ></StaticImage> */}
             </div>
         </section>
     );

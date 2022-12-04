@@ -30,7 +30,7 @@ const Topics = () => {
                     </div>
                 </div>
                 <div className='col-12 col-lg-6 order-sm-first order-lg-last '>
-                    <StaticImage src='../../../images/Home_img/topic.png' style={{width:"100%"}} alt='topics' />
+                    {/* <StaticImage src='../../../images/Home_img/topic.png' style={{width:"100%"}} alt='topics' /> */}
                 </div>
             </div>
         </section>

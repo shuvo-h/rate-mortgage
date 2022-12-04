@@ -97,7 +97,7 @@ const Navbar = () => {
     return (
         <nav className={`container ${nav_container} d-none d-lg-flex`}>
             <div>
-                <StaticImage src='../../../images/Home_img/granteeIcon.png' alt='logo' width={150} />
+                {/* <StaticImage src='../../../images/Home_img/granteeIcon.png' alt='logo' width={150} /> */}
             </div>
             <div className={`${nav_middle}`}>
                 {

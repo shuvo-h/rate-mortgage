@@ -1,4 +1,5 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 
@@ -12,6 +13,21 @@ const bannerData = {
 
 
 const Banner = () => {
+    const bannerDataQL = useStaticQuery(graphql`
+        query homeBanner {
+            banner_img: file(relativePath: {eq: "Home_img/banner_img.png"}) {
+                relativePath
+                id
+                name
+                childImageSharp {
+                  id
+                  gatsbyImageData(layout: CONSTRAINED)
+                }
+              }
+        }
+    `);
+    
+    
     return (
         <section  className="container my-4 mb-5">
             <div className="row g-5">
@@ -33,8 +49,7 @@ const Banner = () => {
                     </div>
                 </div>
                 <div className="col-12 col-sm-12 col-lg-6">
-                    {/* <img width={"100%"} src={"/assets/images/banner_img.png"} alt="banner" /> */}
-                    <StaticImage src='../../images/Home_img/banner_img.png' alt='banner'></StaticImage>
+                    <GatsbyImage image={getImage(bannerDataQL.banner_img.childImageSharp)} alt="Banner"></GatsbyImage>
                 </div>
             </div>
         </section>
