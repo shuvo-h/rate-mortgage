@@ -1,10 +1,15 @@
 import React from 'react';
 import Layout from '../components/Layout/layout';
+import Process from '../components/MortgageProcess/Process';
+import ProcessDiscalimer from '../components/MortgageProcess/ProcessDiscalimer';
+import ProcessHeader from '../components/MortgageProcess/ProcessHeader';
 
 const MortgageProcess = () => {
     return (
         <Layout className='container'>
-            <h1>We are positive you can do this. Here’s everything you need to get started.</h1>
+            <ProcessHeader />
+            <Process />
+            <ProcessDiscalimer />
         </Layout>
     );
 };
