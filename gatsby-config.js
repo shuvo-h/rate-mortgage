@@ -16,6 +16,10 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+
+    // images path
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -23,8 +27,39 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+
+    // static images path
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `static-images`,
+        path: `${__dirname}/src/assets/static-images`,
+      },
+    },
+
+    
+    // convert static pages json file to DB
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name:"static_pages",
+        path: `${__dirname}/src/assets/static_pages`,
+      },
+    },
+    
+    // convert static articles json file to DB
+    `gatsby-transformer-json`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name:"static_articles",
+        path: `${__dirname}/src/assets/static_articles`,
+      },
+    },
+
+
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

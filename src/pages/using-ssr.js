@@ -2,8 +2,8 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 
-import Seo from "../components/seo"
-import Layout from "../components/Layout/layout"
+import Seo from "../components/seo";
+import Layout from "../components/Layout/layout";
 
 const UsingSSR = ({ serverData }) => {
   return (
