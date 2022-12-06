@@ -1,7 +1,8 @@
 FROM node:18-alpine AS build
 
+RUN npm install -g gatsby-cli
+
 WORKDIR /app
 COPY . .
 
-RUN yarn
-RUN yarn build
+RUN npm run build
