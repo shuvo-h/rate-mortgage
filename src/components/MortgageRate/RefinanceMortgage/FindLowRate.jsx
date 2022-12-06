@@ -33,9 +33,7 @@ const FindLowRate = () => {
             <h1>{find_low_rate.title}</h1>
             <div>
                 {
-                    find_low_rate.paragraphs.map(para => <div>
-                        {makeHyperLink(para.text,para.urls)}
-                    </div>)
+                    find_low_rate.paragraphs.map((para,idx) => makeHyperLink(para.text,para.urls,`para_id_${idx}`))
                 }
             </div>
             <p>Note: {find_low_rate.short_note}</p>

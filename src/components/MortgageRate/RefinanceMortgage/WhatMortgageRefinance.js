@@ -25,16 +25,14 @@ const mortgage_finance_Ql = graphql`
 
 const WhatMortgageRefinance = () => {
     const {whatMortgageFinance:{faqList:{what_is}}} = useStaticQuery(mortgage_finance_Ql);
-    console.log(what_is);
+    
 
     return (
         <section>
             <h1>{what_is.title}</h1>
             <div>
                 {
-                    what_is.paragraphs.map(para => <div key={Math.random()}>
-                        {makeHyperLink(para.text,para.urls)}
-                    </div>)
+                    what_is.paragraphs.map(para => makeHyperLink(para.text,para.urls))
                 }
             </div>
         </section>

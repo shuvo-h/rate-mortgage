@@ -21,3 +21,4 @@ const MortgageRates = () => {
 };
 
 export default MortgageRates;
+

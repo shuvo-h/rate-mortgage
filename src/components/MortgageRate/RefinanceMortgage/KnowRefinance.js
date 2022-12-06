@@ -38,9 +38,7 @@ const KnowRefinance = () => {
             <h2>{knowRefinance.title}</h2>
             <div>
                 {
-                    knowRefinance.paragraphs.map(para=><div key={Math.random()}>
-                        {makeHyperLink(para.text,para.urls)}
-                    </div>)
+                    knowRefinance.paragraphs.map(para=>makeHyperLink(para.text,para.urls))
                 }
             </div>
         </section>

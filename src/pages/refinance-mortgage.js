@@ -11,7 +11,6 @@ import ReninanceOptionTools from '../components/MortgageRate/RefinanceMortgage/R
 import ShouldRefinance from '../components/MortgageRate/RefinanceMortgage/ShouldRefinance';
 import WhatMortgageRefinance from '../components/MortgageRate/RefinanceMortgage/WhatMortgageRefinance';
 
-
 const RefinanceMortgage = () => {
     return (
         <Layout className='container' >
@@ -19,9 +18,11 @@ const RefinanceMortgage = () => {
             <ReninanceOptionTools />
             <KnowRefinance />
             <FAQ_refinance />
-
             <WhatMortgageRefinance />
+
+            {/* need to solve this component, getting error while using useStaticQuery  */}
             <HowRefaineQA />
+
             <ShouldRefinance />
             <HomeRate />
             <OtherAspect />
@@ -32,3 +33,5 @@ const RefinanceMortgage = () => {
 };
 
 export default RefinanceMortgage;
+
+

@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/how-to/querying-data/use-static-query/
  */
 
-import { graphql, useStaticQuery } from "gatsby";
+
 import * as React from "react";
 import "../../styles/global.css";
 import BottomFooter from "./Footer/BottomFooter";
@@ -15,15 +15,8 @@ import "./layout.css";
 
 
 const Layout = ({ className="",children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  
+  
   
 
   React.useEffect(()=>{

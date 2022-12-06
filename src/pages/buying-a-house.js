@@ -29,3 +29,5 @@ const BuyingAhouse = () => {
 };
 
 export default BuyingAhouse;
+
+

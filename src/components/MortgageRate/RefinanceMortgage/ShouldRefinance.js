@@ -52,9 +52,7 @@ const ShouldRefinance = () => {
                     should_refinance.paragraphs.map(para => <div key={Math.random()}>
                         <h4>{para.sub_title}</h4>
                         {
-                            para.paras.map(textInfo => <div key={Math.random()}>
-                                {makeHyperLink(textInfo.text,textInfo.urls)}
-                            </div>)
+                            para.paras.map(textInfo => makeHyperLink(textInfo.text,textInfo.urls))
                         }
                     </div>)
                 }

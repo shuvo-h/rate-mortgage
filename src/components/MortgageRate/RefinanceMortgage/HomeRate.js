@@ -38,9 +38,7 @@ const HomeRate = () => {
             <div>
                 <h3>{home_rate.title}</h3>
                 {
-                    home_rate.paragraphs.map(para => <div key={Math.random()}>
-                       {makeHyperLink(para.text,para.urls)}
-                    </div>)
+                    home_rate.paragraphs.map(para =>makeHyperLink(para.text,para.urls))
                 }
             </div>
             <div>

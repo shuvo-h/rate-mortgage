@@ -15,4 +15,10 @@ exports.createPages = async ({ actions }) => {
     context: {},
     defer: true,
   })
+
+
+  // combine the images with pages image urls 
+  
+
+
 }

@@ -41,16 +41,15 @@ const how_refine_QL = graphql`
 
 
 const HowRefaineQA = () => {
-    const {How_refine:{faqList:{How_refinance}}} = useStaticQuery(how_refine_QL);
-
+    // const {How_refine:{faqList:{How_refinance}}} = useStaticQuery(how_refine_QL);
+    // console.log(How_refinance);
     return (
         <section>
-            <h2>{How_refinance.title}</h2>
+
+            {/* <h2>{How_refinance.title}</h2>
             <div>
                 {
-                    How_refinance.paragraphs.map(para => <div key={Math.random()}>
-                        {makeHyperLink(para.text,para.urls)}
-                    </div>)
+                    How_refinance.paragraphs.map(para =>makeHyperLink(para.text,para.urls))
                 }
             </div>
             <div>
@@ -67,11 +66,10 @@ const HowRefaineQA = () => {
             </div> 
             <div>
                 {
-                    How_refinance.conclusion.map(para => <div key={Math.random()}>
-                        {makeHyperLink(para.text,para.urls)}
-                    </div>)
+                    How_refinance.conclusion.map(para =>makeHyperLink(para.text,para.urls))
                 }
             </div>
+             */}
         </section>
     );
 };

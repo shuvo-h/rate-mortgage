@@ -50,9 +50,7 @@ const OtherAspect = () => {
                         <h3>{para.sub_title}</h3>
                         <div>
                             {
-                                para.paragraphs.map(textInfo =><div key={Math.random()}>
-                                    {makeHyperLink(textInfo.text,textInfo.urls)}
-                                </div>)
+                                para.paragraphs.map(textInfo =>makeHyperLink(textInfo.text,textInfo.urls))
                             }
                         </div>
                     </div>)
@@ -71,9 +69,7 @@ const OtherAspect = () => {
                         <h3>{para.sub_title}</h3>
                         <div>
                             {
-                                para.paragraphs.map(textInfo =><div key={Math.random()}>
-                                    {makeHyperLink(textInfo.text,textInfo.urls)}
-                                </div>)
+                                para.paragraphs.map(textInfo =>makeHyperLink(textInfo.text,textInfo.urls))
                             }
                         </div>
                     </div>)
