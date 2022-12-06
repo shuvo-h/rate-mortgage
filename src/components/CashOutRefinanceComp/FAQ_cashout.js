@@ -595,7 +595,7 @@ const FAQ_cashoutList = {
 }
 
 const FAQ_cashout = () => {
-    const {whatCashOut,debt,howWork,howRateWork,whenCashOut} = FAQ_cashoutList
+    const {whatCashOut,debt,howWork,howRateWork,whenCashOut,howMuchMoney,taxesFees,VAcash,cashHeloc,cashVsPersonalLoan,howRefiMoney,WhoRefi,prosCorns,bestRate} = FAQ_cashoutList
     return (
         <section>
             <h1>Cash-out refinancing FAQ</h1>
@@ -680,15 +680,132 @@ const FAQ_cashout = () => {
             <section>
                 <h1>{whenCashOut.title}</h1>
                 <p>{whenCashOut.introduction}</p>
-                uk
+                <ul>
+                    {
+                        whenCashOut.list.map((item,idx) => <li key={idx}>{item}</li>)
+                    }
+                </ul>
+                <p>{whenCashOut.conclusion}</p>
             </section>
-            <section></section>
-            <section></section>
-            <section></section>
-            <section></section>
-            <section></section>
-            <section></section>
-            <section></section>
+            <section>
+                <h1>{howMuchMoney.title}</h1>
+                <div>
+                    <p>{howMuchMoney.introduction.text}</p>
+                    <ul>
+                        {
+                            howMuchMoney.introduction.factors.map(factor => <li key={factor}>{factor}</li>)
+                        }
+                    </ul>
+                </div>
+                <div>
+                    {
+                        howMuchMoney.paragraps.map((para,idx) =>makeHyperLink(para.text,para.urls))
+                    }
+                </div>
+            </section>
+            <section>
+                <h1>{taxesFees.title}</h1>
+                <div>
+                    {
+                        makeHyperLink(taxesFees.introduction.text,taxesFees.introduction.urls)
+                    }
+                    <p>{taxesFees.body}</p>
+                    <ul>
+                        {
+                            taxesFees.costFees.map(fee =><li><Link to={fee.url}>{fee.name}</Link></li>)
+                        }
+                    </ul>
+                    <p>{taxesFees.conclusion}</p>
+                    <p>{taxesFees.question}</p>
+                    <p>{taxesFees.answer}</p>
+                </div>
+            </section>
+            <section>
+                <h1>{VAcash.title}</h1>
+                <div>
+                    {
+                        VAcash.details.map(textInfo => makeHyperLink(textInfo.text,textInfo.urls))
+                    }
+                </div>
+            </section>
+            <section>
+                <h1>{cashHeloc.title}</h1>
+                <div>
+                    {
+                        cashHeloc.text.map(item => <p key={item}>{item}</p>)
+                    }
+                </div>
+                <div>
+                    <ul>
+                        {
+                            cashHeloc.refi_list.map(item => <li key={item}>{item}</li>)
+                        }
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        {
+                            cashHeloc.helocList.map(item => <li key={item}>{item}</li>)
+                        }
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h1>{cashVsPersonalLoan.title}</h1>
+                <div>
+                    {
+                        cashVsPersonalLoan.details.map(textinfo =>makeHyperLink(textinfo.text,textinfo.urls))
+                    }
+                </div>
+            </section>
+            <section>
+                <h1>{howRefiMoney.title}</h1>
+                <div>
+                    <p>{howRefiMoney.introduction}</p>
+                    <ul>
+                        {
+                            howRefiMoney.expenseList.map(item => <li key={item}>{item}</li>)
+                        }
+                    </ul>
+                    <p>{howRefiMoney.conclusion}</p>
+                </div>
+            </section>
+            <section>
+                <h1>{WhoRefi.title}</h1>
+                <div>
+                    <p>{WhoRefi.introduction}</p>
+                    <ul>
+                        {
+                            WhoRefi.laonList.map(item => <li key={item}>{item}</li>)
+                        }
+                    </ul>
+                    <p>{WhoRefi.conclusion}</p>
+                </div>
+            </section>
+            <section>
+                <h1>{prosCorns.title}</h1>
+                <div>
+                    <p>{prosCorns.text}</p>
+                    <h1>Pros</h1>
+                    <ul>
+                        {
+                            prosCorns.prosList.map(item => <li key={item}>{item}</li>)
+                        }
+                    </ul>
+                    <h1>Corns</h1>
+                    <ul>
+                        {
+                            prosCorns.corsList.map(item => <li key={item}>{item}</li>)
+                        }
+                    </ul>
+                </div>
+            </section>
+            <section>
+                <h1>{bestRate.title}</h1>
+                {
+                    bestRate.text.map((para,idx) =><p key={idx}>{para}</p>)
+                }
+            </section>
         </section>
     );
 };
