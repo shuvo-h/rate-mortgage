@@ -330,6 +330,17 @@ const FAQ_homeBuying = {
 }
 
 
+const faq_StyleProvider = (idx) =>{
+    switch (idx) {
+        case 0:
+            
+            return {rowST:"row", colST:"col-12 col-md-6 d-flex align-items-center"}
+    
+        default:
+            break;
+    }
+}
+
 const faq_homebuy_QL = graphql`
 
 query MyQuery {
@@ -344,11 +355,15 @@ query MyQuery {
     }
   }
 }
+
+
 `
 
 const FAQ_HomeBuying = () => {
     const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
-    
+    // const data = useStaticQuery(faq_homebuy_QL);
+    // console.log(data);
+    // const whybuynow_imgs = []
     
     return (
         <div>
@@ -360,18 +375,18 @@ const FAQ_HomeBuying = () => {
             </div>
             <div>
                 {
-                    FAQ_homeBuying.FAQ_list.map(faq => <section className='my-5' id={faq.question} key={faq.id}>
+                    FAQ_homeBuying.FAQ_list.map((faq,faqIdx) => <section className='my-5' id={faq.question} key={faq.id}>
                         <h2>{faq.question}</h2>
                         <div>
                             {
                                 faq.answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
                             }
                         </div>
-                        <div className='row'>
+                        <div className={`${faq_StyleProvider(faqIdx)?.rowST}`}>
                             {
                                 faq.answer.reasons.map((reason,idx)=>{
                                     const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className='col-12 col-md-6 d-flex align-items-center' key={`reason${idx}`}>
+                                    return <div className={`${faq_StyleProvider(faqIdx)?.colST}`} key={`reason${idx}`}>
                                         <div>
                                             <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
                                         </div>
