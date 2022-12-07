@@ -38,7 +38,7 @@ const way_time_list = [
 ]
 
 const aboutUs_QL = graphql`
-    query MyQuery {
+    query aboutUs_QL {
         way_img_list: allFile(filter: {relativeDirectory: {eq: "about_us"},name: {in: 
             ["Applyonlineanywhere","CalculatorIcon","Closefromhome","Group10"]}}) {
             nodes {

@@ -24,9 +24,11 @@ const NavBarDrawer = () => {
     const [currentChilds,setCurrentChilds] = useState([]);
 
     const onChildClick = (url) =>{
+        document.documentElement.style.setProperty("--full_page_height",`${document.documentElement.scrollHeight}px`)
         setIsDrawerOpen(false);
         navigate(url);
     }
+    
     
     return (
         <nav className={`${nav_container} ${nav_drawer_container} d-lg-none`}>

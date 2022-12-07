@@ -343,7 +343,7 @@ const faq_StyleProvider = (idx) =>{
 
 const faq_homebuy_QL = graphql`
 
-query MyQuery {
+query faq_homebuy_QL {
     whybuynow:allFile(
     filter: {relativeDirectory: {eq: "refinance-mortgage"}, name: {in: ["Group11","Group9","Group15","Group25","Group26"]}}
   ) {
@@ -360,10 +360,10 @@ query MyQuery {
 `
 
 const FAQ_HomeBuying = () => {
-    // const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
+    const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
     // const data = useStaticQuery(faq_homebuy_QL);
-    // console.log(data);
-    const whybuynow_imgs = []
+    console.log(whybuynow_imgs);
+    // const whybuynow_imgs = []
     
     return (
         <div>
@@ -373,6 +373,234 @@ const FAQ_HomeBuying = () => {
                     FAQ_homeBuying.FAQ_list.map(faq=>faq.question).map((item,idx) =><Link className='linkSt d-block my-2' to={`#${item}`}  key={idx} >{item}</Link>)
                 }
             </div>
+            
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[0].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[0].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[0].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[0].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[1].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[1].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[1].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[1].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[2].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[2].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[2].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[2].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[3].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[3].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[3].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[3].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[4].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[4].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[4].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[4].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[5].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[5].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[5].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[5].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+            <section className='my-5'>
+                <h2>{FAQ_homeBuying.FAQ_list[6].question}</h2>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[6].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+                <div className='row'>
+                    {
+                        FAQ_homeBuying.FAQ_list[6].answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
+                    }
+                </div>
+                <div>
+                    {
+                        FAQ_homeBuying.FAQ_list[6].answer.conclution.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                    }
+                </div>
+            </section>
+
+{/* 
             <div>
                 {
                     FAQ_homeBuying.FAQ_list.map((faq,faqIdx) => <section className='my-5' id={faq.question} key={faq.id}>
@@ -408,7 +636,9 @@ const FAQ_HomeBuying = () => {
                         </div>
                     </section>)
                 }
-            </div>
+            </div> 
+            */}
+
         </div>
     );
 };

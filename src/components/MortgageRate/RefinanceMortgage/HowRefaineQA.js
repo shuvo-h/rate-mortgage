@@ -5,7 +5,7 @@ import { makeHyperLink } from '../../../utils/makeHyperText';
 
 
 const how_refine_QL = graphql`
-    query MyQuery {
+    query how_refine_QL {
         How_refine: staticPagesJson {
         faqList {
             How_refinance {

@@ -4,7 +4,7 @@ import React from 'react';
 import { RightArrow } from '../../../utils/icons/Arrows';
 import SearchIcon from '../../../utils/icons/SearchIcon';
 
-import {nav_container,nav_middle, nav_middle_items,  nav_middle_title, nav_childs_wrapper, nav_childs, nav_child_link, nav_sub, nav_right,get_start_btn,search_icon} from "./navbar.module.css";
+import {nav_container,nav_middle, nav_middle_items,  nav_middle_title, nav_childs_wrapper, nav_childs, nav_child_link, nav_sub, nav_right,get_start_btn,search_icon, nav_middle_item} from "./navbar.module.css";
 
 
 export const navMiddle = [
@@ -84,62 +84,70 @@ export const navMiddle = [
 ]
 
 const navRight = [
-    {name:"Get started", url:""},
-    {name:"(886) 934-721", url:""},
+    // {name:"Get started", url:""},
+    {name:"1(886) 934-721", url:""},
+    {name:"Espanol", url:""},
     {name:"Log in", url:""},
-    // {name:"Espanol", url:""},
 ]
+
 
 const navData_QL = graphql`
     query navData_QL {
-    logo_img: file(name: {eq: "granteeIcon"}) {
-        name
-        relativePath
-        childImageSharp {
-            gatsbyImageData(width:100)
-        }
-    }
-    }
+        logo_img: file(name: {eq: "granteeIcon"}) {
+                name
+                relativePath
+                childImageSharp {
+                    gatsbyImageData(height: 45)
+                }
+            }
+
+
+    } 
 `;
+
+
 
 
 const Navbar = () => {
     const {logo_img} = useStaticQuery(navData_QL);
-    // console.log(logo_img);
+    console.log(logo_img);
     return (
-        <nav className={`container ${nav_container} d-none d-lg-flex`}>
-            <div>
-                <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)} width='100px' alt={"banner"}></GatsbyImage>
+        <nav className={`${nav_container} d-none d-lg-flex`}>
+            <div style={{height:"2.5rem",}}>
+                <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)}  alt={"banner"}></GatsbyImage>
             </div>
-            <div className={`${nav_middle}`}>
-                {
-                    navMiddle.map(navItem => <div className={nav_middle_items} key={navItem.name}>
-                        <Link to={navItem.url} className={`text-decoration-none text-black`} >
-                            <span className={nav_middle_title}>
-                                {navItem.name} 
-                                {navItem.childs?.length && <span > <RightArrow width={10} height={10} /> </span>}
-                            </span>
-                        </Link>
-                        {
-                            navItem.childs && <div className={nav_childs_wrapper}>
-                                <div className={nav_childs}>
-                                    {
-                                        navItem.childs && navItem.childs?.map(childNav => <div className={"nav_child"}  key={childNav.name}>
-                                            <Link className={`${"link_style"} ${nav_child_link}`} to={childNav.url}>{childNav.name}</Link>
-                                            <div className={"nav_subs"}>
-                                                {
-                                                    childNav.sub_childs && childNav.sub_childs?.map(subChild =><Link className={`${"link_style"} ${nav_child_link} ${nav_sub}`} to={subChild.url} key={subChild.name}>{subChild.name}</Link>)
-                                                }
-                                            </div>
-                                        </div>)
-                                    }
+            <div className='d-block m-auto'>
+                <div className={`${nav_middle}`}>
+                    {
+                        navMiddle.map(navItem => <div className={nav_middle_items} key={navItem.name}>
+                            <Link to={navItem.url} className={`text-decoration-none ${nav_middle_item}`}>
+                                <span className={`${nav_middle_title} rotate_icon_parent position-relative`}>
+                                    {navItem.name} 
+                                    {navItem.childs?.length && <span className='rotate_icon ms-2'> <RightArrow width={10} height={10} /> </span>}
+                                </span>
+                            </Link>
+                            {
+                                navItem.childs && <div className={nav_childs_wrapper}>
+                                    <div className={nav_childs}>
+                                        {
+                                            navItem.childs && navItem.childs?.map(childNav => <div className={"nav_child"}  key={childNav.name}>
+                                                <Link className={`${"link_style"} ${nav_child_link}`} to={childNav.url}>{childNav.name}</Link>
+                                                <div className={"nav_subs"}>
+                                                    {
+                                                        childNav.sub_childs && childNav.sub_childs?.map(subChild =><Link className={`${"link_style"} ${nav_child_link} ${nav_sub}`} to={subChild.url} key={subChild.name}>{subChild.name}</Link>)
+                                                    }
+                                                </div>
+                                            </div>)
+                                        }
+                                    </div>
                                 </div>
-                            </div>
-                        }
-                        
-                    </div>)
-                }
-            </div> 
+                            }
+                            
+                        </div>)
+                    }
+                </div> 
+
+            </div>
 
 
             <div className={`${nav_middle} ${nav_right}`}>
