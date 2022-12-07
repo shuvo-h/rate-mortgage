@@ -29,17 +29,23 @@ const RefineForm = () => {
             <div>
                 <div className='row g-2'>
                     {
-                        RefineFormFields.map(field => <div className={`col-12 col-sm-6 col-md-3`} key={field.name}>
+                        RefineFormFields.map((field,idx) => <div className={`col-12 col-sm-6 col-md-3`} key={idx}>
                             <div className={`${purchase_field} p-1 px-3 rounded`}>
                                 <label className={`${purchase_label} d-block`}>{field.title}</label>
                                 <span>{field.sign}</span>
-                                <input className={`${purchase_input} border-0 `} type={field.type} value={field.value} placeholder={field.placeholder} />
+                                <input 
+                                    className={`${purchase_input} border-0 `} 
+                                    type={field.type} 
+                                    value={field.value} 
+                                    placeholder={field.placeholder} 
+                                    onChange={()=>{}}
+                                />
                             </div>
                         </div>)
                     }
                     
                     {
-                        advancedFields.map(fieldOption => <div className={`col-12 col-sm-6 col-md-3`} key={fieldOption.name}>
+                        advancedFields.map((fieldOption,idx) => <div className={`col-12 col-sm-6 col-md-3`} key={idx}>
                             <div className={`${purchase_field} p-1 px-3 rounded`}>
                             <label className={`${purchase_label} ms-1 d-block`}>{fieldOption.title}</label>
                                 <select className={`${purchase_input} ${purchase_select} selectpicker border-0 `}  name={fieldOption.name}>

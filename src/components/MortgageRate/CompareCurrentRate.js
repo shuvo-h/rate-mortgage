@@ -72,7 +72,7 @@ const CompareCurrentRate = () => {
                     paragraphs={mortgage_rate_disclaimers} 
                 />
             </div>
-            <div className='py-5'>
+            <div className='py-3'>
                 <h2>Your personal rate will vary. It could be lower or higher. Check what you can qualify for.​</h2>
                 <div className='row g-2 my-4'>
                     <div className='col-12 col-md-6 d-flex flex-column align-items-center text-center'>
@@ -88,9 +88,6 @@ const CompareCurrentRate = () => {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='py-5'>
-                {/* <StaticImage src='../../images/mix_images/best_banner.png' style={{width:"100%"}} ></StaticImage> */}
             </div>
         </section>
     );

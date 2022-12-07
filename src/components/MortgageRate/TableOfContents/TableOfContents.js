@@ -59,7 +59,12 @@ const TableOfContents = () => {
             <h2>Table of contents</h2>
             <div>
                 {
-                    contentList.map(content => <Link className={`${link_text_style} d-block py-2`} to={content.url} key={content.title}>{content.title}</Link>)
+                    contentList.map(content => <a 
+                        className={`${link_text_style} d-block py-2`} 
+                        // to={content.url} 
+                        href={`#${content.title}`} 
+                        key={content.title}
+                    >{content.title}</a>)
                 }
             </div>
         </section>

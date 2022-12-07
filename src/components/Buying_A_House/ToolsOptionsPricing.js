@@ -1,20 +1,23 @@
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import ButtonRegular from '../common/ButtonRegular';
 
 const toolInfo = {
     title: "Homebuying options and pricing tools",
     tools: [
         {
-            icon: "",
+            icon: "DesktopIcon_newv2",
             title:"Loan options",
             url:"/home-loans",
         },
         {
-            icon: "",
+            icon: "CalculatorIconBold",
             title:"Mortgage calculators",
             url:"/mortgage-calculators",
         },
         {
-            icon: "",
+            icon: "RatesIconBold",
             title:"Today's rates",
             url:"/mortgage-rates",
         },
@@ -46,39 +49,68 @@ const buyingAhouseInfo = {
     ]
 }
 
+const toolOption_QL = graphql`
+    query toolOption_QL {
+        tool_imgs:allFile(
+            filter: {relativeDirectory: {eq: "refinance-mortgage"}, name: {in: ["DesktopIcon_newv2","CalculatorIconBold","RatesIconBold"]}}
+        ) {
+            nodes {
+                name
+                childImageSharp {
+                    gatsbyImageData(jpgOptions: {})
+                }
+            }
+        }
 
+    }
+`
 const ToolsOptionsPricing = () => {
+    const {tool_imgs:{nodes:toolImgs}} = useStaticQuery(toolOption_QL);
+    // console.log(toolImgs);
+
+    
 
     return (
-        <section>
-            <h1>{toolInfo.title}</h1>
-            <div>
+        <section className='my-4'>
+            <h2 className='text-center'>{toolInfo.title}</h2>
+            <div className='row g-4 my-5'>
                 {
-                    toolInfo.tools.map(tool => <div key={tool.title}>
-                        <div>
-                            <div>{tool.icon}</div>
+                    toolInfo.tools.map(tool => {
+                        const img = toolImgs.find(imgNode => imgNode.name === tool.icon)?.childImageSharp
+                        return <div className='col-12 col-md-4' key={tool.title}>
+                            <div className='scaleHover p-4 d-flex justify-content-center align-items-center  border border-dark rounded'>
+                                <div>
+                                    <div>
+                                        <GatsbyImage image={getImage(img)} alt=""></GatsbyImage>
+                                    </div>
+                                </div>
+                                <div className='ms-2'>
+                                    <h6>{tool.title}</h6>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h6>{tool.title}</h6>
-                        </div>
-                    </div>)
+                    })
                 }
             </div>
-            <div>
-                <div>
-                    <h3>{buyingAhouseInfo.title}</h3>
-                    <p>{buyingAhouseInfo.paragraph}</p>
-                    <button>{buyingAhouseInfo.button}</button>
+            <div className='row g-4'>
+                <div className='col-12 col-md-6'>
+                    <div className='p-2'>
+                        <h3>{buyingAhouseInfo.title}</h3>
+                        <p  style={{maxWidth:"100%"}}>{buyingAhouseInfo.paragraph}</p>
+                        <ButtonRegular label={buyingAhouseInfo.button} className='rounded border-danger bg-transparent text-danger px-3 py-1' ></ButtonRegular>
+                    </div>
                 </div>
-                <div>
-                    <ul>
-                        {
-                            buyingAhouseInfo.options.map(option => <div>
-                                <h3>{option.title}</h3>
-                                <p>{option.text}</p>
-                            </div>)
-                        }
-                    </ul>
+                <div className='col-12 col-md-6'>
+                    <div className='p-2'>
+                        <ul className=''>
+                            {
+                                buyingAhouseInfo.options.map(option => <li className=''>
+                                    <h3>{option.title}</h3>
+                                    <p>{option.text}</p>
+                                </li>)
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

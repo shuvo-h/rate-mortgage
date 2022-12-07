@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { RightArrow } from '../../../utils/icons/Arrows';
 import SearchIcon from '../../../utils/icons/SearchIcon';
@@ -90,14 +90,26 @@ const navRight = [
     // {name:"Espanol", url:""},
 ]
 
+const navData_QL = graphql`
+    query navData_QL {
+    logo_img: file(name: {eq: "granteeIcon"}) {
+        name
+        relativePath
+        childImageSharp {
+            gatsbyImageData(width:100)
+        }
+    }
+    }
+`;
 
 
-console.log(nav_container);
 const Navbar = () => {
+    const {logo_img} = useStaticQuery(navData_QL);
+    // console.log(logo_img);
     return (
         <nav className={`container ${nav_container} d-none d-lg-flex`}>
             <div>
-                {/* <StaticImage src='../../../images/Home_img/granteeIcon.png' alt='logo' width={150} /> */}
+                <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)} width='100px' alt={"banner"}></GatsbyImage>
             </div>
             <div className={`${nav_middle}`}>
                 {

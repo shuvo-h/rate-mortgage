@@ -20,7 +20,7 @@ const BannerCashOut = () => {
         <section>
             <p>Cash-out refinance</p>
             <h1>Get cash for your home equity.</h1>
-            <GatsbyImage image={getImage(cashout_banner.childImageSharp)} alt=""></GatsbyImage>
+            <GatsbyImage image={getImage(cashout_banner.childImageSharp)} alt="cashout banner"></GatsbyImage>
             BannerCashOut
         </section>
     );

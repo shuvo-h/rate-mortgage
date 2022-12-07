@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import ButtonRegular from '../../common/ButtonRegular';
 import RecentMortgageArticle from './RecentMortgageArticle';
 
 const RecentMortgageArticles = () => {
@@ -16,10 +17,14 @@ const RecentMortgageArticles = () => {
                     gatsbyImageData(layout: CONSTRAINED)
                 }
             }
+
+        
+           
+
         }
     `)
     
-    console.log(recentArticle);
+    // console.log(recentArticle);
     
     const recentMortgageArticles = [
         {
@@ -40,17 +45,19 @@ const RecentMortgageArticles = () => {
         },
     ]
 
-    const imgu = recentMortgageArticles[0].img.toString();
-
+    
     return (
         <div className='my-5'>
             <h2>Recent mortgage rates articles</h2>
             <div className='container'>
                 <div className='row g-2'>
                     {
-                        recentMortgageArticles.map(recentMortgageArticle =><RecentMortgageArticle recentArticle={recentArticle} recentMortgageArticle={recentMortgageArticle} />)
+                        recentMortgageArticles.map((recentMortgageArticle,idx) =><RecentMortgageArticle recentArticle={recentArticle} recentMortgageArticle={recentMortgageArticle} key={idx} />)
                     }
                 </div>
+            </div>
+            <div className='d-flex justify-content-center my-5 pt-3'>
+                <ButtonRegular  label={"View all mortgage news articles"} className='bg-transparent px-3' />
             </div>
         </div>
     );

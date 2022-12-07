@@ -24,9 +24,9 @@ const RecentMortgageArticle = ({recentMortgageArticle,recentArticle}) => {
             
             <div className="">
             <div>
-                <GatsbyImage image={getImage(recentArticle.article_img.childImageSharp)} />
+                <GatsbyImage image={getImage(recentArticle.article_img.childImageSharp)} alt="" />
             </div>
-            <h5 class="card-title p-3">{recentMortgageArticle.title}</h5>
+            <h5 className="card-title p-3">{recentMortgageArticle.title}</h5>
             <div className="card-body">
                 <p className="card-text">{recentMortgageArticle.short_para}</p>
             </div>

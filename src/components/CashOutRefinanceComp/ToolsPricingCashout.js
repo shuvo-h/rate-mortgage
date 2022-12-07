@@ -69,7 +69,7 @@ const ToolsPricingCashout = () => {
                 {
                     tools.map(tool => <div>
                         <div>
-                        <GatsbyImage image={getImage(nodes.find(el => el.name === tool.image_name?.trim())?.childImageSharp)} alt=""></GatsbyImage> 
+                        <GatsbyImage image={getImage(nodes.find(el => el.name === tool.image_name?.trim())?.childImageSharp)} alt="tools"></GatsbyImage> 
                         </div>
                         <div>
                             <h4>{tool.title}</h4>

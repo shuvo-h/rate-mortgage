@@ -1,3 +1,5 @@
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 
 const FAQ_homeBuying = {
@@ -12,23 +14,23 @@ const FAQ_homeBuying = {
                 ],
                 reasons: [
                     {
-                        image:"img url 1",
+                        image:"Group15",
                         text:["ou’re young, single and just got a promotion. You’re ready to give up renting and build equity in a home of your own."]
                     },
                     {
-                        image:"img url 1",
+                        image:"Group26",
                         text:["You just got married and want to move into a bigger home to give you both the space you’re accustomed to, including a dedicated home office."]
                     },
                     {
-                        image:"img url 1",
+                        image:"Group9",
                         text:["Your family is growing and you need more bedrooms to give everyone their own personal space."]
                     },
                     {
-                        image:"img url 1",
+                        image:"Group25",
                         text:["You had your first kid and need room to balance your family’s needs with your work-at-home responsibilities."]
                     },
                     {
-                        image:"img url 2",
+                        image:"Group11",
                         text:["You’re an empty nester and you’re looking to downsize into a home that requires less daily upkeep."]
                     },
                 ],
@@ -327,29 +329,61 @@ const FAQ_homeBuying = {
     ]
 }
 
-const FAQ_HomeBuying = () => {
 
+const faq_homebuy_QL = graphql`
+
+query MyQuery {
+    whybuynow:allFile(
+    filter: {relativeDirectory: {eq: "refinance-mortgage"}, name: {in: ["Group11","Group9","Group15","Group25","Group26"]}}
+  ) {
+    nodes {
+      name
+      childImageSharp {
+        gatsbyImageData(jpgOptions: {}, width: 50)
+      }
+    }
+  }
+}
+`
+
+const FAQ_HomeBuying = () => {
+    const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
+    
+    
     return (
         <div>
             <h2>{FAQ_homeBuying.title}</h2>
             <div>
                 {
-                    FAQ_homeBuying.FAQ_list.map(faq => <section key={faq.id}>
+                    FAQ_homeBuying.FAQ_list.map(faq=>faq.question).map((item,idx) =><Link className='linkSt d-block my-2' to={`#${item}`}  key={idx} >{item}</Link>)
+                }
+            </div>
+            <div>
+                {
+                    FAQ_homeBuying.FAQ_list.map(faq => <section className='my-5' id={faq.question} key={faq.id}>
                         <h2>{faq.question}</h2>
                         <div>
                             {
-                                faq.answer.introduction.map((para,idx)=><p key={`para_${idx}`}>{para}</p>)
+                                faq.answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
                             }
                         </div>
-                        <div>
+                        <div className='row'>
                             {
-                                faq.answer.reasons.map((reason,idx)=><div key={`reason${idx}`}>
-                                    <p>{reason.image}</p>
-                                    <h4>{reason.title}</h4>
-                                    {
-                                        reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                    }
-                                </div>)
+                                faq.answer.reasons.map((reason,idx)=>{
+                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
+                                    return <div className='col-12 col-md-6 d-flex align-items-center' key={`reason${idx}`}>
+                                        <div>
+                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                        </div>
+                                        <div className='ms-3'>
+                                            <h4>{reason.title}</h4>
+                                            {
+                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                            }
+
+                                        </div>
+                                    </div>
+                                })
                             }
                         </div>
                         <div>

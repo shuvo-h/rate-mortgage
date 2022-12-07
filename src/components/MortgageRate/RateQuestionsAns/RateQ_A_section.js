@@ -8,7 +8,7 @@ const URL_REGEX = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-
 
 const RateQ_A_section = ({qaSection}) => {
     return (
-        <section className='my-5'>
+        <section className='my-5' id={qaSection.question}>
             <h2>{qaSection.question}</h2>
             <div>
                 {

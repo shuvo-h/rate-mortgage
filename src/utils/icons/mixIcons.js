@@ -28,7 +28,7 @@ export const ImproveFinanceIcon = ({width = 40,height = 40}) =><svg width={width
             <path d="M26.4999292,33.2245542 C26.4999292,34.1455125 27.3930958,34.8920542 28.4942208,34.8920542 C29.5943875,34.8920542 30.4875542,34.1455125 30.4875542,33.2245542 C30.4875542,32.3035958 29.7831792,31.5570542 28.4942208,31.5570542 C27.1621375,31.5570542 26.4999292,30.8105125 26.4999292,29.8895542 C26.4999292,28.9685958 27.3930958,28.2220542 28.4942208,28.2220542 C29.5943875,28.2220542 30.4875542,28.9685958 30.4875542,29.8895542" id="Stroke-4" stroke="#25282A"></path>
             <line x1="28.4943167" y1="28.2218625" x2="28.4933583" y2="26.1959458" id="Stroke-5" stroke="#25282A"></line>
             <line x1="28.4933583" y1="36.9156708" x2="28.4943167" y2="34.8926292" id="Stroke-6" stroke="#25282A"></line>
-            <polyline id="Stroke-7" stroke="#25282A" stroke-linejoin="bevel" points="24.1031375 38.8323375 26.0198042 40.7490042 24.1031375 42.6656708"></polyline>
+            <polyline id="Stroke-7" stroke="#25282A" strokeLinejoin="bevel" points="24.1031375 38.8323375 26.0198042 40.7490042 24.1031375 42.6656708"></polyline>
             <polyline id="Stroke-8" stroke="#25282A" strokeLinecap="square" points="5.88637083 24.8975958 5.88637083 40.7493875 25.0616625 40.7493875"></polyline>
             <line x1="9.71970417" y1="40.7490042" x2="9.71970417" y2="34.9990042" id="Stroke-9" stroke="#25282A" strokeLinecap="square"></line>
             <line x1="13.5530375" y1="40.7490042" x2="13.5530375" y2="30.3654625" id="Stroke-10" stroke="#25282A" strokeLinecap="square"></line>
@@ -91,7 +91,7 @@ export const WatchMarketIcon = ({width = 40,height = 40}) => <svg width={width} 
 
 export const ResearchIcon = ({width = 40,height = 40}) => <svg width={width} height={height} viewBox="0 0 35 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
 <title>C6DF84D7-DBFF-461F-B8B0-AC73C9FBB860</title>
-<g id="Page-1" stroke="none" stroke-width="1" fill="none" fillRule="evenodd">
+<g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
     <g id="Resources-&gt;-Today's-Rates---Purchase" transform="translate(-523.000000, -4757.000000)">
         <g id="Must-have-features" transform="translate(524.000000, 4758.000000)">
             <g id="Group-17" transform="translate(0.000000, 0.000000)">
@@ -107,7 +107,7 @@ export const ResearchIcon = ({width = 40,height = 40}) => <svg width={width} hei
                 <path d="M11.3832753,15.9836356 L6.31804847,21.0479388 L11.3832753,15.9836356 Z" id="Stroke-9" stroke="#25282A"></path>
                 <path d="M11.3832753,21.0483082 L6.31804847,15.984005 L11.3832753,21.0483082 Z" id="Stroke-10" stroke="#25282A"></path>
                 <polygon id="Stroke-11" stroke="#25282A" points="5.45675671 28.0018192 7.78986449 30.3644833 12.2445671 25.9642753 7.78986449 30.3644833"></polygon>
-                <g id="Group-16" stroke="#25282A" stroke-width="2">
+                <g id="Group-16" stroke="#25282A" strokeWidth="2">
                     <polygon id="Stroke-12" points="9.01377625 7.28666689 0 7.28666689 0 46 32.2377121 46 32.2377121 7.28666689 23.8353837 7.28666689 32.2377121 7.28666689 32.2377121 46 0 46 0 7.28666689"></polygon>
                     <path d="M19.9643275,3.52182896 L19.9643275,3.52090533 C19.9643275,1.57664884 18.386755,0 16.4424986,0 C14.4973184,0 12.9206696,1.57664884 12.9206696,3.52090533 L9.01368389,3.52090533 L9.01368389,11.2000257 L23.8343677,11.2027966 L23.8352914,3.52367624 L19.9643275,3.52182896 Z" id="Stroke-14"></path>
                 </g>
@@ -124,8 +124,8 @@ export const HomeAffidabilityCalculatorIcon = ({width = 20,height = 20}) => <svg
 <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
     <g id="Resources-&gt;-Today's-Rates---Purchase" transform="translate(-517.000000, -7866.000000)" stroke="#25282A">
         <g id="LTV-ratio" transform="translate(518.000000, 7867.000000)">
-            <path d="M24.1839,44.3911 C35.5219,43.3691 44.4069,33.8401 44.4069,22.2361 C44.4069,16.8611 42.4989,11.9311 39.3269,8.0851 L24.1839,22.6981 L24.1839,44.3911 Z" id="Stroke-1" stroke-width="2" fill="#E7EBEE"></path>
-            <path d="M20.139,21.688 L36.326,5.069 C32.489,1.902 27.568,0 22.203,0 C9.941,0 0,9.94 0,22.202 C0,33.768 8.844,43.268 20.138,44.31 L20.139,21.688 Z" id="Stroke-3" stroke-width="2"></path>
+            <path d="M24.1839,44.3911 C35.5219,43.3691 44.4069,33.8401 44.4069,22.2361 C44.4069,16.8611 42.4989,11.9311 39.3269,8.0851 L24.1839,22.6981 L24.1839,44.3911 Z" id="Stroke-1" strokeWidth="2" fill="#E7EBEE"></path>
+            <path d="M20.139,21.688 L36.326,5.069 C32.489,1.902 27.568,0 22.203,0 C9.941,0 0,9.94 0,22.202 C0,33.768 8.844,43.268 20.138,44.31 L20.139,21.688 Z" id="Stroke-3" strokeWidth="2"></path>
             <path d="M24.1839,36.8423 L30.2889,42.9473 L24.1839,36.8423 Z" id="Stroke-5"></path>
             <path d="M24.1839,30.7749 L34.2939,40.8859 L24.1839,30.7749 Z" id="Stroke-7"></path>
             <path d="M24.1839,24.7085 L37.6629,38.1875 L24.1839,24.7085 Z" id="Stroke-9"></path>

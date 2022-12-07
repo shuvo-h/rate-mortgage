@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout/layout';
 
+
 const AdjustableRateMortgageArm = () => {
     return (
         <Layout className='container'>

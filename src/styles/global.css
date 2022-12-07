@@ -5,6 +5,31 @@
     --navHeight: 70px;
   }
   
+
+  /* commonn styles start **************************/
+  .scaleHover{
+    transition: transform 0.3s ease-in-out;
+  }
+  .scaleHover:hover{
+    transform: scale(1.07);
+    transition: transform 0.3s ease-in-out;
+  }
+  /* horizontal style */
+  .horizontal{
+    border-top: 1px solid rgb(163, 163, 163);
+    margin: 1rem 0;
+  }
+
+  .linkSt{
+    /* color: var(--grey-text); */
+    font-weight: 400;
+    text-decoration-thickness: 1px;
+  }
+ 
+  
+  /* style the boolet point  */
+  
+  /* commonn styles end ******************************/
   
   /* home page styles  */
   

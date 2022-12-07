@@ -221,10 +221,10 @@ const RateQuestionsAns = () => {
             </div>
             <div>
                 <h2>How to find a low mortgage rate</h2>
-                <p>Getting a low mortgage rate requires a combination of timing and preparation. While external economic factors play a heavy role in what lenders can offer, improving your own financial situation before applying can go a long way in driving down interest rates.</p>
+                <p style={{maxWidth:"100%"}}>Getting a low mortgage rate requires a combination of timing and preparation. While external economic factors play a heavy role in what lenders can offer, improving your own financial situation before applying can go a long way in driving down interest rates.</p>
                 <div>
                     {
-                        low_mortgage_rate.map(lowRateInfo =><div className='d-flex align-items-center'>
+                        low_mortgage_rate.map((lowRateInfo,idx) =><div className='d-flex align-items-center' key={idx}>
                             <div >
                                 <div style={{width:"fit-content", }}>
                                     {lowRateInfo.icon}
@@ -251,7 +251,7 @@ const RateQuestionsAns = () => {
             <div>
                 <ul>
                     {
-                        mortgageRates_credit_data.map(item => <li key={item.left}><span style={{fontWeight:600}}>{item.left}</span> = {item.right}</li>)
+                        mortgageRates_credit_data.map(item => <li className='my-1' key={item.left}><span style={{fontWeight:600}}>{item.left}</span> = {item.right}</li>)
                     }
                 </ul>
             </div>

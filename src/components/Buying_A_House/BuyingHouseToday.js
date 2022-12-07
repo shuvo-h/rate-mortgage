@@ -14,7 +14,7 @@ const BuyingHouseToday = () => {
             <h2>{buyingHouseInfo.title}</h2>
             <div>
                 {
-                    buyingHouseInfo.paragraphs.map((para,idx)=><p key={`para${idx}`}>{para}</p>)
+                    buyingHouseInfo.paragraphs.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para${idx}`}>{para}</p>)
                 }
             </div>
         </section>

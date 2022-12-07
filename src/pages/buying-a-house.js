@@ -17,9 +17,9 @@ import Layout from '../components/Layout/layout';
 const BuyingAhouse = () => {
     return (
         <Layout className='container'>
-            <h1>Purchase your dream home</h1>
             <BannerByingHouse />
             <ToolsOptionsPricing />
+            <hr className='horizontal' />
             <BuyingHouseToday />
             <FAQ_HomeBuying />
             
