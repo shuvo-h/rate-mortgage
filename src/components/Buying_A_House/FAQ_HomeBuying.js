@@ -350,7 +350,7 @@ query MyQuery {
     nodes {
       name
       childImageSharp {
-        gatsbyImageData(jpgOptions: {}, width: 50)
+        gatsbyImageData
       }
     }
   }
@@ -360,10 +360,10 @@ query MyQuery {
 `
 
 const FAQ_HomeBuying = () => {
-    const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
+    // const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
     // const data = useStaticQuery(faq_homebuy_QL);
     // console.log(data);
-    // const whybuynow_imgs = []
+    const whybuynow_imgs = []
     
     return (
         <div>
