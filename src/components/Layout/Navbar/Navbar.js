@@ -94,12 +94,17 @@ const navRight = [
 const navData_QL = graphql`
     query navData_QL {
         logo_img: file(name: {eq: "granteeIcon"}) {
-                name
-                relativePath
-                childImageSharp {
-                    gatsbyImageData(height: 45)
-                }
-            }
+    childImageSharp {
+      gatsbyImageData(
+        width: 180
+          placeholder: BLURRED
+          formats: [AUTO, WEBP, AVIF]
+      )
+    }
+    name
+    relativePath
+    relativeDirectory
+  }
 
 
     } 
@@ -107,13 +112,12 @@ const navData_QL = graphql`
 
 
 
-
 const Navbar = () => {
     const {logo_img} = useStaticQuery(navData_QL);
-    console.log(logo_img);
+    // console.log(logo_img);
     return (
         <nav className={`${nav_container} d-none d-lg-flex`}>
-            <div style={{height:"2.5rem",}}>
+            <div>
                 <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)}  alt={"banner"}></GatsbyImage>
             </div>
             <div className='d-block m-auto'>

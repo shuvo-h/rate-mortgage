@@ -1,6 +1,7 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import {toolOption} from "../MortgageRate/RefinanceMortgage/refineMortgage.module.css";
 
 const tools = [
     {
@@ -62,34 +63,41 @@ const cashout_QL = graphql`
 const ToolsPricingCashout = () => {
     const {toolsImg:{nodes}} = useStaticQuery(cashout_QL);
     // console.log(nodes);
+    
     return (
-        <section>
-            <h1>Cash-out refinance options and pricing tools</h1>
-            <div>
+        <section className='my-5'>
+            <h2 className='text-center'>Cash-out refinance options and pricing tools</h2>
+            <div className='row'>
                 {
-                    tools.map(tool => <div>
-                        <div>
-                        <GatsbyImage image={getImage(nodes.find(el => el.name === tool.image_name?.trim())?.childImageSharp)} alt="tools"></GatsbyImage> 
-                        </div>
-                        <div>
-                            <h4>{tool.title}</h4>
-                        </div>
+                    tools.map((tool,idx) => <div className='col-12 col-md-4' key={idx}>
+                        <Link className='scaleHover d-flex justify-content-center align-items-center py-4 my-4 border rounded border-dark text-decoration-none text-dark' to={tool.url}>
+                            <div>
+                                <GatsbyImage image={getImage(nodes.find(el => el.name === tool.image_name?.trim())?.childImageSharp)} alt="tools"></GatsbyImage> 
+                            </div>
+                            <div className='ms-2'>
+                                <b>{tool.title}</b>
+                            </div>
+                        </Link>
                     </div>)
                 }
             </div>
-            <div>
-                <div>
-                    <h2>Make your home equity work for you.</h2>
-                    <p>With a cash-out refi from Guaranteed Rate, you can transform your home equity into cash. Consolidate debt with the money you've already put into your home*. Use your cash-out refi for emergency expenses, college tuition, home improvement projects — you name it! Contact our refinance experts to get started today and receive your cash-out payment as soon as possible.</p>
-                    <Link to='' >Get cash now</Link>
+            <div  className='row my-3 g-4'>
+                <div className='col-12 col-md-6'>
+                    <div className='m-3 p-2'>
+                        <h2>Make your home equity work for you.</h2>
+                        <p style={{maxWidth:"100%"}}>With a cash-out refi from Guaranteed Rate, you can transform your home equity into cash. Consolidate debt with the money you've already put into your home*. Use your cash-out refi for emergency expenses, college tuition, home improvement projects — you name it! Contact our refinance experts to get started today and receive your cash-out payment as soon as possible.</p>
+                        <div className='scaleHover d-inline-block mt-5'>
+                            <Link className=' text-danger text-decoration-none border border-danger px-5 py-3 mt-4' style={{borderRadius:"var(--border-radius-medium)"}} to='' >Get cash now</Link>
+                        </div>
+                    </div>
                 </div>
-                <div>
+                <div className='col-12 col-md-6'>
                     <h2>Get started today...</h2>
-                    <div>
+                    <div className='m-3 p-2'>
                         {
-                            todaysTools.map(tool => <div>
+                            todaysTools.map(tool => <div className={toolOption}>
                                 <h3>{tool.title}</h3>
-                                <p>{tool.text}</p>
+                                <p style={{maxWidth:"100%"}}>{tool.text}</p>
                             </div>)
                         }
                     </div>

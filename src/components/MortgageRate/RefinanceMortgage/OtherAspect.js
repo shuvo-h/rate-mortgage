@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { makeHyperLink } from '../../../utils/makeHyperText';
+import {otherAspectList} from "./refineMortgage.module.css";
 
 
 const other_aspect_QL = graphql`
@@ -42,26 +43,26 @@ const OtherAspect = () => {
     const {otherAspectData:{faqList:{other_aspect}}} = useStaticQuery(other_aspect_QL);
     // console.log(other_aspect);
     return (
-        <section>
-            <h1>{other_aspect.title}</h1>
+        <section className='' id={other_aspect.title}>
+            <h2>{other_aspect.title}</h2>
             <div>
                 {
                     other_aspect.introduction.map(para => <div key={Math.random()}>
                         <h3>{para.sub_title}</h3>
                         <div>
                             {
-                                para.paragraphs.map(textInfo =>makeHyperLink(textInfo.text,textInfo.urls))
+                                para.paragraphs.map((textInfo,idx) =>makeHyperLink(textInfo.text,textInfo.urls,idx,"linkSt",{maxWidth:"100%"}))
                             }
                         </div>
                     </div>)
                 }
             </div>
             <div>
-                <ul>
+                <div className='row ms-5 my-4'>
                     {
-                        other_aspect.cost_list.map(list => <li key={list}>{list}</li>)
+                        other_aspect.cost_list.map(list => <div className={`${otherAspectList} col-12 col-md-6 my-2`} key={list}>{list}</div>)
                     }
-                </ul>
+                </div>
             </div>
             <div>
                 {
@@ -69,7 +70,7 @@ const OtherAspect = () => {
                         <h3>{para.sub_title}</h3>
                         <div>
                             {
-                                para.paragraphs.map(textInfo =>makeHyperLink(textInfo.text,textInfo.urls))
+                                para.paragraphs.map((textInfo,idx) =>makeHyperLink(textInfo.text,textInfo.urls,idx,"linkSt",{maxWidth:"100%"}))
                             }
                         </div>
                     </div>)

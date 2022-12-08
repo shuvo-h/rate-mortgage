@@ -1,6 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
+import { useState } from 'react';
 import { makeHyperLink } from '../../../utils/makeHyperText';
+import {shouldAccordian} from "./refineMortgage.module.css"
 
 
 
@@ -43,33 +45,45 @@ const should_freinance_QL = graphql`
 
 const ShouldRefinance = () => {
     const {shouldRefinance:{faqList:{should_refinance}}} = useStaticQuery(should_freinance_QL);
-    console.log(should_refinance,"should_refinance");
+    const [shouldExpandAccordians,setShouldExpandAccordians] = useState([]);
+    // console.log(should_refinance,"should_refinance");
+    const accordianHandler = (indexNumber) =>{
+      if (shouldExpandAccordians.includes(indexNumber)) {
+        setShouldExpandAccordians(shouldExpandAccordians.filter(num => num !== indexNumber));
+        
+      }else{
+        setShouldExpandAccordians([...shouldExpandAccordians,indexNumber]);
+      }
+    }
     return (
-        <section>
+        <section className='my-4' id={should_refinance.title}>
             <h2>{should_refinance.title}</h2>
             <div>
                 {
                     should_refinance.paragraphs.map(para => <div key={Math.random()}>
                         <h4>{para.sub_title}</h4>
                         {
-                            para.paras.map(textInfo => makeHyperLink(textInfo.text,textInfo.urls))
+                            para.paras.map((textInfo,idx) => makeHyperLink(textInfo.text,textInfo.urls,idx,"linkSt",{maxWidth:"100%"}))
                         }
                     </div>)
                 }
             </div>
-            <div>
+            <div style={{borderBottom:"1px solid var(--color-marketing-8-lighter)"}}>
                 <p>{should_refinance.refinance_reasons.intro}</p>
                 {
-                    should_refinance.refinance_reasons.list.map(para => <div key={Math.random()}>
-                        <h4>{para.title}</h4>
-                        {
-                            para.details.map(textInfo => <div key={Math.random()}>
-                                {makeHyperLink(textInfo.text,textInfo.urls)}
-                            </div>)
-                        }
+                    should_refinance.refinance_reasons.list.map((para,accordianIdx) => <div  className={shouldAccordian} key={Math.random()}>
+                        <h4 style={{cursor:"pointer"}} onClick={()=>accordianHandler(accordianIdx)}>{para.title}</h4>
+                        <div style={{display: shouldExpandAccordians.includes(accordianIdx)?"block":"none"}}>
+                          {
+                              para.details.map((textInfo,txtId) => <div key={Math.random()}>
+                                  {makeHyperLink(textInfo.text,textInfo.urls,txtId,"linkSt",{maxWidth:"100%"})}
+                              </div>)
+                          }
+                        </div>
                     </div>)
                 }
             </div>
+            
             {/* <div>
                 <h3>{should_refinance.home_rate.title}</h3>
                 {

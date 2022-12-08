@@ -72,11 +72,11 @@ const ToolsOptionsPricing = () => {
 
     return (
         <section className='my-4'>
-            <h2 className='text-center'>{toolInfo.title}</h2>
+            <h3 className='text-center'>{toolInfo.title}</h3>
             <div className='row g-4 my-5'>
                 {
                     toolInfo.tools.map(tool => {
-                        const img = toolImgs.find(imgNode => imgNode.name === tool.icon)?.childImageSharp
+                        const img = toolImgs.find(imgNode => imgNode.name === tool.icon)?.childImageSharp;
                         return <div className='col-12 col-md-4' key={tool.title}>
                             <div className='scaleHover p-4 d-flex justify-content-center align-items-center  border border-dark rounded'>
                                 <div>

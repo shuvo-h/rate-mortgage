@@ -362,7 +362,7 @@ query faq_homebuy_QL {
 const FAQ_HomeBuying = () => {
     const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
     // const data = useStaticQuery(faq_homebuy_QL);
-    console.log(whybuynow_imgs);
+    // console.log(whybuynow_imgs);
     // const whybuynow_imgs = []
     
     return (

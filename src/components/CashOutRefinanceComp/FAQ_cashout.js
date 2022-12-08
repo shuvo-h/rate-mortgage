@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { makeHyperLink } from '../../utils/makeHyperText';
+import {otherAspectList} from "../MortgageRate/RefinanceMortgage/refineMortgage.module.css";
 
 const FAQ_cashoutList = {
     whatCashOut:{
@@ -594,40 +595,42 @@ const FAQ_cashoutList = {
     
 }
 
+console.log(otherAspectList);
+
 const FAQ_cashout = () => {
     const {whatCashOut,debt,howWork,howRateWork,whenCashOut,howMuchMoney,taxesFees,VAcash,cashHeloc,cashVsPersonalLoan,howRefiMoney,WhoRefi,prosCorns,bestRate} = FAQ_cashoutList
     return (
         <section>
-            <h1>Cash-out refinancing FAQ</h1>
+            <h1 className='my-3'>Cash-out refinancing FAQ</h1>
             <section>
                 {
-                    Object.keys(FAQ_cashoutList).map(el =>(FAQ_cashoutList[el].title)).map(question => <p>{question}</p>)
+                    Object.keys(FAQ_cashoutList).map(el =>(FAQ_cashoutList[el].title)).map(question => <a className='linkSt d-block my-2' href={`#${question}`} key={question}>{question}</a>)
                 }
             </section>
-            <section>
-                <h1>{whatCashOut.title}</h1>
+            <section id={whatCashOut.title}>
+                <h2 className='my-3'>{whatCashOut.title}</h2>
                 <div>
                     {
-                        whatCashOut.details.map(whatCash => makeHyperLink(whatCash.text,whatCash.urls))
+                        whatCashOut.details.map((whatCash,idx) => makeHyperLink(whatCash.text,whatCash.urls,idx,"linkSt",{maxWidth:"100%"}))
                     }
                 </div>
             </section>
-            <section>
-                <h1>{debt.title}</h1>
+            <section id={debt.title}>
+                <h2>{debt.title}</h2>
                 <div>
                     {
-                        debt.details.map(whatCash => makeHyperLink(whatCash.text,whatCash.urls))
+                        debt.details.map((whatCash,idx) => makeHyperLink(whatCash.text,whatCash.urls,idx,"linkSt",{maxWidth:"100%"}))
                     }
                 </div>
             </section>
-            <section>
-                <h1>{howWork.title}</h1>
+            <section id={howWork.title}>
+                <h2>{howWork.title}</h2>
                 <div>
                     {
                         howWork.details.map((detail,idx) => <div key={idx}>
                             <h3>{detail.sub_title}</h3>
                             {
-                                detail.sub_para.map(para=>makeHyperLink(para.text,para.urls))
+                                detail.sub_para.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt",{maxWidth:"100%"}))
                             }
                             
                         </div>)
@@ -638,48 +641,55 @@ const FAQ_cashout = () => {
                     <div>
                         {
                             howWork.cashout_example.para.map(cashEx => <div>
-                                <p>{cashEx.text}</p>
-                                <div>
+                                <p>{cashEx.text}</p> 
+                                <ul className='ms-5'>
                                     {
-                                        cashEx.amount.map(amount => <li key={amount.name} >
-                                            <span>{amount.name}</span>
-                                            <span>{amount.price}</span>
+                                        cashEx.amount[0]?.name && cashEx.amount.map(amount => <li key={amount.name} >
+                                            <b>{amount.name}: </b>
+                                            <span>${amount.price}</span>
                                         </li>) 
                                     }
-                                </div>
+                                </ul>
                             </div>)
                         }
                     </div>
                 </div>
             </section>
-            <section>
-                <h1>{howRateWork.title}</h1>
+            <section id={howRateWork.title}>
+                <h2>{howRateWork.title}</h2>
                 <div>
                     {
-                        howRateWork.introduction.map((para,idx) => <p key={idx}>{para}</p>)
+                        howRateWork.introduction.map((para,idx) => <p style={{maxWidth:"100%"}} key={idx}>{para}</p>)
                     }
                 </div>
                 <div>
+                    <div className='row ms-5 my-4'>
+                        {
+                            howRateWork.short_urls.map(link => <a className={`${otherAspectList} linkSt col-12 col-md-6 my-2`} href={link.url} key={link.name}>{link.name}</a>)
+                        }
+                    </div>
+                </div>
+                {/* <div>
                     {
                         howRateWork.short_urls.map(link => <li key={link.name}>
                             <Link to={link.url}>{link.name}</Link>
                         </li>)
                     }
-                </div>
+                </div> */}
                 <div>
                     {
-                        howRateWork.parabody.map(para =><div key={para.sub_title}>
+                        howRateWork.parabody.map((para,idx) =><div key={para.sub_title}>
                             <h3>{para.sub_title}</h3>
                             {
-                                makeHyperLink(para.text,para.urls)
+                                makeHyperLink(para.text,para.urls,idx,"linkSt",{maxWidth:"100%"})
                             }
                         </div>)
                     }
                 </div>
             </section>
-            <section>
-                <h1>{whenCashOut.title}</h1>
-                <p>{whenCashOut.introduction}</p>
+            <section id={whenCashOut.title}>
+                <h2>{whenCashOut.title}</h2>
+                <p style={{maxWidth:"100%"}}>{whenCashOut.introduction}</p>
                 <ul>
                     {
                         whenCashOut.list.map((item,idx) => <li key={idx}>{item}</li>)
@@ -687,123 +697,125 @@ const FAQ_cashout = () => {
                 </ul>
                 <p>{whenCashOut.conclusion}</p>
             </section>
-            <section>
-                <h1>{howMuchMoney.title}</h1>
+            <section id={howMuchMoney.title}>
+                <h2 className='my-3'>{howMuchMoney.title}</h2>
                 <div>
-                    <p>{howMuchMoney.introduction.text}</p>
-                    <ul>
+                    <p style={{maxWidth:"100%"}}>{howMuchMoney.introduction.text}</p>
+                    <ul className='ms-5'>
                         {
-                            howMuchMoney.introduction.factors.map(factor => <li key={factor}>{factor}</li>)
+                            howMuchMoney.introduction.factors.map(factor => <li className='my-1' key={factor}>{factor}</li>)
                         }
                     </ul>
                 </div>
                 <div>
                     {
-                        howMuchMoney.paragraps.map((para,idx) =>makeHyperLink(para.text,para.urls))
+                        howMuchMoney.paragraps.map((para,idx) =>makeHyperLink(para.text,para.urls,idx,"linkSt",{maxWidth:"100%"}))
                     }
                 </div>
             </section>
-            <section>
-                <h1>{taxesFees.title}</h1>
+            <section id={howMuchMoney.title}>
+                <h2 className='my-3'>{taxesFees.title}</h2>
                 <div>
                     {
-                        makeHyperLink(taxesFees.introduction.text,taxesFees.introduction.urls)
+                        makeHyperLink(taxesFees.introduction.text,taxesFees.introduction.urls,"idx","linkSt",{maxWidth:"100%"})
                     }
-                    <p>{taxesFees.body}</p>
-                    <ul>
+                    <p style={{maxWidth:"100%"}}>{taxesFees.body}</p>
+                    <ul className='ms-5'>
                         {
-                            taxesFees.costFees.map(fee =><li><Link to={fee.url}>{fee.name}</Link></li>)
+                            taxesFees.costFees.map(fee =><li className='my-1'><Link className='linkSt' to={fee.url}>{fee.name}</Link></li>)
                         }
                     </ul>
-                    <p>{taxesFees.conclusion}</p>
-                    <p>{taxesFees.question}</p>
-                    <p>{taxesFees.answer}</p>
+                    <p className='my-3' style={{maxWidth:"100%"}}>{taxesFees.conclusion}</p>
+                    <p className='my-3' style={{maxWidth:"100%"}}>{taxesFees.question}</p>
+                    <p className='my-3' style={{maxWidth:"100%"}}>{taxesFees.answer}</p>
                 </div>
             </section>
-            <section>
-                <h1>{VAcash.title}</h1>
+            <section id={VAcash.title}>
+                <h2 className='my-3'>{VAcash.title}</h2>
                 <div>
                     {
-                        VAcash.details.map(textInfo => makeHyperLink(textInfo.text,textInfo.urls))
+                        VAcash.details.map((textInfo,idx) => makeHyperLink(textInfo.text,textInfo.urls,idx,"linkSt",{maxWidth:"100%"}))
                     }
                 </div>
             </section>
-            <section>
-                <h1>{cashHeloc.title}</h1>
+            <section id={cashHeloc.title}>
+                <h2>{cashHeloc.title}</h2>
                 <div>
                     {
-                        cashHeloc.text.map(item => <p key={item}>{item}</p>)
+                        cashHeloc.text.map(item => <p style={{maxWidth:"100%"}} key={item}>{item}</p>)
                     }
                 </div>
                 <div>
+                    <h3 className='my-3'>Cash-out refi</h3>
                     <ul>
                         {
-                            cashHeloc.refi_list.map(item => <li key={item}>{item}</li>)
-                        }
-                    </ul>
-                </div>
-                <div>
-                    <ul>
-                        {
-                            cashHeloc.helocList.map(item => <li key={item}>{item}</li>)
+                            cashHeloc.refi_list.map(item => <li className='my-1 ms-4' key={item}>{item}</li>)
                         }
                     </ul>
                 </div>
+                <div>
+                    <h3>HELOC</h3>
+                    <ul className='my-3'>
+                        {
+                            cashHeloc.helocList.map(item => <li className='my-1 ms-4' key={item}>{item}</li>)
+                        }
+                    </ul>
+                </div>
             </section>
-            <section>
-                <h1>{cashVsPersonalLoan.title}</h1>
+            <section id={cashVsPersonalLoan.title}>
+                <h2 className='my-3'>{cashVsPersonalLoan.title}</h2>
                 <div>
                     {
-                        cashVsPersonalLoan.details.map(textinfo =>makeHyperLink(textinfo.text,textinfo.urls))
+                        cashVsPersonalLoan.details.map((textinfo,idx) =>makeHyperLink(textinfo.text,textinfo.urls,idx,"linkSt",{maxWidth:"100%"}))
                     }
                 </div>
             </section>
-            <section>
-                <h1>{howRefiMoney.title}</h1>
+            <section id={howRefiMoney.title}>
+                <h2 className='my-3'>{howRefiMoney.title}</h2>
                 <div>
-                    <p>{howRefiMoney.introduction}</p>
-                    <ul>
+                    <p style={{maxWidth:"100%"}}>{howRefiMoney.introduction}</p>
+                    <ul className='ms-5'>
                         {
-                            howRefiMoney.expenseList.map(item => <li key={item}>{item}</li>)
+                            howRefiMoney.expenseList.map(item => <li className='my-0' key={item}>{item}</li>)
                         }
                     </ul>
-                    <p>{howRefiMoney.conclusion}</p>
+                    <p style={{maxWidth:"100%"}}>{howRefiMoney.conclusion}</p>
                 </div>
             </section>
-            <section>
-                <h1>{WhoRefi.title}</h1>
+            <section id={WhoRefi.title}>
+                <h2 className='my-3'>{WhoRefi.title}</h2>
                 <div>
-                    <p>{WhoRefi.introduction}</p>
-                    <ul>
+                    <p style={{maxWidth:"100%"}}>{WhoRefi.introduction}</p>
+                    <ul className='ms-5'>
                         {
-                            WhoRefi.laonList.map(item => <li key={item}>{item}</li>)
+                            WhoRefi.laonList.map(item => <li className='my-0' key={item}>{item}</li>)
                         }
                     </ul>
                     <p>{WhoRefi.conclusion}</p>
                 </div>
             </section>
-            <section>
-                <h1>{prosCorns.title}</h1>
+            <section id={prosCorns.title}>
+                <h2 className='my-3'>{prosCorns.title}</h2>
                 <div>
                     <p>{prosCorns.text}</p>
-                    <h1>Pros</h1>
+                    <h4 className='my-4'>Pros</h4>
                     <ul>
                         {
-                            prosCorns.prosList.map(item => <li key={item}>{item}</li>)
+                            prosCorns.prosList.map(item => <li className='my-0' key={item}>{item}</li>)
                         }
                     </ul>
-                    <h1>Corns</h1>
+                    <h4 className='my-4'>Corns</h4>
                     <ul>
                         {
-                            prosCorns.corsList.map(item => <li key={item}>{item}</li>)
+                            prosCorns.corsList.map(item => <li className='my-0' key={item}>{item}</li>)
                         }
                     </ul>
                 </div>
             </section>
             <section>
-                <h1>{bestRate.title}</h1>
+                <h2 className='my-3'>{bestRate.title}</h2>
                 {
-                    bestRate.text.map((para,idx) =><p key={idx}>{para}</p>)
+                    bestRate.text.map((para,idx) =><p style={{maxWidth:"100%"}} key={idx}>{para}</p>)
                 }
             </section>
         </section>

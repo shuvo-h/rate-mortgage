@@ -44,8 +44,9 @@ const FAQ_refinance = () => {
     
     return (
         <section>
+          <h2>Mortgage refinancing FAQ</h2>
             {
-                Object.values(faqList.faqList).map(el=>({title:el.title,id:el.id})).map(faq => <p  key={faq.id}>{faq.title}</p>)
+                Object.values(faqList.faqList).map(el=>({title:el.title,id:el.id})).map(faq => <a className='linkSt d-block my-3 text-black' href={`#${faq.title}`} key={faq.id}>{faq.title}</a>)
             }
         </section>
     );

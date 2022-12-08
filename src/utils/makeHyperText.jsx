@@ -8,7 +8,7 @@
 import React from "react";
 
 // insert hyperlink to a portion of text
-export const makeHyperLink = (text='',url_List=[{name:"",url:""}],elementKey=Math.random()) =>{
+export const makeHyperLink = (text='',url_List=[{name:"",url:""}],elementKey='',linkClass='',p_style={}) =>{
     let tempTextList = [text];
     
     url_List.map(urlInfo =>{
@@ -25,7 +25,7 @@ export const makeHyperLink = (text='',url_List=[{name:"",url:""}],elementKey=Mat
                 splitedPortions.forEach(portion =>{
                     if (portion === urlInfo.name) {
                     // const createdLink = <a href={urlInfo.url}>{urlInfo.name}</a>
-                    const createdLink = React.createElement("a",{href:urlInfo.url,key:urlInfo.name},urlInfo.name);
+                    const createdLink = React.createElement("a",{href:urlInfo.url,key:urlInfo.name,className:linkClass},urlInfo.name);
                     new_tempTextList.push(createdLink);
                     }else{
                     new_tempTextList.push(portion);
@@ -43,7 +43,7 @@ export const makeHyperLink = (text='',url_List=[{name:"",url:""}],elementKey=Mat
     })
 
     // make a <p> from the stack
-  const paraElement = React.createElement("p",{key:elementKey.toString()},[...tempTextList]);
+  const paraElement = React.createElement("p",{key:elementKey.toString(),style:{...p_style}},[...tempTextList]);
   
   return paraElement;
 }

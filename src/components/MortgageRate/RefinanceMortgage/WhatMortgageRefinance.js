@@ -28,11 +28,11 @@ const WhatMortgageRefinance = () => {
     
 
     return (
-        <section>
+        <section id={what_is.title}>
             <h1>{what_is.title}</h1>
             <div>
                 {
-                    what_is.paragraphs.map(para => makeHyperLink(para.text,para.urls))
+                    what_is.paragraphs.map((para,idx) => makeHyperLink(para.text,para.urls,idx,"linkSt",{maxWidth:"100%"}))
                 }
             </div>
         </section>

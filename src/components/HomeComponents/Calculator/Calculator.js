@@ -43,10 +43,10 @@ const Calculator = () => {
 
     useEffect(()=>{
         const loanAmount = homePrice - ((homePrice * downPayPercent)/100);
-        console.log(loanAmount);
+        // console.log(loanAmount);
     },[])
 
-console.log(isDisclosureOpen);
+// console.log(isDisclosureOpen);
     return (
         <section className="container py-5">
             <h2 className='fs-1 lh-2 mb-3'>{calculatorData.title}</h2>

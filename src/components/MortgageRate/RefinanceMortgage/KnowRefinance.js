@@ -38,7 +38,7 @@ const KnowRefinance = () => {
             <h2>{knowRefinance.title}</h2>
             <div>
                 {
-                    knowRefinance.paragraphs.map(para=>makeHyperLink(para.text,para.urls))
+                    knowRefinance.paragraphs.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt",{maxWidth:"100%"}))
                 }
             </div>
         </section>

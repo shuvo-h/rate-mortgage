@@ -19,8 +19,6 @@ const RefinanceMortgage = () => {
             <KnowRefinance />
             <FAQ_refinance />
             <WhatMortgageRefinance />
-
-            {/* need to solve this component, getting error while using useStaticQuery  */}
             <HowRefaineQA />
 
             <ShouldRefinance />

@@ -30,13 +30,13 @@ const FindLowRate = () => {
     const {low_rate_data:{faqList:{find_low_rate}}} = useStaticQuery(low_rate_QL);
     return (
         <section>
-            <h1>{find_low_rate.title}</h1>
+            <h2 className='my-3'>{find_low_rate.title}</h2>
             <div>
                 {
-                    find_low_rate.paragraphs.map((para,idx) => makeHyperLink(para.text,para.urls,`para_id_${idx}`))
+                    find_low_rate.paragraphs.map((para,idx) => makeHyperLink(para.text,para.urls,idx,"linkSt",{maxWidth:"100%"}))
                 }
             </div>
-            <p>Note: {find_low_rate.short_note}</p>
+            <p style={{maxWidth:"100%"}}>Note: {find_low_rate.short_note}</p>
         </section>
     );
 };

@@ -81,8 +81,8 @@ const contact_QL = graphql`
 
 const ContactUs = () => {
     const {contactData:{nodes}} = useStaticQuery(contact_QL);
-    console.log(nodes.find(el => el.name === "Cancel")?.childImageSharp);
-    console.log(nodes);
+    // console.log(nodes.find(el => el.name === "Cancel")?.childImageSharp);
+    // console.log(nodes);
     return (
         <Layout className='container'>
             <h1>How can we help you today?</h1>

@@ -54,7 +54,7 @@ const aboutUs_QL = graphql`
   `;
 const AboutUs = () => {
     const {way_img_list:{nodes}} = useStaticQuery(aboutUs_QL);
-    console.log(nodes);
+    // console.log(nodes);
     return (
         <Layout className='container'>
             <section>
