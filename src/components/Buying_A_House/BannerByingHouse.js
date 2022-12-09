@@ -13,14 +13,14 @@ const buyingHouse_QL = graphql`
             }
         }
     }
+`;
 
-`
 
 const BannerByingHouse = () => {
     const {banner_img} = useStaticQuery(buyingHouse_QL);
     // console.log(banner_img);
     return (
-        <section>
+        <section className='my-4'>
              <h1>Purchase your dream home</h1>
              <div  className='position-relative'>
                 <GatsbyImage image={getImage(banner_img.childImageSharp)} />

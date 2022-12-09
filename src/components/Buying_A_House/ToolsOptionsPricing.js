@@ -1,7 +1,7 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import ButtonRegular from '../common/ButtonRegular';
+import ButtonRegular, { LinkRegular } from '../common/ButtonRegular';
 
 const toolInfo = {
     title: "Homebuying options and pricing tools",
@@ -72,8 +72,8 @@ const ToolsOptionsPricing = () => {
 
     return (
         <section className='my-4'>
-            <h3 className='text-center'>{toolInfo.title}</h3>
-            <div className='row g-4 my-5'>
+            <h3 className='text-center mt-4'>{toolInfo.title}</h3>
+            <div className='row g-4 my-4'>
                 {
                     toolInfo.tools.map(tool => {
                         const img = toolImgs.find(imgNode => imgNode.name === tool.icon)?.childImageSharp;
@@ -92,19 +92,19 @@ const ToolsOptionsPricing = () => {
                     })
                 }
             </div>
-            <div className='row g-4'>
+            <div className='row g-4 mt-4'>
                 <div className='col-12 col-md-6'>
                     <div className='p-2'>
                         <h3>{buyingAhouseInfo.title}</h3>
-                        <p  style={{maxWidth:"100%"}}>{buyingAhouseInfo.paragraph}</p>
-                        <ButtonRegular label={buyingAhouseInfo.button} className='rounded border-danger bg-transparent text-danger px-3 py-1' ></ButtonRegular>
+                        <p >{buyingAhouseInfo.paragraph}</p>
+                        <LinkRegular label={buyingAhouseInfo.button} url={""}  />
                     </div>
                 </div>
                 <div className='col-12 col-md-6'>
                     <div className='p-2'>
                         <ul className=''>
                             {
-                                buyingAhouseInfo.options.map(option => <li className=''>
+                                buyingAhouseInfo.options.map(option => <li className='bullet_point list-unstyled'>
                                     <h3>{option.title}</h3>
                                     <p>{option.text}</p>
                                 </li>)

@@ -9,9 +9,10 @@ const buyingHouseInfo = {
 }
 
 const BuyingHouseToday = () => {
+
     return (
         <section>
-            <h2>{buyingHouseInfo.title}</h2>
+            <h2 className='my-4'>{buyingHouseInfo.title}</h2>
             <div>
                 {
                     buyingHouseInfo.paragraphs.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para${idx}`}>{para}</p>)

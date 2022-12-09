@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import { makeHyperLink } from '../../../utils/makeHyperText';
-import {otherAspectList} from "./refineMortgage.module.css";
+
 
 
 const other_aspect_QL = graphql`
@@ -60,7 +60,7 @@ const OtherAspect = () => {
             <div>
                 <div className='row ms-5 my-4'>
                     {
-                        other_aspect.cost_list.map(list => <div className={`${otherAspectList} col-12 col-md-6 my-2`} key={list}>{list}</div>)
+                        other_aspect.cost_list.map(list => <div className={`bullet_point col-12 col-md-6 my-2`} key={list}>{list}</div>)
                     }
                 </div>
             </div>
