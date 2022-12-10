@@ -8,6 +8,7 @@
 
 import * as React from "react";
 import "../../styles/global.css";
+import "../../styles/common.css";
 import BottomFooter from "./Footer/BottomFooter";
 import Footer from "./Footer/Footer";
 import Header from "./Header";

@@ -1,7 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { makeHyperLink } from '../../utils/makeHyperText';
-import {otherAspectList} from "../MortgageRate/RefinanceMortgage/refineMortgage.module.css";
+
 
 const FAQ_cashoutList = {
     whatCashOut:{
@@ -595,7 +595,7 @@ const FAQ_cashoutList = {
     
 }
 
-console.log(otherAspectList);
+
 
 const FAQ_cashout = () => {
     const {whatCashOut,debt,howWork,howRateWork,whenCashOut,howMuchMoney,taxesFees,VAcash,cashHeloc,cashVsPersonalLoan,howRefiMoney,WhoRefi,prosCorns,bestRate} = FAQ_cashoutList
@@ -665,7 +665,7 @@ const FAQ_cashout = () => {
                 <div>
                     <div className='row ms-5 my-4'>
                         {
-                            howRateWork.short_urls.map(link => <a className={`${otherAspectList} linkSt col-12 col-md-6 my-2`} href={link.url} key={link.name}>{link.name}</a>)
+                            howRateWork.short_urls.map(link => <a className={`bullet_point linkSt col-12 col-md-6 my-2`} href={link.url} key={link.name}>{link.name}</a>)
                         }
                     </div>
                 </div>

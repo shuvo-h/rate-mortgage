@@ -1,6 +1,12 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { FcCheckmark } from 'react-icons/fc';
+import { IconContext } from "react-icons";
+import { ReactIcon } from '../common/ButtonRegular';
+import { useState } from 'react';
+import { handleAccordian } from '../../utils/accordianHandler';
+// FcCheckmark
 
 const FAQ_homeBuying = {
     title:"Homebuying FAQ",
@@ -92,27 +98,27 @@ const FAQ_homeBuying = {
                 ],
                 reasons:[
                     {
-                        image:"img",
+                        image:"Group23",
                         title:"Your list of must-have features",
                         text:["Know what you absolutely need in a home to narrow down your options and direct your search toward the right locations and properties."]
                     },
                     {
-                        image:"img",
+                        image:"Group1333",
                         title:"State of the market",
                         text:["You need to act fast in hot housing markets and get an attractive offer on the table ahead of competing buyers."]
                     },
                     {
-                        image:"img",
+                        image:"DesktopIcon_newv2",
                         title:"Your loan options",
                         text:["There are a variety of loan options to choose from, including fixed rate, adjustable-rate and government-insured mortgages. Find the one that best meets your future ]plans and financial situation."]
                     },
                     {
-                        image:"img",
+                        image:"Group33",
                         title:"Current interest rates",
                         text:["Compare mortgage lending rates against historical trends to see how favorable your home loan conditions are. Keep in mind you may be able to refinance your mortgage ]later on to take advantage of a better interest rate."]
                     },
                     {
-                        image:"img",
+                        image:"Group12",
                         title:"Your budget",
                         text:["Figure out how much money you’re comfortable spending on a new house."]
                     },
@@ -242,21 +248,21 @@ const FAQ_homeBuying = {
                         text:[
                             "You need to put more money up front when buying a house, but locking in a mortgage rate today means your monthly payments won’t necessarily be dictated by the whims of the housing market later on. Check out our rent vs. buy calculator to get an idea of how much money you might be able to save by buying a home of our own."
                         ],
-                        img:"image"
+                        img:"Group291"
                     },
                     {
                         title:"Equity",
                         text:[
                             "Rent is a sunk cost. Aside from maybe your security deposit, any money you give your landlord is gone for good. On the other hand, every mortgage payment you make builds equity in your home."
                         ],
-                        img:"image"
+                        img:"Group301"
                     },
                     {
                         title:"Taxes",
                         text:[
                             "Homeowners need to account for property taxes in their budgets. But keep in mind that renters may still feel the sting when property taxes go up, albeit indirectly, through rent increases. On the other hand, there may be tax incentives for you to take advantage of as a homeowner. Guaranteed Rate does not offer tax advice. Contact your tax advisor with all tax-related questions."
                         ],
-                        img:"image"
+                        img:"Group241"
                     },
                 ],
                 conclution:[]
@@ -343,27 +349,54 @@ const faq_StyleProvider = (idx) =>{
 
 const faq_homebuy_QL = graphql`
 
-query faq_homebuy_QL {
-    whybuynow:allFile(
-    filter: {relativeDirectory: {eq: "refinance-mortgage"}, name: {in: ["Group11","Group9","Group15","Group25","Group26"]}}
+    query faq_homebuy_QL {
+        whybuynow:allFile(
+        filter: {relativeDirectory: {eq: "refinance-mortgage"}, name: {in: ["Group11","Group9","Group15","Group25","Group26"]}}
+    ) {
+        nodes {
+        name
+        childImageSharp {
+            gatsbyImageData
+        }
+        }
+    }
+
+    howBuyToday_imgs: allFile(filter: {name: {in: ["Group12", "Group1333","Group23","DesktopIcon_newv2","Group33"]}}) {
+        nodes {
+        childImageSharp {
+            gatsbyImageData (width:50)
+        }
+        name
+        size
+        }
+    }
+
+    rentVsBuy: allFile(
+    filter: {name: {in: ["Group291","Group241","Group301"]}}
   ) {
     nodes {
-      name
       childImageSharp {
         gatsbyImageData
       }
+      name
+      size
     }
   }
-}
 
+
+}
 
 `
 
 const FAQ_HomeBuying = () => {
-    const {whybuynow:{nodes:whybuynow_imgs}} = useStaticQuery(faq_homebuy_QL);
-    // const data = useStaticQuery(faq_homebuy_QL);
-    // console.log(whybuynow_imgs);
-    // const whybuynow_imgs = []
+    const {
+        whybuynow:{nodes:whybuynow_imgs},
+        howBuyToday_imgs:{nodes:howBuyHomeImgs},
+        rentVsBuy:{nodes:rentVsBuyImg}
+    } = useStaticQuery(faq_homebuy_QL);
+    const [faq_15StepsAccordians,setFaq_15StepsAccordians] = useState([]);
+    const [sixWaysSaveAccordians,setSixWaysSaveAccordians] = useState([]);
+    console.log(rentVsBuyImg,"rentVsBuyImg");
     
     return (
         <div>
@@ -408,26 +441,28 @@ const FAQ_HomeBuying = () => {
             </section>
 
             <section className='my-5'>
-                <h2>{FAQ_homeBuying.FAQ_list[1].question}</h2>
+                <h2>{FAQ_homeBuying.FAQ_list[1].question}</h2> 
                 <div>
                     {
-                        FAQ_homeBuying.FAQ_list[1].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
+                        FAQ_homeBuying.FAQ_list[1].answer.introduction.map((para,idx)=><p className='my-3' style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
                     }
                 </div>
                 <div className='row'>
                     {
                         FAQ_homeBuying.FAQ_list[1].answer.reasons.map((reason,idx)=>{
                                     const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                    return <div className={`d-flex align-items-center`} key={`reason${idx}`}>
                                         <div>
                                             <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                            <ReactIcon >
+                                                <FcCheckmark size={20}  />
+                                            </ReactIcon>
                                         </div>
                                         <div className='ms-3'>
                                             <h4>{reason.title}</h4>
                                             {
-                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                                reason.text.map(reasonPara => <p className='my-2' style={{maxWidth:"100%"}} key={`reasonPara_${idx}`}>{reasonPara}</p>)
                                             }
-
                                         </div>
                                     </div>
                                 })
@@ -440,7 +475,7 @@ const FAQ_HomeBuying = () => {
                 </div>
             </section>
             <section className='my-5'>
-                <h2>{FAQ_homeBuying.FAQ_list[2].question}</h2>
+                <h2 className='my-3'>{FAQ_homeBuying.FAQ_list[2].question}</h2>
                 <div>
                     {
                         FAQ_homeBuying.FAQ_list[2].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
@@ -449,20 +484,20 @@ const FAQ_HomeBuying = () => {
                 <div className='row'>
                     {
                         FAQ_homeBuying.FAQ_list[2].answer.reasons.map((reason,idx)=>{
-                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
-                                        <div>
-                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
-                                        </div>
-                                        <div className='ms-3'>
-                                            <h4>{reason.title}</h4>
-                                            {
-                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                            }
+                            const gatsImg = howBuyHomeImgs.find(img=>img.name === reason.image)?.childImageSharp;
+                            return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                <div>
+                                    <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                </div>
+                                <div className='ms-5'>
+                                    <h4>{reason.title}</h4>
+                                    {
+                                        reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                    }
 
-                                        </div>
-                                    </div>
-                                })
+                                </div>
+                            </div>
+                        })
                     }
                 </div>
                 <div>
@@ -472,7 +507,7 @@ const FAQ_HomeBuying = () => {
                 </div>
             </section>
             <section className='my-5'>
-                <h2>{FAQ_homeBuying.FAQ_list[3].question}</h2>
+                <h2 className='my-3' >{FAQ_homeBuying.FAQ_list[3].question}</h2> 
                 <div>
                     {
                         FAQ_homeBuying.FAQ_list[3].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
@@ -480,21 +515,25 @@ const FAQ_HomeBuying = () => {
                 </div>
                 <div className='row'>
                     {
-                        FAQ_homeBuying.FAQ_list[3].answer.reasons.map((reason,idx)=>{
-                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
-                                        <div>
-                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
-                                        </div>
-                                        <div className='ms-3'>
-                                            <h4>{reason.title}</h4>
-                                            {
-                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                            }
+                        FAQ_homeBuying.FAQ_list[3].answer.reasons.map((reason,idx)=><div className={``} key={`reason${idx}`}>
+                                        <div className='border-bottom'>
+                                            <h4 
+                                                className='py-3 border-top' 
+                                                style={{cursor:"pointer"}} 
+                                                onClick={()=>handleAccordian(setFaq_15StepsAccordians,idx)}
+                                            >
+                                                <span className='text-danger me-3 mb-4'>{idx+1}</span>
+                                                 {reason.title}
+                                            </h4>
+                                            <div style={{ height: faq_15StepsAccordians.includes(idx)? "auto":"0", overflow:"hidden",}} >
+                                                {
+                                                    reason.text.map((reasonPara,resParaidx) => <p style={{maxWidth:"100%"}} key={`reasonPara_${resParaidx}`}>{reasonPara}</p>)
+                                                }
+                                            </div>
 
                                         </div>
                                     </div>
-                                })
+                                )
                     }
                 </div>
                 <div>
@@ -510,18 +549,18 @@ const FAQ_HomeBuying = () => {
                         FAQ_homeBuying.FAQ_list[4].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
                     }
                 </div>
-                <div className='row'>
+                <div className=''>
                     {
                         FAQ_homeBuying.FAQ_list[4].answer.reasons.map((reason,idx)=>{
-                                    const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                    const gatsImg = rentVsBuyImg.find(img=>img.name === reason.img)?.childImageSharp;
+                                    return <div className={`d-flex align-items-center`} key={`reason${idx}`}>
                                         <div>
                                             <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
                                         </div>
                                         <div className='ms-3'>
                                             <h4>{reason.title}</h4>
                                             {
-                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                                reason.text.map(reasonPara => <p style={{maxWidth:"100%"}} key={`reasonPara_${idx}`}>{reasonPara}</p>)
                                             }
 
                                         </div>
@@ -536,25 +575,31 @@ const FAQ_HomeBuying = () => {
                 </div>
             </section>
             <section className='my-5'>
-                <h2>{FAQ_homeBuying.FAQ_list[5].question}</h2>
+                <h2 className='my-3'>{FAQ_homeBuying.FAQ_list[5].question}</h2> 
                 <div>
                     {
                         FAQ_homeBuying.FAQ_list[5].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
                     }
                 </div>
-                <div className='row'>
+                <div className='border-top'>
                     {
                         FAQ_homeBuying.FAQ_list[5].answer.reasons.map((reason,idx)=>{
                                     const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                    return <div className={`d-flex align-items-center`} key={`reason${idx}`}>
                                         <div>
                                             <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
                                         </div>
-                                        <div className='ms-3'>
-                                            <h4>{reason.title}</h4>
-                                            {
-                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                            }
+                                        <div className='border-bottom'>
+                                            <h4
+                                                className='py-3' 
+                                                style={{cursor:"pointer"}} 
+                                                onClick={()=>handleAccordian(setSixWaysSaveAccordians,idx)}
+                                            >{reason.title}</h4> 
+                                            <div style={{ height: sixWaysSaveAccordians.includes(idx)? "auto":"0", overflow:"hidden",}} >
+                                                {
+                                                    reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                                }
+                                            </div>
 
                                         </div>
                                     </div>
@@ -568,7 +613,7 @@ const FAQ_HomeBuying = () => {
                 </div>
             </section>
             <section className='my-5'>
-                <h2>{FAQ_homeBuying.FAQ_list[6].question}</h2>
+                <h2>{FAQ_homeBuying.FAQ_list[6].question}</h2> 
                 <div>
                     {
                         FAQ_homeBuying.FAQ_list[6].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
