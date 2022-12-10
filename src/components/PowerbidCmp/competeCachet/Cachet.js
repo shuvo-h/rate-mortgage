@@ -1,9 +1,14 @@
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import {cachet_st} from "../powerbid.module.css";
 
-const Cachet = ({cachet}) => {
+const Cachet = ({cachet,imageList}) => {
+    const img = imageList.find(el=>el.name === cachet.image)?.childImageSharp;
     return (
-        <div>
-            <div>image</div>
+        <div className={`${cachet_st} text-center`}>
+            <div>
+                <GatsbyImage image={getImage(img.gatsbyImageData)} />
+            </div>
             <h3>{cachet.title}</h3>
             <p>{cachet.description}</p>
         </div>
