@@ -1,18 +1,17 @@
-import React from 'react';
 import { Link } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
-import {news_article,news_article_wrapper} from "./mortgageNews.module.css";
+import React from 'react';
 
-const ArticleCard = ({article,imageList,titleCls=""}) => {
+const FeatureCard = ({article,imageList}) => {
     const img = imageList?.find(el => el?.name === article?.image)?.childImageSharp;
     return (
-        <article className={`${news_article_wrapper} my-2`}>
-            <div className={news_article}>
+        <article className={` my-2`}>
+            <div >
                 <Link className='linkSt text-decoration-none' style={{color:"#187a9a"}} to={article.url}>
                     <div>
                         <GatsbyImage image={getImage(img)} ></GatsbyImage>
                     </div>
-                    <h4 className={titleCls}>{article.title}</h4>
+                    <h4 className={"fs-5 fw-normal"}>{article.title}</h4>
                     <div className='d-flex' style={{fontSize:"12px",color:"#707070"}}>
                         <address>by {article.author}</address>
                         <span className='mx-1'>on</span>
@@ -29,4 +28,4 @@ const ArticleCard = ({article,imageList,titleCls=""}) => {
     );
 };
 
-export default ArticleCard;
+export default FeatureCard;
