@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {text_container, list_container} from "../styles.module.css"
+
 const paraList = [
     "Fixed rate mortgages stand tall in the lending industry, but adjustable rate mortgages (ARM) are no slouches either. An ARM loan handles interest very differently than a fixed rate loan, which homebuyers may find very appealing in some scenarios.",
     "Borrowers with ARM home loans will have the same interest rate for a set period of time — usually anywhere from 5 to 10 years. Once that fixed rate period ends, the lender will reassess the mortgage rate on a recurring basis. You’ll see ARM loans described as 7/6, 5/6, 7/6 and so on. The first number tells you how long that initial period is, while the second number tells you how often the interest rate will be reevaluated afterward.",
@@ -25,19 +27,19 @@ const rateList = [
 const FixedVsAdjustCom = () => {
     return (
         <section>
-            <h1>Fixed rate vs. adjustable rate mortgages</h1>
-            <div>
+            <h2>Fixed rate vs. adjustable rate mortgages</h2>
+            <div className={text_container}>
                 {
                     paraList.map((para,idx)=><p key={idx}>{para}</p>)
                 }
             </div>
             <div>
                 <h2>Fixed vs. adjustable rate mortgage: Which is right for you?</h2>
-                <div>
+                <div className={text_container}>
                     {
                         rightPara.map((para,idx)=><p key={idx}>{para}</p>)
                     }
-                    <ul>
+                    <ul className={list_container}>
                         {
                             rightPara.map((para,idx)=><li key={idx}>{para}</li>)
                         }

@@ -36,7 +36,7 @@ export const navMiddle = [
     },
     
     {
-        name:"Learn options",
+        name:"Loan options",
         url:"/",
         childs: [
             {
