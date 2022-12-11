@@ -1,4 +1,3 @@
-import { Link } from 'gatsby';
 import React from 'react';
 import { LinkRegular } from "../../common/ButtonRegular";
 
@@ -13,7 +12,7 @@ const FixedRate = () => {
                 delivering an appealing mix of affordability, simplicity and convenience. 
                 Understanding how they work is essential if you want to accurately compare your mortgage 
                 options and find the best fit before &nbsp;    
-                <a className={link_text} href='https://apply.guaranteedrate.com/apply/express-loan?AdTrk=%7Cgnr%7Cguaranteedrate%7C%7C%7C%7C%7C%7C%7C%7Cdirect%7C%7C%7C%7C%7C' target="_blank">applying for a home loan</a>.
+                <a className={link_text} href='https://apply.guaranteedrate.com/apply/express-loan?AdTrk=%7Cgnr%7Cguaranteedrate%7C%7C%7C%7C%7C%7C%7C%7Cdirect%7C%7C%7C%7C%7C' target="_blank" rel="noreferrer">applying for a home loan</a>.
             </p>
             
             <div className={button_container}>

@@ -59,3 +59,30 @@
   max-width: 800px;
   margin: 30px auto;
 }
+
+@media screen and (max-width: 900px) {
+  .header_container {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    column-gap: 10px;
+  }
+
+  .header_container h6 {
+    width: min-content;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header_container {
+    display: grid;
+    grid-template-columns: repeat(6, 80px);
+    column-gap: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .table_container {
+    overflow-x: scroll;
+  }
+}

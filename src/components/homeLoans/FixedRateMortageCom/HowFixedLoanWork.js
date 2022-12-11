@@ -1,5 +1,5 @@
 import React from 'react';
-import {text_container, header_container} from "../styles.module.css"
+import {text_container, header_container, table_container} from "../styles.module.css"
 
 const dataT = [
     {
@@ -47,7 +47,7 @@ const HowFixedLoanWork = () => {
             <p className={text_container}>
                 Take a look at this hypothetical amortization schedule for a $165,000 home loan to see how your fixed rate mortgage payments evolve over time:
             </p>
-            <div>
+            <div className={table_container}>
                 <div className={header_container}>
                     <h6>Payment Date</h6>
                     <h6>Payment</h6>
