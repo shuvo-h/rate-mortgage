@@ -1,5 +1,8 @@
-import { Link } from 'gatsby';
 import React from 'react';
+
+import {LinkRegular} from '../../common/ButtonRegular';
+
+import {text_container, get_started, small_text, small_width} from "../styles.module.css"
 
 const list = [
     "With so many options to choose from, you should carefully compare each loan type to see how they stack up. A fixed rate mortgage calculator can be very helpful in this regard, letting you plug in your expected loan amount, interest rate, down payment, property taxes and other criteria so you can accurately project your monthly payments.",
@@ -29,16 +32,27 @@ const disClaimers = [
 const HowRightFix = () => {
     return (
         <section>
-            <h1>How can you find the right fixed rate mortgage for you?</h1>
-            {
-                list.map((para,idx) => <p key={idx}>{para}</p>)
-            }
-            <a href='https://apply.guaranteedrate.com/?AdTrk=%7Cgnr%7Cguaranteedrate%7C%7C%7C%7C%7C%7C%7C%7Cdirect%7C%7C%7C%7C%7C'>Let's get started</a>
-            <div>
+            <h2>How can you find the right fixed rate mortgage for you?</h2>
+            <div className={text_container}>
                 {
-                    disClaimers.map((para,idx) => <p key={idx}>{para}</p>)
+                    list.map((para,idx) => <p key={idx}>{para}</p>)
                 }
             </div>
+
+            <div className={get_started}>
+                <LinkRegular
+                    url="https://apply.guaranteedrate.com/?AdTrk=%7Cgnr%7Cguaranteedrate%7C%7C%7C%7C%7C%7C%7C%7Cdirect%7C%7C%7C%7C%7C"  
+                    label="Let's get started"
+                />
+            </div>
+
+            <div className={small_width}>
+                {
+                    disClaimers.map((para,idx) => <p className={small_text} key={idx}>{para}</p>)
+                }
+            </div>
+
+            <hr className='horizontal' />
         </section>
     );
 };

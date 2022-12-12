@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {list_container, list_item} from "../styles.module.css"
+
 const FAQLists = [
     "What is a fixed rate mortgage?",
     "How does a fixed rate loan work?",
@@ -14,9 +16,10 @@ const FAQLists = [
 const FaqList = () => {
     return (
         <section>
-            <ul>
+            <h2>Fixed rate mortgages FAQ</h2>
+            <ul className={list_container}>
                 {
-                    FAQLists.map(item => <li key={item}>{item}</li>)
+                    FAQLists.map(item => <li className={list_item} key={item}>{item}</li>)
                 }
             </ul>
         </section>
