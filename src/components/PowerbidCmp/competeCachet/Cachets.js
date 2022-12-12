@@ -22,6 +22,7 @@ const cachets = [
     },
 ]
 
+
 const cachets_QL = graphql`
     query cachets_QL {
         cachet_img_list: allFile(filter: {name: {in: ["Calendar","Stopwatch","Strong"]}}) {
@@ -39,7 +40,7 @@ const cachets_QL = graphql`
 
 const Cachets = () => {
     const {cachet_img_list:{nodes:cachet_imgs}} = useStaticQuery(cachets_QL);
-    console.log(cachet_imgs);
+    // console.log(cachet_imgs);
     return (
         <section className='container'>
             <h1 className='text-center my-5'>The cachet to compete with cash</h1>

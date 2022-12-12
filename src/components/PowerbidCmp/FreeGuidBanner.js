@@ -1,21 +1,46 @@
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { LinkRegular } from '../common/ButtonRegular';
+import {cachet_title,get_btn} from "./powerbid.module.css";
+
+
+const freeGuid_powerBD_QL = graphql`
+    query freeGuid_powerBD_QL {
+        banner_img: file(name: {eq: "powerbid_free_guid"}) {
+            name
+            childImageSharp {
+                gatsbyImageData
+            }
+        }
+        powerBanner_logo: file(name: {eq: "powerbid_logo"}) {
+            id
+            name
+            childImageSharp {
+                gatsbyImageData(width: 200)
+            }
+            size
+        }
+
+  }`;
+
 
 const FreeGuidBanner = () => {
+    const {banner_img,powerBanner_logo} = useStaticQuery(freeGuid_powerBD_QL);
     return (
-        <section className='container'>
-            <div>
-                <div>
-                    <em>Image</em>
-                    <h1>Get your free guide</h1>
-                    <p>We have created an informative guide that you can print out that helps first time home buyers throughout the home buying process.</p>
-                    <button>Get Your Copy</button>
-                </div>
-                <div>
-                    Image
+        <section className='container row gx-4 mx-auto my-5'>
+            <div className='col-12 col-md-6'>
+                <h1 className={cachet_title}>Get your free guide</h1>
+                <p className='fs-5'>We have created an informative guide that you can print out that helps first time home buyers throughout the home buying process.</p>
+                <div className='position-relative d-flex  justify-content-center flex-column'>
+                    <LinkRegular label={"Get your copy"} className={get_btn} url='' />
+                    <div className='text-center'>
+                        <GatsbyImage image={getImage(powerBanner_logo.childImageSharp)} alt="" />
+                    </div>
                 </div>
             </div>
-            <div>
-                <p>* PowerBid Approval (the “Approval”) is contingent upon receipt of executed sales contract, an acceptable appraisal supporting value, valid hazard insurance policy, and a re-review of your financial condition. Guaranteed Rate, Inc. reserves the right to revoke this Approval at any time if there is a change in your financial condition or credit history which would impair your ability to repay this obligation and/or if any information contained your application is untrue, incomplete or inaccurate. Receipt of an application does not represent an approval for financing or interest rate guarantee. Not all applicants will be approved for financing. Restrictions may apply, contact Guaranteed Rate for current rates and for more information.</p>
+            <div className='col-12 col-md-6'>
+                <GatsbyImage image={getImage(banner_img.childImageSharp)} alt="" />
             </div>
         </section>
     );
