@@ -1,4 +1,5 @@
 import React from 'react';
+import {text_container, list_container} from "../styles.module.css"
 
 const drawbackList = [
     {
@@ -15,11 +16,11 @@ const drawbackList = [
 const DrawbackFixRate = () => {
     return (
         <section>
-         <h1>What are the drawbacks to fixed rate mortgages?</h1>
-        <p>
+         <h2>What are the drawbacks to fixed rate mortgages?</h2>
+        <p className={text_container}>
             Fixed rate mortgages are great options for financing a home purchase, but they’re not perfect — no loan option is, really. We would be remiss if we didn’t address the potential disadvantages that a fixed rate mortgage presents:
         </p>
-        <ul>
+        <ul className={list_container}>
             {
                 drawbackList.map((para,idx)=><li key={idx}><b>{para.title}</b> {para.text}</li>)
             }

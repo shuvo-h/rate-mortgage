@@ -1,4 +1,5 @@
 import React from 'react';
+import {list_container} from "../styles.module.css"
 
 const list = [
     {
@@ -34,10 +35,10 @@ const list = [
 const OptionFixedRate = () => {
     return (
         <section>
-            <h1>What are your fixed rate loan options?</h1>
+            <h2>What are your fixed rate loan options?</h2>
             <p>Most prospective homebuyers are familiar with the conventional 30-year mortgage, but look a little deeper and you'll find plenty of fixed rate home loan options to explore. Not all lenders will offer these loan terms, though, so it’s a good idea to shop around to find the best fixed rate mortgage for you.</p>
             <div>
-                <ul>
+                <ul className={list_container}>
                     {
                         list.map((item,idx) => <li key={idx}> <b>{item.title}</b> {item.text}</li>)
                     }

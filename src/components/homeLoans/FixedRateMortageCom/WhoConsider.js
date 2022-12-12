@@ -1,4 +1,5 @@
 import React from 'react';
+import {list_container} from "../styles.module.css"
 
 const list = [
     "Homebuyers who plan to stay in their new house for a long time",
@@ -10,10 +11,10 @@ const list = [
 const WhoConsider = () => {
     return (
         <section>
-            <h1>Who should consider a fixed rate mortgage?</h1>
+            <h2>Who should consider a fixed rate mortgage?</h2>
             <div>
                 <p>Given the various fixed rate mortgage pros and cons to consider, what kind of borrower would be best served with this type of home loan?</p>
-                <ul>
+                <ul className={list_container}>
                     {
                         list.map((para,idx)=><li key={idx}>{para}</li>)
                     }
