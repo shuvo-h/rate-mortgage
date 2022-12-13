@@ -44,7 +44,7 @@ const Chart = ({handleMouseMoveInChart}) => {
   }
   
   return (
-      <div style={{height: "250px", width: '800px', margin: "30px 0px"}}>
+      <div style={{height: "250px", width: '900px', margin: "30px 0px"}}>
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart
             data={data}

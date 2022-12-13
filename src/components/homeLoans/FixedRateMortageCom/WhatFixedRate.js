@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Chart from '../../chart/chart';
 
-import {text_container, list_container, span_text, dynamic_text} from "../styles.module.css"
+import {text_container, list_container, span_text, dynamic_text, hidescroll} from "../styles.module.css"
 
 const paraList = [
     "Mortgage lending can be very complicated, making it difficult for homebuyers to appreciate the nuances of different loan types. With fixed rate loans, however, lenders have a straightforward loan product that’s easy for any borrower to understand.",
@@ -42,7 +42,7 @@ const WhatFixedRate = () => {
 
                 <p className={dynamic_text}>{percentage}% - {yearLabel}</p>
 
-                <div style={{width: "100%", overflowX: 'scroll'}}>
+                <div className={hidescroll} style={{overflowX: 'scroll'}}>
                     <Chart handleMouseMoveInChart={handleMouseMoveInChart} />
                 </div>
             </div>
