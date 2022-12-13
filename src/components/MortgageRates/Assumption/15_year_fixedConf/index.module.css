@@ -1,0 +1,16 @@
+.content_list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+
+  margin-bottom: 20px;
+}
+
+.link_item {
+  text-decoration: none;
+  color: var(--color-credit-good);
+}
+
+.link_item:hover {
+  color: var(--color-credit-good);
+}

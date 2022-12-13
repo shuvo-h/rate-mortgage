@@ -1,0 +1,14 @@
+.span_text {
+  display: block;
+  font-weight: 900;
+  font-size: 2.25rem;
+}
+
+
+.hidescroll {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.hidescroll::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}

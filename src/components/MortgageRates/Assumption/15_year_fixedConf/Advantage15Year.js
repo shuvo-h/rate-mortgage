@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Advantage15Year = ({adDis_vantage}) => {
+const Advantage15Year = ({adDis_vantage, idString}) => {
     return (
-        <section>
+        <section id={idString}>
             <h1>{adDis_vantage.title}</h1>
             <p>{adDis_vantage.introduction}</p>
             <div>
