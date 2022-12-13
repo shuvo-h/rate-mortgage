@@ -16,7 +16,7 @@
   max-height: var(--disclose_box_height);
   overflow: hidden;
   border-radius: 8px;
-  transition: all 0.7s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 .disclosure_icon{
   position: absolute;
@@ -24,4 +24,29 @@
   top: var(--diclosureTopPos);
   right: -20px;
   transition: all 0.7s ease-in-out;
+}
+
+.purchase_btn_hover:hover{
+  background-color: rgb(240, 240, 240);
+}
+.digital_personel_img{
+   /* min-width: 360px; */
+}
+
+@media screen and (min-width: 411px) {
+  .digital_personel_img{
+     min-width: 390px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .digital_personel_img{
+     min-width: 320px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .digital_personel_img{
+     max-width: 100%;
+  }
 }

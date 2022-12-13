@@ -1,5 +1,7 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import {digital_personel_img} from "../index.module.css";
 
 
 const digitalPersonData = {
@@ -9,7 +11,22 @@ const digitalPersonData = {
     btn:"Find a branch near you"
 }
 
+const digitalPersonel_QL = graphql`
+    query digitalPersonel_QL {
+        digitalPersonelImg: file(name: {eq: "digital_personel"}) {
+            name
+            childImageSharp {
+            gatsbyImageData
+            }
+        }
+    }
+
+`;
+
 const DigitalPersonal = () => {
+    const {digitalPersonelImg} = useStaticQuery(digitalPersonel_QL);
+    // console.log(digitalPersonelImg);
+
     return (
         <section className='container my-5'>
             <div className='row justify-content-center'>
@@ -21,8 +38,10 @@ const DigitalPersonal = () => {
                         <button className='refinancing_btn'>{digitalPersonData.btn}</button>
                     </div>
                 </div>
-                <div className='col-12 col-sm-6 order-first order-md-last' >
-                    {/* <StaticImage src='../../images/Home_img/digital.png' alt='banner' /> */}
+                <div className='col-12 col-md-6 order-first order-md-last' >
+                    <div className={digital_personel_img}>
+                        <GatsbyImage image={getImage(digitalPersonelImg.childImageSharp)} alt='' />
+                    </div>
                 </div>
             </div>
         </section>

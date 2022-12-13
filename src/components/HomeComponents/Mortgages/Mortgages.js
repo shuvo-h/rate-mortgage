@@ -9,10 +9,10 @@ const mortgageData = {
     viewBtn : "View all mortgage options",
     info:"Tell us about yourself.",
     mortgages: [
-        {icon: <ActiveServiceFlagIcon width={50} height={50} />, title:"I am an active service member"},
-        {icon: <HomeBuyerIcon width={50} height={50} />, title:"I am a first-time home-buyer"},
-        {icon: <CreditHistoryIcon width={50} height={50}  />, title:"I have a poor credit history"},
-        {icon: <HomeOwnerCashIcon width={50} height={50}  />, title:"I am a homeowner looking for cash"},
+        {icon: <ActiveServiceFlagIcon width={50} height={50} />, title:"I am an active service member",url:"/va-loans"},
+        {icon: <HomeBuyerIcon width={50} height={50} />, title:"I am a first-time home-buyer",url:"/buying-a-house"},
+        {icon: <CreditHistoryIcon width={50} height={50}  />, title:"I have a poor credit history",url:"/resources/buying-a-home-with-bad-credit"},
+        {icon: <HomeOwnerCashIcon width={50} height={50}  />, title:"I am a homeowner looking for cash",url:"/cash-out-refinance"},
     ]
 }
 

@@ -1,5 +1,10 @@
-import { Link } from 'gatsby';
-import React from 'react';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import React, { useState } from 'react';
+import {MdArrowBackIos} from "react-icons/md";
+import { makeHyperLink } from '../../../utils/makeHyperText';
+import { ReactIcon } from '../../common/ButtonRegular';
+import {calculate_faq_title,faq_question,cal_faq_accordian, mortgageTopArticle,mortgageTopArticle_img_wraper,mortgageTopArticle_img} from "./mortgage_cacl.module.css";
 
 const FAQ_calculator = {
     title:"Mortgage calculator FAQ",
@@ -8,12 +13,64 @@ const FAQ_calculator = {
             title:"What our mortgage calculator tells you",
             url:"",
             description: [
-                "As you begin examining properties online as part of your homebuying search, you’ll want to know more than just the asking price of the home. Most likely, you’ll want to determine right away if you can afford it, and if you can, what the monthly payments will be when all is said and done.",
-                "While you can always hastily make a few back-of-the-envelope calculations, this isn’t exactly a modern, error-free way to estimate future mortgage payments. What borrowers need is something simple, straightforward and digital. Guaranteed Rate’s simple mortgage calculator is such a tool. The home loan calculator gives you instant, customized results that could have huge implications for your homebuying journey.",
-                "The mortgage process is complex and fraught with many potential pitfalls; that’s why it’s prudent to comparison shop to make sure you’re getting the best deal. Part of this involves enlisting a trusted, reputable bank or mortgage lender to help guide you through the process of securing an affordable mortgage you can trust.",
-                "Because today’s customers are technologically savvy and proactive, many of them particularly enjoy having access to a customizable mortgage payment calculator during the homebuying process. It can be instrumental in helping you gain confidence in your purchasing power, weed out unaffordable properties early on in the process and provide crucial insight into how different loan terms and interest rates affect monthly mortgage payments.",
-                "A good home loan calculator such as the one offered by Guaranteed Rate will account for all the critical homebuying factors such as home price, down payment, interest rate, loan term, property taxes, mortgage insurance and HOA fees. What’s more, our monthly mortgage calculator with down payments provides the borrower with clear results, breaking down the loan and monthly payment into its constituent parts to make it easier to understand. The pie chart is also a nice way to visualize costs.",
-                "Smart, digital tools like the mortgage rate estimator allow prospective homeowners to explore a variety of pricing and rate options, run different scenarios and really get a grasp on potential costs and payments. A good monthly home mortgage calculator tells individuals not only if they can afford a selected home, but what kind of factors might influence future payments. Especially with rates, even the most minute change can have a big impact on your estimated mortgage payments.",
+                {
+                    text:"As you begin examining properties online as part of your homebuying search, you’ll want to know more than just the asking price of the home. Most likely, you’ll want to determine right away if you can afford it, and if you can, what the monthly payments will be when all is said and done.",
+                    urls:[
+                        {
+                            name:"your homebuying search",
+                            url:"https://www.rate.com/buying-a-house"
+                        }
+                    ]
+                },
+                {
+                    text:"While you can always hastily make a few back-of-the-envelope calculations, this isn’t exactly a modern, error-free way to estimate future mortgage payments. What borrowers need is something simple, straightforward and digital. Guaranteed Rate’s simple mortgage calculator is such a tool. The home loan calculator gives you instant, customized results that could have huge implications for your homebuying journey.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text:"The mortgage process is complex and fraught with many potential pitfalls; that’s why it’s prudent to comparison shop to make sure you’re getting the best deal. Part of this involves enlisting a trusted, reputable bank or mortgage lender to help guide you through the process of securing an affordable mortgage you can trust.",
+                    urls:[
+                        {
+                            name:"The mortgage process",
+                            url:"https://www.rate.com/mortgage-process"
+                        },
+                        {
+                            name:"the process of securing an affordable mortgage",
+                            url:"https://www.rate.com/mortgage-process"
+                        },
+                    ]
+                },
+                {
+                    text:"Because today’s customers are technologically savvy and proactive, many of them particularly enjoy having access to a customizable mortgage payment calculator during the homebuying process. It can be instrumental in helping you gain confidence in your purchasing power, weed out unaffordable properties early on in the process and provide crucial insight into how different loan terms and interest rates affect monthly mortgage payments.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text:"A good home loan calculator such as the one offered by Guaranteed Rate will account for all the critical homebuying factors such as home price, down payment, interest rate, loan term, property taxes, mortgage insurance and HOA fees. What’s more, our monthly mortgage calculator with down payments provides the borrower with clear results, breaking down the loan and monthly payment into its constituent parts to make it easier to understand. The pie chart is also a nice way to visualize costs.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text:"Smart, digital tools like the mortgage rate estimator allow prospective homeowners to explore a variety of pricing and rate options, run different scenarios and really get a grasp on potential costs and payments. A good monthly home mortgage calculator tells individuals not only if they can afford a selected home, but what kind of factors might influence future payments. Especially with rates, even the most minute change can have a big impact on your estimated mortgage payments.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
             ]
         },
         {
@@ -24,43 +81,125 @@ const FAQ_calculator = {
                 {
                     title:"",
                     details:[
-                        "The free mortgage calculator is a versatile tool, as useful to an individual casually researching properties as it is to someone on the cusp of making a purchase. Let’s take a moment to go through the various moving parts of the home loan calculator to get a better understanding of what future mortgage payments might be by providing information for the following fields:"
+                        {
+                            text:"The free mortgage calculator is a versatile tool, as useful to an individual casually researching properties as it is to someone on the cusp of making a purchase. Let’s take a moment to go through the various moving parts of the home loan calculator to get a better understanding of what future mortgage payments might be by providing information for the following fields:",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
                     ]
                 },
                 {
                     title:"Home price",
-                    details:["The total sale price of a property agreed upon between buyer and seller."]
+                    details:[
+                        {
+                            text:"The total sale price of a property agreed upon between buyer and seller.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
+                    ]
                 },
                 {
                     title:"Down payment",
                     details:[
-                        "The amount of money given to the seller by a buyer upon purchase. The remainder of the total home price will be covered by a mortgage. If a buyer makes a down payment of less than 20%, the lender typically requires them to purchase private mortgage insurance (PMI). PMI protects the lender in the event of foreclosure."
+                        {
+                            text:"The amount of money given to the seller by a buyer upon purchase. The remainder of the total home price will be covered by a mortgage. If a buyer makes a down payment of less than 20%, the lender typically requires them to purchase private mortgage insurance (PMI). PMI protects the lender in the event of foreclosure.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
                     ]
                 },
                 {
                     title:"Principal",
                     details:[
-                        "The principal is the balance of the home loan or mortgage to be paid off. It’s calculated as the home price minus the down payment. For example, a $400,000 home purchased with a 20% down payment of $80,000, will have a principal balance at the beginning of the mortgage of $320,000."
+                        {
+                            text: "The principal is the balance of the home loan or mortgage to be paid off. It’s calculated as the home price minus the down payment. For example, a $400,000 home purchased with a 20% down payment of $80,000, will have a principal balance at the beginning of the mortgage of $320,000.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
                     ]
                 },
                 {
                     title:"Interest rate",
                     details:[
-                        "This is the cost of obtaining a loan from a lender expressed as a percent. Your exact interest rate will be determined by your lender after consideration of several factors including inflation, Federal Reserve rates, your credit score, lending fees and the duration of the mortgage you’re seeking. See what our current mortgage rates are today and use them in your home mortgage calculator input above."
+                        {
+                            text: "This is the cost of obtaining a loan from a lender expressed as a percent. Your exact interest rate will be determined by your lender after consideration of several factors including inflation, Federal Reserve rates, your credit score, lending fees and the duration of the mortgage you’re seeking. See what our current mortgage rates are today and use them in your home mortgage calculator input above.",
+                            urls:[
+                                {
+                                    name:"current mortgage rates are today",
+                                    url:"https://www.rate.com/mortgage-rates"
+                                }
+                            ]
+                        },
+                        
                     ]
                 },
                 {
                     title:"Loan term",
-                    details:["This is the duration of the mortgage, or the length of time you’re given to pay off the home loan in full. If you’re unsure which term length is right for you, explore different home loan options before using the house payment calculator."]
+                    details:[
+                        {
+                            text: "This is the duration of the mortgage, or the length of time you’re given to pay off the home loan in full. If you’re unsure which term length is right for you, explore different home loan options before using the house payment calculator.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                    ]
                 },
                 {
                     title:"Property taxes",
-                    details:["The annual tax levied by the government on your property. The nationwide average is about $2,470 annually or just over 1.2% of the home’s assessed value. However, property taxes can vary widely state by state."]
+                    details:[
+                        {
+                            text: "The annual tax levied by the government on your property. The nationwide average is about $2,470 annually or just over 1.2% of the home’s assessed value. However, property taxes can vary widely state by state.",
+                            urls:[
+                                {
+                                    name:"property taxes can vary widely",
+                                    url:"https://www.rate.com/resources/where-do-my-property-taxes-go"
+                                }
+                            ]
+                        },
+                        
+                    ]
                 },
                 {
                     title:"Homeowners insurance",
                     details:[
-                        "The typical insurance policy that covers damages to your property as well as your possessions kept in the insured home. The average annual cost of homeowners insurance is $1,445. Like taxes, though, homeowners insurance costs can greatly vary from state to state depending on a range of factors."
+                        {
+                            text: "The typical insurance policy that covers damages to your property as well as your possessions kept in the insured home. The average annual cost of homeowners insurance is $1,445. Like taxes, though, homeowners insurance costs can greatly vary from state to state depending on a range of factors.",
+                            urls:[
+                                {
+                                    name:"$1,516.",
+                                    url:"https://www.valuepenguin.com/average-cost-of-homeowners-insurance"
+                                },
+                                {
+                                    name:"homeowners insurance costs",
+                                    url:"https://www.rate.com/resources/what-is-homeowners-insurance"
+                                },
+                            ]
+                        },
+
+                        
                     ]
                 },
             ]
@@ -92,10 +231,46 @@ const FAQ_calculator = {
             title:"Determine your desired monthly mortgage payments",
             url:"",
             description:[
-                "Lenders always want to reduce the inherent risk of lending money by performing extensive credit checks on potential borrowers to ensure they are financially sound candidates likely to repay the loan in full and on time.",
-                "One of the key metrics they use is an industry ratio called debt-to-income ratio or DTI. It’s a valuable resource for lenders but it can also be helpful to borrowers by indicating what is realistically affordable on a monthly basis. For example, most lenders like to see a DTI ratio of 43% or less for a conventional loan, although under some circumstances, lenders will tolerate a DTI up to 50%. When DTI is surging past 40%, it could be a sign that you need to increase your income or look for a more affordable home.",
-                "Additionally, it’s important to note that when tabulating debt vs. income, lenders aren’t typically mindful of accounting for leftover monthly cash you will need for discretionary spending, emergency funds, retirement savings, etc. That’s where your comfort level comes into play. Most homeowners don’t want to just scrape by; they want to have excess funds at the end of each month. Always take this into account.",
-                "It can often be helpful to consult an industry-leading affordability calculator to help with these considerations. Historically, many financial advisors have suggested adhering to the 28/36 rule, which says to not spend more than 28% of your gross monthly income on housing expenses and only 36% of your income on overall monthly recurring debt (including housing)."
+                {
+                    text: "Lenders always want to reduce the inherent risk of lending money by performing extensive credit checks on potential borrowers to ensure they are financially sound candidates likely to repay the loan in full and on time.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text: "One of the key metrics they use is an industry ratio called debt-to-income ratio or DTI. It’s a valuable resource for lenders but it can also be helpful to borrowers by indicating what is realistically affordable on a monthly basis. For example, most lenders like to see a DTI ratio of 43% or less for a conventional loan, although under some circumstances, lenders will tolerate a DTI up to 50%. When DTI is surging past 40%, it could be a sign that you need to increase your income or look for a more affordable home.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text: "Additionally, it’s important to note that when tabulating debt vs. income, lenders aren’t typically mindful of accounting for leftover monthly cash you will need for discretionary spending, emergency funds, retirement savings, etc. That’s where your comfort level comes into play. Most homeowners don’t want to just scrape by; they want to have excess funds at the end of each month. Always take this into account.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text: "It can often be helpful to consult an industry-leading affordability calculator to help with these considerations. Historically, many financial advisors have suggested adhering to the 28/36 rule, which says to not spend more than 28% of your gross monthly income on housing expenses and only 36% of your income on overall monthly recurring debt (including housing).",
+                    urls:[
+                        {
+                            name:"industry-leading affordability calculator",
+                            url:"https://www.rate.com/mortgage-calculators/how-much-home-can-I-buy-calculator"
+                        },
+                        {
+                            name:"28/36 rule",
+                            url:"https://www.fool.com/the-ascent/mortgages/28-36-rule/"
+                        },
+                    ]
+                },
             ],
         },
         {
@@ -106,39 +281,155 @@ const FAQ_calculator = {
                 {
                     title:"",
                     details:[
-                        "Mortgage rates play an outsized role in determining what your estimate mortgage payment (monthly) will be. They can be fixed or adjustable and the rates themselves will vary based on how the duration of the loan is structured. For example, 15-year loans come with lower interest rates than 30-year loans.",
-                        "When you see housing analysts opine on the news that “it’s a good time to buy a home,” what they are usually referring to is the trend of the prevailing interest rates. In other words, there is an historical trajectory of interest rates that can be observed and understood in a larger macroeconomic context. Simply put, interest rates fluctuate and you’ll want to time the market to take advantage of any downward shifts in interest rates."
+                        {
+                            text: "Mortgage rates play an outsized role in determining what your estimate mortgage payment (monthly) will be. They can be fixed or adjustable and the rates themselves will vary based on how the duration of the loan is structured. For example, 15-year loans come with lower interest rates than 30-year loans.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        {
+                            text: "When you see housing analysts opine on the news that “it’s a good time to buy a home,” what they are usually referring to is the trend of the prevailing interest rates. In other words, there is an historical trajectory of interest rates that can be observed and understood in a larger macroeconomic context. Simply put, interest rates fluctuate and you’ll want to time the market to take advantage of any downward shifts in interest rates.",
+                            urls:[
+                                {
+                                    name:"an historical trajectory of interest rates",
+                                    url:"https://www.rate.com/research/national-30-year-rate"
+                                }
+                            ]
+                        },
+                        ,
+                        
                     ],
                 },
                 {
                     title:"Understanding mortgage rates",
                     details:[
-                        "A mortgage rate is essentially the interest rate you pay on the principal (the loan) you are borrowing from the lender. As you zero in on the house you want to buy, you’ll likely become very aware of the various mortgage rates available, the fluctuations in rates from lender to lender, as well as how the term of the loan, home location and your own creditworthiness pool together to affect the rate offered.",
-                        "To lock in an optimal interest rate, it’s helpful to possess both patience and decisiveness. Savvy homebuyers realize it’s crucial to conduct methodical research and tap the assistance of a knowledgeable, experienced loan officer who understands the housing market and is prepared to go the extra mile to guide you through the process and secure the best mortgage rate available."
+                        {
+                            text:"A mortgage rate is essentially the interest rate you pay on the principal (the loan) you are borrowing from the lender. As you zero in on the house you want to buy, you’ll likely become very aware of the various mortgage rates available, the fluctuations in rates from lender to lender, as well as how the term of the loan, home location and your own creditworthiness pool together to affect the rate offered.",
+                            urls:[
+                                {
+                                    name:"various mortgage rates available",
+                                    url:"https://www.rate.com/resources/first-time-homebuyer-part-3"
+                                }
+                            ]
+                        },
+                        {
+                            text: "To lock in an optimal interest rate, it’s helpful to possess both patience and decisiveness. Savvy homebuyers realize it’s crucial to conduct methodical research and tap the assistance of a knowledgeable, experienced loan officer who understands the housing market and is prepared to go the extra mile to guide you through the process and secure the best mortgage rate available.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        ,
+                        
                     ],
                 },
                 {
                     title:"Loan terms and interest rates",
                     details:[
-                        "On the above house loan calculator, you can see that it allows you to select a loan term (length of loan) anywhere from 10 years all the way to 30 years. Most prospective borrowers choose either a 15-year mortgage or a 30-year mortgage. Both selections have a marked effect on the interest rate you are offered.",
-                        "Typically, a 30-year mortgage is chosen because borrowers want to spread out the costs of repaying the principal over a long duration. However, because the lender is being paid back slowly over many years there is greater built-in risk and that risk must be accounted for. To reflect this risk, the resulting interest rate is usually higher than what it would be for a 15-year loan.",
-                        "A 15-year mortgage carries less risk and is less expensive for the lender; therefore, the interest charged is almost always lower than a loan spread out over twice the period. You can also build equity in your home more quickly. That’s the good news. Of course, because you're paying the entire loan back in only 15 years, your premiums will be higher, which is to say, your monthly payment will be higher. Your personal financial situation will always dictate what you can afford on a monthly basis.",
-                        "It’s recommended that you test out scenarios on our home mortgage calculator to see how interest rate changes as you shift back and forth between different loan terms. A simple 1.0% difference in interest rate—or even 0.5%—can result in you paying thousands of more dollars in interest over the life of the loan."
+                        {
+                            text: "On the above house loan calculator, you can see that it allows you to select a loan term (length of loan) anywhere from 10 years all the way to 30 years. Most prospective borrowers choose either a 15-year mortgage or a 30-year mortgage. Both selections have a marked effect on the interest rate you are offered.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        {
+                            text: "Typically, a 30-year mortgage is chosen because borrowers want to spread out the costs of repaying the principal over a long duration. However, because the lender is being paid back slowly over many years there is greater built-in risk and that risk must be accounted for. To reflect this risk, the resulting interest rate is usually higher than what it would be for a 15-year loan." ,
+                            urls:[
+                                {
+                                    name:"30-year mortgage",
+                                    url:"https://www.rate.com/mortgage-rates/assumptions/30-year_fixed_conforming"
+                                }
+                            ]
+                        },
+                        {
+                            text: "A 15-year mortgage carries less risk and is less expensive for the lender; therefore, the interest charged is almost always lower than a loan spread out over twice the period. You can also build equity in your home more quickly. That’s the good news. Of course, because you're paying the entire loan back in only 15 years, your premiums will be higher, which is to say, your monthly payment will be higher. Your personal financial situation will always dictate what you can afford on a monthly basis.",
+                            urls:[
+                                {
+                                    name:"15-year mortgage",
+                                    url:"https://www.rate.com/mortgage-rates/assumptions/15-year_fixed_conforming"
+                                }
+                            ]
+                        },
+                        {
+                            text: "It’s recommended that you test out scenarios on our home mortgage calculator to see how interest rate changes as you shift back and forth between different loan terms. A simple 1.0% difference in interest rate—or even 0.5%—can result in you paying thousands of more dollars in interest over the life of the loan.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        ,
+                        ,
+                        
                     ],
                 },
                 {
                     title:"Adjustable interest rates",
                     details:[
-                        "So far, we’ve been talking mostly about loans with fixed interest rates. However, there is another kind of loan where the interest rate changes periodically. These are called adjustable rate mortgages or ARMs.",
-                        "ARMs typically come with lower introductory rates, meaning that the first few years may be less expensive than a fixed loan. However, after a set time, the mortgage rate adjusts to the prevailing interest rate, which can be either good or bad depending on the trend. The gamble frequently pays off if you’re only going to be living in your home for a few years. ARMs become more of a gamble, however, once the fixed-rate period ends (usually after five years) and your mortgage rate becomes subject to the fluctuations of the housing market."
+                        {
+                            text: "So far, we’ve been talking mostly about loans with fixed interest rates. However, there is another kind of loan where the interest rate changes periodically. These are called adjustable rate mortgages or ARMs.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        {
+                            text: "ARMs typically come with lower introductory rates, meaning that the first few years may be less expensive than a fixed loan. However, after a set time, the mortgage rate adjusts to the prevailing interest rate, which can be either good or bad depending on the trend. The gamble frequently pays off if you’re only going to be living in your home for a few years. ARMs become more of a gamble, however, once the fixed-rate period ends (usually after five years) and your mortgage rate becomes subject to the fluctuations of the housing market.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
+                        
                     ],
                 },
                 {
                     title:"Other factors that affect interest rates",
                     details:[
-                        "As mentioned above, there are other factors such as location and creditworthiness in the form of your credit score that also affect interest rates.",
-                        "The best mortgage rates go to those individuals with very good or excellent credit scores that start around 740 or so on the FICO rating system. Since a credit score is a highly valuable tool in determining a borrower’s likelihood to repay a loan on time and in full, it’s also influential in determining interest rates. To account for risk, a lower credit score will result in a higher interest rate.",
-                        "Location also plays a role, albeit not an overly significant one. Where your new home is physically situated—the state and locale—has an affect on the mortgage rate. There are several factors at work here, notably a state’s foreclosure laws that could make it difficult for a lender to assume ownership of a property in the event of default. Rates can also differ between urban and rural areas, and state to state."
+                        {
+                            text: "As mentioned above, there are other factors such as location and creditworthiness in the form of your credit score that also affect interest rates.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        {
+                            text: "The best mortgage rates go to those individuals with very good or excellent credit scores that start around 740 or so on the FICO rating system. Since a credit score is a highly valuable tool in determining a borrower’s likelihood to repay a loan on time and in full, it’s also influential in determining interest rates. To account for risk, a lower credit score will result in a higher interest rate.",
+                            urls:[
+                                {
+                                    name:"very good or excellent credit scores",
+                                    url:"https://www.rate.com/resources/credit-score-chart"
+                                }
+                            ]
+                        },
+                        {
+                            text: "Location also plays a role, albeit not an overly significant one. Where your new home is physically situated—the state and locale—has an affect on the mortgage rate. There are several factors at work here, notably a state’s foreclosure laws that could make it difficult for a lender to assume ownership of a property in the event of default. Rates can also differ between urban and rural areas, and state to state.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
+                        
+                        
                     ],
                 },
             ],
@@ -290,30 +581,97 @@ const FAQ_calculator = {
                 {
                     title:"Monthly principal",
                     text:[
-                        "The monthly principal is determined by taking the entire principal and then dividing it by the term of the loan (30, 15, etc) and then further dividing that number by 12. For example, a fixed loan for $300,000 with a 30-year mortgage would result in monthly payments of $833.00 ($300,000 / 30 /12 = $833.33)."
+                        {
+                            text: "The monthly principal is determined by taking the entire principal and then dividing it by the term of the loan (30, 15, etc) and then further dividing that number by 12. For example, a fixed loan for $300,000 with a 30-year mortgage would result in monthly payments of $833.00 ($300,000 / 30 /12 = $833.33).",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        
                     ],
                 },
                 {
                     title:"Interest",
-                    text:["This is the interest charged on your principal. The Guaranteed Rate home loan calculator combines interest rate and principal into one figure in the monthly mortgage payment breakdown. Together, these two costs comprise the bulk of your monthly estimated mortgage payment."],
+                    text:[
+                        {
+                            text: "This is the interest charged on your principal. The Guaranteed Rate home loan calculator combines interest rate and principal into one figure in the monthly mortgage payment breakdown. Together, these two costs comprise the bulk of your monthly estimated mortgage payment.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                    ],
                 },
                 {
                     title:"PMI",
-                    text:["If you fail to put down the recommended 20% down payment when buying a home, in many cases you will be required to purchase private mortgage insurance or PMI. PMI is a lender’s insurance against a borrower defaulting on the loan. And it’s another component of a good free mortgage calculator."],
+                    text:[
+                        {
+                            text: "If you fail to put down the recommended 20% down payment when buying a home, in many cases you will be required to purchase private mortgage insurance or PMI. PMI is a lender’s insurance against a borrower defaulting on the loan. And it’s another component of a good free mortgage calculator.",
+                            urls:[
+                                {
+                                    name:"private mortgage insurance or PMI",
+                                    url:"https://www.rate.com/resources/what-is-private-mortgage-insurance"
+                                }
+                            ]
+                        },
+                        ],
                 },
                 {
                     title:"Estimated property taxes",
-                    text:["The main reason home loan calculators ask for your zip code is so they can estimate your property taxes. Taxes vary by state and may change from year to year as new legislation is enacted. Regardless, taxes make up a significant part of your monthly mortgage payment."],
+                    text:[
+                        {
+                            text: "The main reason home loan calculators ask for your zip code is so they can estimate your property taxes. Taxes vary by state and may change from year to year as new legislation is enacted. Regardless, taxes make up a significant part of your monthly mortgage payment.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        ],
                 },
                 {
                     title:"Estimated homeowner’s insurance",
-                    text:["As a monthly cost, homeowner’s insurance can vary wildly state by state. The average cost is $120 per month."],
+                    text:[
+                        {
+                            text: "As a monthly cost, homeowner’s insurance can vary wildly state by state. The average cost is $120 per month.",
+                            urls:[
+                                {
+                                    name:"average cost",
+                                    url:"https://www.valuepenguin.com/average-cost-of-homeowners-insurance"
+                                }
+                            ]
+                        },
+                        ],
                 },
                 {
                     title:"HOA",
                     text:[
-                        "HOA, or homeowners association fees, are dues collected by a homeowner’s association to cover property maintenance, repairs and certain amenities. These fees are not applicable in all neighborhood settings; they’re most common in the context of condominiums, co-ops and planned residential communities that put a premium on improving properties, keeping them clean and providing a cooperative spirit.",
-                        "HOA fees can run the gamut between $100 to $700 per month; on average, however, fees tend to be about $200. If applicable, they are rolled into your monthly mortgage payment as seen in our home loan calculator."
+                        {
+                            text: "HOA, or homeowners association fees, are dues collected by a homeowner’s association to cover property maintenance, repairs and certain amenities. These fees are not applicable in all neighborhood settings; they’re most common in the context of condominiums, co-ops and planned residential communities that put a premium on improving properties, keeping them clean and providing a cooperative spirit.",
+                            urls:[
+                                {
+                                    name:"",
+                                    url:""
+                                }
+                            ]
+                        },
+                        {
+                            text: "HOA fees can run the gamut between $100 to $700 per month; on average, however, fees tend to be about $200. If applicable, they are rolled into your monthly mortgage payment as seen in our home loan calculator.",
+                            urls:[
+                                {
+                                    name:"on average, however, fees tend to be about",
+                                    url:"https://www.forbes.com/advisor/mortgages/hoa-fees/"
+                                }
+                            ]
+                        },
+                        
+                        
                     ],
                 },
             ],
@@ -469,8 +827,25 @@ const FAQ_calculator = {
             title:"Calculate your mortgage payments today",
             url:"",
             description:[
-                "The process of selecting your new home—and the mortgage that accompanies it—can be both an exhilarating and exhausting activity. Preparation is key. The momentous nature of a purchase of this magnitude means you don’t want to just have all your ducks in a row, but all your dollars and cents too. Fortunately, there’s a tool to help provide financial clarity.",
-                "Our home mortgage calculator with PMI, taxes and insurance is an invaluable resource for prospective homeowners who want to compare different property prices, rates, terms, down payment, and more. Exploring different pricing scenarios and the effects they have on monthly payments is an important step in finding a loan that aligns with your financial situation. Once you have the necessary insight, be sure to contact an experienced, knowledgeable loan officer who can guide you toward a purchase."
+                {
+                    text:"The process of selecting your new home—and the mortgage that accompanies it—can be both an exhilarating and exhausting activity. Preparation is key. The momentous nature of a purchase of this magnitude means you don’t want to just have all your ducks in a row, but all your dollars and cents too. Fortunately, there’s a tool to help provide financial clarity.",
+                    urls:[
+                        {
+                            name:"",
+                            url:""
+                        }
+                    ]
+                },
+                {
+                    text: "Our home mortgage calculator with PMI, taxes and insurance is an invaluable resource for prospective homeowners who want to compare different property prices, rates, terms, down payment, and more. Exploring different pricing scenarios and the effects they have on monthly payments is an important step in finding a loan that aligns with your financial situation. Once you have the necessary insight, be sure to contact an experienced, knowledgeable loan officer who can guide you toward a purchase.",
+                    urls:[
+                        {
+                            name:"contact an experienced, knowledgeable loan officer",
+                            url:"https://apply.guaranteedrate.com/apply/express-loan"
+                        }
+                    ]
+                },
+                
             ],
         }
     ]
@@ -480,77 +855,180 @@ const topCalculatorArticles = [
     {
         title:"What is homeowners insurance: The complete guide",
         url:"",
-        image:"",
+        image:"homeowners_insurance",
         publish_date:"3/11/2021",
         author:"Marty Arneberg",
         tags:["insurance", "homeownership"],
-        text:["Homeowners insurance offers the added security of financial protection against property damage or loss of personal belongings. In the event of a fire or natural disaster, this type of insurance reimburses the homeowner for repairs or replacement of lost property. This coverage also protects the homeowner from legal liability in the event that a property loss, injury or death should occur on the property"]
+        text:["Homeowners insurance is your security blanket but it does a lot more. See what homeowners insurance covers, when it is required & how it can affect your taxes."]
     },
     {
         title:"What is an amortization schedule?",
         url:"",
-        image:"",
+        image:"amortization_schedule",
         publish_date:"2/11/2021",
         author:"Marty Arneberg ",
         tags:[],
-        text:["After your loan application is approved, it’s time to put together a repayment plan. Luckily, lenders can’t leave you in the dark when it comes to your loan balance and scheduled payment breakdown. Your lender will provide what’s known as an amortization schedule to guide you through your mortgage repayment."],
+        text:["Understanding your amortization schedule will help any borrower. Calculate your mortgage amortization to see how your amortization payments decrease over time."],
     },
     {
         title:"Checklist: Are you ready to buy a home?",
         url:"",
-        image:"",
+        image:"ready_buy_home",
         publish_date:"7/31/2020",
         author:"Andrew Leamon",
         tags:["first-time homebuyer", "buying a home", "before you buy home buying tips"],
-        text:["You've got your eye on a home. Next up, it's time to shop and compare loan products and rates. If you're still unsure what to do here, we don't blame you. Whether it's your first time or not, buying a home is a huge decision that isn't always so easy. Each option could affect your bottom line differently. So it's important to make sure you're making an informed decision. "]
+        text:["You've got your eye on a home. Next up, it's time to shop and compare loan products and rates. If you're still unsure what to do here, we don't blame you."]
     },
 ]
 
+/*
+const calcFaq_QL = graphql`
+    query calcFaq_QL {
+    topArticleImgs: allFile(filter: {name: {in: ["homeowners_insurance","amortization_schedule","ready_buy_home"]}}) {
+        nodes {
+        name
+        childImageSharp {
+            gatsbyImageData
+        }
+        }
+    }
+    }
+
+`;
+*/
+const calcFaq_QL = graphql`
+    query calcFaq_QL {
+    topArticleImgs: allFile(filter: {name: {in: ["homeowners_insurance","amortization_schedule","ready_buy_home"]}}) {
+        nodes {
+        name
+        childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED)
+        }
+        }
+    }
+    }
+
+`;
 const CalcFAQlist = () => {
+    const {topArticleImgs:{nodes:articleImgs}} = useStaticQuery(calcFaq_QL);
+    console.log(articleImgs);
+    const [calcAccordianOpen,setCalcAccordianOpen] = useState([]);
+    const handleFaqAccordianOpen = (num) =>{
+        const isExist = calcAccordianOpen.includes(num);
+        if (isExist) {
+            setCalcAccordianOpen(calcAccordianOpen.filter(el=>el!==num));
+        }else{
+            setCalcAccordianOpen([...calcAccordianOpen,num])
+        }
+    }
+
     const faqs = FAQ_calculator.faq_list.map(item=>{
         return {id:item.id,title:item.title,url:item.url}
     })
+
     return (
         <section>
-            <h1>{FAQ_calculator.title}</h1>
-            <section>
+            <h1 className={calculate_faq_title}>{FAQ_calculator.title}</h1>
+            {/* 
+            <section >
                 {
                     faqs.map(faq=><Link to={faq.url} key={faq.id}>{faq.title}</Link>)
                 }
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[0].title}</h2>
-                <div>
+             */}
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(0)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(0) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(0) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[0].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(0) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(0) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(0) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div 
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(0) ? "100%":"0px"}}
+                >
                     {
-                        FAQ_calculator.faq_list[0].description.map((para,idx)=><p key={`par${idx}`}>{para}</p>)
+                        FAQ_calculator.faq_list[0].description.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt"))
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[1].title}</h2>
-                <div>
+
+            <section className='border-top  my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(1)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(1) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(1) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[1].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(1) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(1) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(1) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(1) ? "100%":"0px"}}
+                >
                     {
                         FAQ_calculator.faq_list[1].description.map((para,idx)=><div key={`par${idx}`}>
                             <h4>{para.title}</h4>
                             {
-                                para.details.map((sub_para,idx)=><p key={Date.now()+idx}>{sub_para}</p>)
+                                para.details.map((sub_para,idx)=>makeHyperLink(sub_para.text,sub_para.urls,idx,"linkSt"))
                             }
                         </div>)
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[2].title}</h2>
-                <div>
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(2)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(2) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(2) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[2].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(2) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(2) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(2) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(2) ? "100%":"0px"}}
+                >
                     {
                         FAQ_calculator.faq_list[2].description.introduction.map((para,idx)=><p key={Date.now()*idx}>{para}</p>)
                     }
-                    <h1>{FAQ_calculator.faq_list[2].description.formula.rule}</h1>
-                    <p>{FAQ_calculator.faq_list[2].description.formula.variable_int}</p>
+                    <h1 className='my-4'>{FAQ_calculator.faq_list[2].description.formula.rule}</h1>
+                    <p className='my-3'>{FAQ_calculator.faq_list[2].description.formula.variable_int}</p>
                     <div>
                         <ul>
                             {
-                                FAQ_calculator.faq_list[2].description.formula.notes.map(note=><li key={note}>{note}</li>)
+                                FAQ_calculator.faq_list[2].description.formula.notes.map(note=><li className='my-0' key={note}>{note}</li>)
                             }
                         </ul>
                     </div>
@@ -559,34 +1037,92 @@ const CalcFAQlist = () => {
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[3].title}</h2>
-                <div>
+            
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(3)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(3) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(3) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[3].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(3) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(3) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(3) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(3) ? "100%":"0px"}}
+                >
                     {
-                        FAQ_calculator.faq_list[3].description.map((para,idx)=><p key={`par${idx}`}>
-                           {para}
-                        </p>)
+                        FAQ_calculator.faq_list[3].description.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt"))
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[4].title}</h2>
-                <div>
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(4)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(4) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(4) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[4].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(4) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(4) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(4) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(4) ? "100%":"0px"}}
+                >
                     {
                         FAQ_calculator.faq_list[4].description.map((para,idx)=><div key={`par${idx}`}>
                            <h4>{para.title}</h4>
                            <div>
                             {
-                                para.details.map((para,idx)=><p key={`pardel${idx}`}>{para}</p>)
+                                para.details.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt"))
                             }
                            </div>
                         </div>)
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[5].title}</h2>
-                <div>
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(5)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(5) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(5) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[5].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(5) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(5) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(5) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(5) ? "100%":"0px"}}
+                >
                     {
                         FAQ_calculator.faq_list[5].description.introduction.map(el=><p key={Date.now()-4587}>{el}</p>)
                     }
@@ -601,51 +1137,95 @@ const CalcFAQlist = () => {
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[6].title}</h2>
-                <div>
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(6)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(6) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(6) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[6].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(6) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(6) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(6) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(6) ? "100%":"0px"}}
+                >
+                    <h2 className='my-4'>What’s included in your monthly mortgage payment?</h2>
                     {
-                        FAQ_calculator.faq_list[6].description.introduction.map(el=><p key={Date.now()-4587}>{el}</p>)
+                        FAQ_calculator.faq_list[6].description.introduction.map((el,idx)=><p key={idx}>{el}</p>)
                     }
-                    {
-                        FAQ_calculator.faq_list[6].description.details.map((para,idx)=><div key={`par${idx}`}>
-                           <h4>{para.title}</h4>
-                           <p>{para.text}</p>
-                        </div>)
-                    }
+                    <ul>
+                        {
+                            FAQ_calculator.faq_list[6].description.details.map((para,idx)=><li key={`par${idx}`}><b>{para.title}</b>{para.text}</li>)
+                        }
+                    </ul>
                    <div>
+                        <h2>Calculate your monthly mortgage payment with current loan rates</h2>
                         <p>{FAQ_calculator.faq_list[6].description.calculateMonthly.introduction}</p>
                         <div>
                             {
-                                FAQ_calculator.faq_list[6].description.calculateMonthly.linkList.map(link => <Link to={link.url} key={link.title}>{link.title}</Link>)
+                                FAQ_calculator.faq_list[6].description.calculateMonthly.linkList.map(link => <Link className='linkSt fw-bold d-block my-2 ' style={{color:"#136a87"}} to={link.url} key={link.title}>{link.title}</Link>)
                             }
                         </div>
                    </div>
-                   <Link to={FAQ_calculator.faq_list[6].description.calculateMonthly.button.url}>{FAQ_calculator.faq_list[6].description.calculateMonthly.button.title}</Link>
+                   {/* <Link to={FAQ_calculator.faq_list[6].description.calculateMonthly.button.url}>{FAQ_calculator.faq_list[6].description.calculateMonthly.button.title}</Link> */}
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[7].title}</h2>
-                <p>{FAQ_calculator.faq_list[7].introduction}</p>
-                <div>
-                    {
-                        FAQ_calculator.faq_list[7].linkList.map(link=><Link to={link.url} key={link.title}>{link.title}</Link>)
-                    }
-                </div>
-                <p>{FAQ_calculator.faq_list[7].conclusion}</p>
-                <p><b>Note:</b> {FAQ_calculator.faq_list[7].note}</p>
-                <div>
-                    {
-                        FAQ_calculator.faq_list[7].payPoints.map(point =><div key={point.title}>
-                            <h2>{point.title}</h2>
-                            {
-                                point.text.map(para => <p key={Math.random()}>{para}</p>)
-                            }
-                        </div>)
-                    }
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(7)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(7) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(7) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[7].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(7) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(7) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(7) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div 
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(7) ? "100%":"0px"}}
+                >
+                    <p>{FAQ_calculator.faq_list[7].introduction}</p>
+                    {/* <div>
+                        {
+                            FAQ_calculator.faq_list[7].linkList.map(link=><Link to={link.url} key={link.title}>{link.title}</Link>)
+                        }
+                    </div> */}
+                    <p>{FAQ_calculator.faq_list[7].conclusion}</p>
+                    <p><b>Note:</b> {FAQ_calculator.faq_list[7].note}</p>
+                    <div>
+                        {
+                            FAQ_calculator.faq_list[7].payPoints.map(point =><div key={point.title}>
+                                <h2>{point.title}</h2>
+                                {
+                                    point.text.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt"))
+                                }
+                            </div>)
+                        }
+                    </div>
                 </div>
             </section>
-            <section>
+
+            {/* <section>
                 <h2>{FAQ_calculator.faq_list[8].title}</h2>
                 <p>{FAQ_calculator.faq_list[8].introduction}</p>
                 <div>
@@ -670,10 +1250,30 @@ const CalcFAQlist = () => {
                         }
                     </div>
                 </div>
-            </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[9].title}</h2>
-                <div>
+            </section> */}
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(9)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(9) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(9) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[9].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(9) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(9) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(9) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(9) ? "100%":"0px"}}
+                >
                     {
                         FAQ_calculator.faq_list[9].description.map(el=><div>
                             <h3>{el.title}</h3>
@@ -684,42 +1284,91 @@ const CalcFAQlist = () => {
                     }
                 </div>
             </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[10].title}</h2>
-                <div>
-                    {
-                        FAQ_calculator.faq_list[10].description.introduction.map(el=><p key={Math.random()}>{el}</p>)
-                    }
-                </div>
-                <div>
-                    {
-                        FAQ_calculator.faq_list[10].description.details.map(el=><div>
-                            <h3>{el.title}</h3>
-                            <p>{ el.text}</p>
-                        </div>)
-                    }
-                </div>
-            </section>
-            <section>
-                <h2>{FAQ_calculator.faq_list[11].title}</h2>
-                <div>
-                    {
-                        FAQ_calculator.faq_list[11].description.map(el=><p key={Math.random()}>{el}</p>)
-                    }
-                </div>
-            </section>
-            <section>
-                {
-                    topCalculatorArticles.map(article =><article>
-                        <div>image</div>
-                        <div>
-                            <h3>{article.title}</h3>
-                            
+
+            <section className='border-top my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(10)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(10) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(10) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[10].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(10) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(10) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(10) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div 
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(10) ? "100%":"0px"}}
+                >
+                    <div>
+                        {
+                            FAQ_calculator.faq_list[10].description.introduction.map(el=><p key={Math.random()}>{el}</p>)
+                        }
+                    </div>
+                    <div>
+                        <ul>
                             {
-                                article.text.map(para => <p key={Math.random()}>{para}</p>)
+                                FAQ_calculator.faq_list[10].description.details.map(el=><li>
+                                    <Link className='linkSt ' to={el.url} >{el.title}</Link>
+                                    { el.text}
+                                </li>)
                             }
-                        </div>
-                    </article>)
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section className='border-top border-bottom my-2'>
+                <h4 
+                    className={`${faq_question} p-2 m-0 `} 
+                    onClick={()=>handleFaqAccordianOpen(11)}
+                    style={{
+                        backgroundColor: calcAccordianOpen.includes(11) ? "#eff4f5":"#fff",
+                        color: calcAccordianOpen.includes(11) ? "#136a87":"#000",
+                    }}
+                >
+                    {FAQ_calculator.faq_list[11].title}
+                    <span style={{
+                        transform: `rotate(${calcAccordianOpen.includes(11) ? "90deg":"-90deg"})`,
+                        right: calcAccordianOpen.includes(11) ? "5px":"12px",
+                        top: calcAccordianOpen.includes(11) ? "12px":"5px",
+                    }}>
+                        <ReactIcon ><MdArrowBackIos color='#136a87' /> </ReactIcon>
+                    </span>
+                </h4>
+                <div
+                    className={`${cal_faq_accordian} px-2`} 
+                    style={{["--cal_faq_accrdian_height"]: calcAccordianOpen.includes(11) ? "100%":"0px"}}
+                >
+                    {
+                        FAQ_calculator.faq_list[11].description.map((para,idx)=>makeHyperLink(para.text,para.urls,idx,"linkSt"))
+                    }
+                </div>
+            </section>
+            <section className='row'>
+                {
+                    topCalculatorArticles.map(article =>{
+                    const img = articleImgs.find(img_EL => img_EL.name === article.image)
+                    return <article className={`${mortgageTopArticle} col-12 col-lg-4 my-2`}>
+                        <Link className='text-decoration-none text-black' to={article.url}>
+                            <div className={mortgageTopArticle_img_wraper}>
+                                <GatsbyImage className={mortgageTopArticle_img} image={getImage(img?.childImageSharp)} alt='' />
+                            </div>
+                            <div>
+                                <h4>{article.title}</h4>
+                                {
+                                    article.text.map(para => <p className='fw-normal' key={Math.random()}>{para}</p>)
+                                }
+                            </div>
+                        </Link>
+                    </article>})
                 }
             </section>
         </section>

@@ -1,5 +1,5 @@
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { BadgeAwardIcon, BranchLocationIcon, DollarsIcon } from '../../../utils/icons/HomePageIcons';
 import Paving from './Paving';
@@ -13,12 +13,28 @@ const pavingsData = [
 ]
 
 
+const paving_QL = graphql`
+    query paving_QL {
+        satisfactionImg: file(name: {eq: "satisfaction"}) {
+            name
+            childImageSharp {
+                gatsbyImageData
+            }
+        }
+    }
+
+`;
+
+
 const Pavings = () => {
+    const {satisfactionImg} = useStaticQuery(paving_QL);
+    // console.log(satisfactionImg);
+    
     return (
         <section className="container my-5">
             <div>
-                <h2 className='fs-1 my-5'>Paving the way since Y2K</h2>
-                <div className='row g-3 text-center'>
+                <h1 className='fs-1 my-5 text-center'>Paving the way since Y2K</h1>
+                <div className='row g-3 my-5 text-center'>
                     {
                         pavingsData.map((paving,idx) => <Paving paving={paving} idx={idx} key={paving.info}></Paving>)
                     }
@@ -26,8 +42,10 @@ const Pavings = () => {
             </div>
             
             
-            <div className='d-md-flex align-items-center p-3'>
-                {/* <StaticImage src='../../../images/Home_img/satisfaction.png' width={150} alt='satisfaction' /> */}
+            <div className='d-md-flex align-items-center justify-content-center my-5 p-3'>
+                <div className={"text-center my-3"}>
+                        <GatsbyImage style={{maxWidth:"200px"}} image={getImage(satisfactionImg.childImageSharp)} alt='' />
+                </div>
                 <div className='ms-4'>
                     <p  style={{display:"inline", color:"grey"}}>100% satisfaction guaranteed, only from Guaranteed Rate. {" "}</p>
                     <Link className='text-decoration-none' style={{fontWeight:400}} style={{color:"grey"}} to="/">view details</Link>

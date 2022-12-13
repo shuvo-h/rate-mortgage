@@ -1,45 +1,46 @@
+import { graphql, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import { LinkRegular } from '../../components/common/ButtonRegular';
 import Layout from '../../components/Layout/layout';
 import CalcFAQlist from '../../components/MortgageCalsCmp/mortgageCals/CalcFAQlist';
 import MortgageCalculator from '../../components/MortgageCalsCmp/mortgageCals/MortgageCalculator';
 import OptionsTools from '../../components/MortgageCalsCmp/mortgageCals/OptionsTools';
 
-const OptionsAndPricingTools = {
-    title:"Homebuying options and pricing tools",
-    introduction:[],
-    pricingTools:[
-        {
-            image:"",
-            title:"Mortgage application",
-            url:""
-        },
-        {
-            image:"",
-            title:"Today's rates",
-            url:""
-        },
-        {
-            image:"",
-            title:"Loan options",
-            url:""
-        },
-    ],
-    conclusion:[
-        "To get a better sense of the total costs of buying a home, use our home mortgage calculator and figure out what your future mortgage payments will be.* Our home loan calculator accounts for all the essential conditions that will affect mortgage costs including loan type, loan amount, down payment, interest rate and more. Note: The calculator only provides preliminary estimates based on information you enter, and such factors as current interest rates, credit score and a debt-to-income ratio (DTI) above 43% may yield different pricing results."
-    ],
-}
 
+const mortgageCalc_QL = graphql`
+    query mortgageCalc_QL {
+        best_img: file(name: {eq: "the-best"}) {
+            size
+            relativeDirectory
+            name
+            childImageSharp {
+                gatsbyImageData
+            }
+        }
+    }
+
+`;
 
 
 const MortgageCalculators = () => {
+    const {best_img} = useStaticQuery(mortgageCalc_QL);
+    console.log(best_img);
+
     return (
         <Layout className='container'>
             <h1>Mortgage Calculator</h1>
             <MortgageCalculator />
-            <OptionsTools OptionsAndPricingTools={OptionsAndPricingTools} />
-            <h2>Get personalized rate estimates in as little as three minutes.</h2>
-            <button>Apply now</button>
-            <div>Image</div>
+            <OptionsTools />
+            <div>
+                <h1 className='text-center fw-bolder my-5'>Get personalized rate estimates in as little as three minutes.</h1>
+                <div className='text-center'>
+                    <LinkRegular url='' className='text-white bg-danger' label={"Apply now"} />
+                </div>
+                <div className='text-center my-4' >
+                    <GatsbyImage image={getImage(best_img.childImageSharp)} alt="" />
+                </div>
+            </div>
             <CalcFAQlist />
         </Layout>
     );
