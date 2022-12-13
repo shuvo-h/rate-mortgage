@@ -1,23 +1,24 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
+import {option_tool} from "./mortgage_cacl.module.css";
 
 
 const OptionsAndPricingTools = {
     title:"Homebuying options and pricing tools",
-    introduction:[],
     pricingTools:[
         {
-            image:"",
+            image:"CalculatorIconBold",
             title:"Mortgage application",
             url:""
         },
         {
-            image:"",
+            image:"RatesIconBold",
             title:"Today's rates",
             url:""
         },
         {
-            image:"",
+            image:"DesktopIcon_newv2",
             title:"Loan options",
             url:""
         },
@@ -28,26 +29,48 @@ const OptionsAndPricingTools = {
 }
 
 
+const optionTools_QL = graphql`
+    query optionTools_QL {
+        tools_imgList : allFile(filter: {name: {in: ["CalculatorIconBold","RatesIconBold","DesktopIcon_newv2"]}}) {
+            nodes {
+                name
+                relativePath
+                relativeDirectory
+                size
+                childImageSharp {
+                    gatsbyImageData
+                }
+            }
+        }
+    }
+`;
+
 const OptionsTools = () => {
+    const {tools_imgList:{nodes:tools_imgs}} = useStaticQuery(optionTools_QL);
+    // console.log(tools_imgs);
     return (
         <section>
-            <h2>{OptionsAndPricingTools.title}</h2>
-            <div>
+            <h1 className='text-center fw-bolder my-5'>{OptionsAndPricingTools.title}</h1>
+            <div className='row g-3'>
                 {
-                    OptionsAndPricingTools.introduction.map((para,idx)=><p key={`paraTool_${idx}`}></p>)
+                    OptionsAndPricingTools.pricingTools.map((tool,idx)=>{
+                        const img = tools_imgs.find(imgEl => imgEl.name === tool.image);
+                        return <div className='col-md-4 px-4' key={`paraToo_${idx}`}>
+                            <div className={`${option_tool} row scaleHover py-4`}>
+                                <div className='col-6 d-flex justify-content-end'>
+                                    <div>
+                                        <GatsbyImage image={getImage(img.childImageSharp)} alt="" />
+                                    </div>
+                                </div>
+                                <div className='col-6'>{tool.title}</div>      
+                            </div>
+                        </div>
+                    })
                 }
             </div>
-            <div>
+            <div className='my-3 fs-6 lh-base'>
                 {
-                    OptionsAndPricingTools.pricingTools.map((tool,idx)=><div key={`paraToo_${idx}`}>
-                        <div>Image</div>
-                        <div>{tool.title}</div>      
-                    </div>)
-                }
-            </div>
-            <div>
-                {
-                    OptionsAndPricingTools.conclusion.map((para,idx)=><p key={`paraToolC_${idx}`}></p>)
+                    OptionsAndPricingTools.conclusion.map((para,idx)=><p key={`paraToolC_${idx}`}>{para}</p>)
                 }
             </div>
         </section>
