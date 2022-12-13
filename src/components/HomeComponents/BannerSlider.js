@@ -33,6 +33,7 @@ const BannerSlider = () => {
                 keyboard={true}
                 modules={[Navigation, Pagination, Mousewheel, Keyboard, Autoplay]}
                 autoplay={{delay: 2500, disableOnInteraction: false,}}
+                loop={true}
                 className="mySwiper"
                 
             >

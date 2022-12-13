@@ -9,8 +9,12 @@
     padding-left: 3rem;
     height: var(--navHeight);
     white-space: nowrap;
-    /* position: relative; */
-
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
     
     width: var(--layout-screen-xxLarge);
     padding: 0 var(--space-xy-small-px);
