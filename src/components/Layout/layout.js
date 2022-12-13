@@ -29,7 +29,7 @@ const Layout = ({ className="",children }) => {
   return (
     <>
       <Header />
-      <div>
+      <div style={{marginTop:"90px"}}>
         <main className={className}>
           {children}
         </main>
