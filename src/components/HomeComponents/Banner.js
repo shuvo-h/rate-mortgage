@@ -1,6 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
+import BannerSlider from './BannerSlider';
 
 
 const bannerData = {
@@ -49,7 +50,8 @@ const Banner = () => {
                     </div>
                 </div>
                 <div className="col-12 col-sm-12 col-lg-6">
-                    <GatsbyImage image={getImage(bannerDataQL.banner_img.childImageSharp)} alt="Banner"></GatsbyImage>
+                    <BannerSlider />
+                    {/* <GatsbyImage image={getImage(bannerDataQL.banner_img.childImageSharp)} alt="Banner"></GatsbyImage> */}
                 </div>
             </div>
         </section>
