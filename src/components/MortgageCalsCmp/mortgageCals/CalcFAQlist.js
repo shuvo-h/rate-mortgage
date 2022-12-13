@@ -929,11 +929,13 @@ const CalcFAQlist = () => {
     return (
         <section>
             <h1 className={calculate_faq_title}>{FAQ_calculator.title}</h1>
+            {/* 
             <section >
                 {
                     faqs.map(faq=><Link to={faq.url} key={faq.id}>{faq.title}</Link>)
                 }
             </section>
+             */}
 
             <section className='border-top my-2'>
                 <h4 

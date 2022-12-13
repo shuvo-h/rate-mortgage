@@ -30,8 +30,8 @@ const MortgageCalculators = () => {
     return (
         <Layout className='container'>
             <h1>Mortgage Calculator</h1>
-            {/* <MortgageCalculator /> */}
-            {/* <OptionsTools /> */}
+            <MortgageCalculator />
+            <OptionsTools />
             <div>
                 <h1 className='text-center fw-bolder my-5'>Get personalized rate estimates in as little as three minutes.</h1>
                 <div className='text-center'>
