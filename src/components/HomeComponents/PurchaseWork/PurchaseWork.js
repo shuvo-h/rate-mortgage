@@ -3,7 +3,7 @@ import React from 'react';
 import useElementVisiable from '../../../hooks/useElementVisiable';
 import { DownArrow } from '../../../utils/icons/Arrows';
 import Step from './Step';
-
+import {purchase_btn_hover} from "../../index.module.css";
 
 
 const steps = [
@@ -41,12 +41,12 @@ const PurchaseWork = () => {
         <section className="container mt-5 pt-4">
             <h2 style={{fontSize:"3rem", lineHeight:"3.5rem"}}>
                 How home {" "}
-                <span style={{position:"relative",}} ref={elementRef} onClick={handleClickInSideElement}>
+                <span className='position-relative'  ref={elementRef} onClick={handleClickInSideElement}>
                     <span style={{cursor:"pointer", color:"#6495ED"}}>purchases</span>
                     {
-                        isVisiable &&  <span style={{position:"absolute", fontSize:"18px", fontWeight:400,top:"65px", left:"0", lineHeight:"30px", border:"1px solid skyblue", borderRadius:"5px", backgroundColor:"#fff"}}>
-                            <Link style={{display:"block", textDecoration:"none", padding:"8px"}} to={""} >Purchase</Link>
-                            <Link style={{display:"block", textDecoration:"none", padding:"8px"}} to={""} >Refinance</Link>
+                        isVisiable &&  <span className='position-absolute w-100' style={{ fontSize:"18px", fontWeight:400,top:"65px", left:"0", lineHeight:"30px", border:"1px solid skyblue", borderRadius:"5px", backgroundColor:"#fff"}}>
+                            <Link className={purchase_btn_hover} style={{display:"block", textDecoration:"none", padding:"8px"}} to={""} >Purchase</Link>
+                            <Link className={purchase_btn_hover} style={{display:"block", textDecoration:"none", padding:"8px"}} to={""} >Refinance</Link>
                         </span>
                     }
                 </span> 

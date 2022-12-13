@@ -42,7 +42,11 @@ const Calculator = () => {
         // console.log(loanAmount);
     },[])
 
-    const calculatorDetails_btn = <Link className='linkSt text-decoration-none fw-bold' style={{color:"rgb(24, 133, 169)"}} to="">View all mortgage calculators</Link>
+    const calculatorDetails_btn = <Link 
+        className='linkSt text-decoration-none fw-bold' 
+        style={{color:"rgb(24, 133, 169)"}} 
+        to="/mortgage-calculators/"
+    >View all mortgage calculators</Link>
 
 
     return (
