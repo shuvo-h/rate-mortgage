@@ -60,6 +60,17 @@
   margin: 30px auto;
 }
 
+.span_text {
+  display: block;
+  font-weight: 900;
+  font-size: 2.25rem;
+}
+
+.dynamic_text {
+  color: #707070;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 900px) {
   .header_container {
     display: grid;
