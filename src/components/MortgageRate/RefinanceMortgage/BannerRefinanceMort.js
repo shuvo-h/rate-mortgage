@@ -35,6 +35,7 @@ const banner_QL = graphql`
     }
 `;
 
+
 const BannerRefinanceMort = () => {
     const {refinance_mtg:{banner},banner_img} = useStaticQuery(banner_QL);
     // console.log(banner_img.childImageSharp,"In Com Ql Dt");

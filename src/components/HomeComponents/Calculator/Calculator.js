@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { DownArrow } from '../../../utils/icons/Arrows';
 import GrapgMortgage from './GrapgMortgage';
 import {boolet_style, disclosure_box, disclosure_icon} from "../../index.module.css";
+import CalculatorRegular from '../../common/CalculatorRegular';
+import { Link } from 'gatsby';
 
 
 const dataForGraph = [
@@ -19,13 +21,7 @@ const dataForGraph = [
 const calculatorData = {
     title: "Mortgage calculator",
     info:"Get a sense of the costs of buying a home with our monthly mortgage calculator.",
-    prices: {
-    //     home: 300,
-    //     downpay_1: 300,
-    //     downpay_2: 400,
-    //     interest_rate: 15,
-        loan_term: ["10","20","30"]
-    },
+    loan_term: ["10","20","30"],
     disclosures: ["Start house hunting! An agent knows your market and works with you to find your dream home on your budget. When you find your perfect home, present the seller a purchase contract with all the details.", "Start house hunting! An agent knows your market and works with you to find your dream home on your budget. When you find your perfect home, present the seller a purchase contract with all the details. Start house hunting! An agent knows your market and works with you to find your dream home on your budget. When you find your perfect home, present the seller a purchase contract with all the details. Start house hunting! An agent knows your market and works with you to find your dream home on your budget. When you find your perfect home, present the seller a purchase contract with all the details."]
 }
 
@@ -46,7 +42,17 @@ const Calculator = () => {
         // console.log(loanAmount);
     },[])
 
-// console.log(isDisclosureOpen);
+    const calculatorDetails_btn = <Link className='linkSt text-decoration-none fw-bold' style={{color:"rgb(24, 133, 169)"}} to="">View all mortgage calculators</Link>
+
+
+    return (
+        <section className='container'>
+            <CalculatorRegular calculator={calculatorData} dataForGraph={dataForGraph} COLORSForGraph={COLORSForGraph} OptionComponents={calculatorDetails_btn} />
+        </section>
+    )
+    
+
+    /*
     return (
         <section className="container py-5">
             <h2 className='fs-1 lh-2 mb-3'>{calculatorData.title}</h2>
@@ -189,6 +195,7 @@ const Calculator = () => {
 
         </section>
     );
+    */
 };
 
 export default Calculator;
