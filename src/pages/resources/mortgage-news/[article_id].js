@@ -4,22 +4,16 @@ import { useState } from 'react';
 import Layout from '../../../components/Layout/layout';
 
 const ArticleDetails = (ctx) => {
-    const {article_id} = ctx;
-    console.log(article_id);
-    const [article,setArticle] = useState();
-
-    useEffect(()=>{
-        if (article_id) {
-            fetch(`https://mortgage-strapi.herokuapp.com/api/articles/${article_id}`)
-            .then(res=>res.json())
-            .then(data=>{
-                // console.log(data);
-                setArticle(data?.data)
-            })
-            
-        }
-    },[article_id])
-console.log(article);
+    const {article_id,serverData:{article_data}} = ctx;
+    
+    
+    if (!article_data?.data.id) {
+        return <h1>Not Found</h1>
+    }
+    const article = article_data?.data;
+    
+    
+    
 
     if (!article?.id) {
         return <h1 className='text-center'><i>Loading..........</i></h1>
@@ -45,3 +39,29 @@ console.log(article);
 };
 
 export default ArticleDetails;
+
+
+export async function getServerData(context) {
+    const {params:{article_id}}  = context;
+    
+
+    try {
+      const res = await fetch(`https://mortgage-strapi.herokuapp.com/api/articles/${article_id}`)
+  
+      if (!res.ok) {
+        throw new Error(`Response failed`)
+      }
+  
+      return {
+        props:{
+            article_data:  await res.json(),
+        }
+      }
+    } catch (error) {
+      return {
+        status: 500,
+        headers: {},
+        props: {}
+      }
+    }
+  }
