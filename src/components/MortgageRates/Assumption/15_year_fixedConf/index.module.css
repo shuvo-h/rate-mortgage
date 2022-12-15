@@ -32,3 +32,25 @@
   border-bottom: 1px #ccc solid;
   padding: 10px 0px;
 }
+
+.great_30_list {
+  display: flex;
+  column-gap: 30px;
+  align-items: center; 
+}
+
+.great_30_list p {
+  margin-bottom: 0px;
+}
+
+.great_30_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .great_30_container {
+    grid-template-columns: 1fr;
+  }
+}
