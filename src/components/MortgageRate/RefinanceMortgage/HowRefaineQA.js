@@ -78,7 +78,7 @@ const HowRefaineQA = () => {
                     How_refinance.asking_list.map((para,para_idx) => {
                         const imgUrl = askingImgs.find(el => el.name === para.image)?.childImageSharp;
 
-                        return <div className='col-12 col-md-6' key={Math.random()}>
+                        return <div className='col-12 col-md-6' key={`pa_${para_idx}`}>
                             <div className='d-flex align-items-center'>
                                 <div className='me-4'>
                                     <GatsbyImage image={getImage(imgUrl?.gatsbyImageData)} alt="" />

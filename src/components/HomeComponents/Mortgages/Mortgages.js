@@ -32,6 +32,7 @@ const Mortgages = () => {
                     mortgageData.mortgages.map((mortgage,idx) =><MortgageCard mortgage={mortgage}  key={idx}></MortgageCard>)
                 }
             </div>
+            <ActiveServiceFlagIcon width={50} height={50} />
         </section>
     );
 };

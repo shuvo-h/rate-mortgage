@@ -64,9 +64,9 @@ const HomeRate = () => {
             </div>
             <div className='row g-4'>
                 {
-                    home_rate.rate_factors.map(factor => {
+                    home_rate.rate_factors.map((factor,elIdx) => {
                         const img = mortRatesImgs.find(el => el.name === factor.image)?.childImageSharp;
-                        return <div className='col-12 col-md-6' key={Math.random()}>
+                        return <div className='col-12 col-md-6' key={elIdx}>
                             <div className='d-flex align-items-center'>
                                 <div className='d-flex justify-content-center me-3'>
                                     <div style={{width:"55px"}}>

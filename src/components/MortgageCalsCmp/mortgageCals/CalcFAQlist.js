@@ -1278,7 +1278,7 @@ const CalcFAQlist = () => {
                         FAQ_calculator.faq_list[9].description.map(el=><div>
                             <h3>{el.title}</h3>
                             {
-                                el.text.map(para=><p key={Math.random()}>{para}</p>)
+                                el.text.map((para,idx)=><p key={idx}>{para}</p>)
                             }
                         </div>)
                     }
@@ -1309,7 +1309,7 @@ const CalcFAQlist = () => {
                 >
                     <div>
                         {
-                            FAQ_calculator.faq_list[10].description.introduction.map(el=><p key={Math.random()}>{el}</p>)
+                            FAQ_calculator.faq_list[10].description.introduction.map((el,elIdx)=><p key={elIdx}>{el}</p>)
                         }
                     </div>
                     <div>
@@ -1364,7 +1364,7 @@ const CalcFAQlist = () => {
                             <div>
                                 <h4>{article.title}</h4>
                                 {
-                                    article.text.map(para => <p className='fw-normal' key={Math.random()}>{para}</p>)
+                                    article.text.map((para,elIdx) => <p className='fw-normal' key={elIdx}>{para}</p>)
                                 }
                             </div>
                         </Link>

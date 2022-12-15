@@ -60,7 +60,7 @@ const ShouldRefinance = () => {
             <h2>{should_refinance.title}</h2>
             <div>
                 {
-                    should_refinance.paragraphs.map(para => <div key={Math.random()}>
+                    should_refinance.paragraphs.map((para,idx) => <div key={idx}>
                         <h4>{para.sub_title}</h4>
                         {
                             para.paras.map((textInfo,idx) => makeHyperLink(textInfo.text,textInfo.urls,idx,"linkSt",{maxWidth:"100%"}))
@@ -71,11 +71,11 @@ const ShouldRefinance = () => {
             <div style={{borderBottom:"1px solid var(--color-marketing-8-lighter)"}}>
                 <p>{should_refinance.refinance_reasons.intro}</p>
                 {
-                    should_refinance.refinance_reasons.list.map((para,accordianIdx) => <div  className={shouldAccordian} key={Math.random()}>
+                    should_refinance.refinance_reasons.list.map((para,accordianIdx) => <div  className={shouldAccordian} key={accordianIdx}>
                         <h4 style={{cursor:"pointer"}} onClick={()=>accordianHandler(accordianIdx)}>{para.title}</h4>
                         <div style={{display: shouldExpandAccordians.includes(accordianIdx)?"block":"none"}}>
                           {
-                              para.details.map((textInfo,txtId) => <div key={Math.random()}>
+                              para.details.map((textInfo,txtId) => <div key={txtId}>
                                   {makeHyperLink(textInfo.text,textInfo.urls,txtId,"linkSt",{maxWidth:"100%"})}
                               </div>)
                           }
