@@ -13,7 +13,7 @@ const ArticleDetails = (ctx) => {
     const article = article_data?.data;
     
     
-    
+    console.log(article);
 
     if (!article?.id) {
         return <h1 className='text-center'><i>Loading..........</i></h1>
