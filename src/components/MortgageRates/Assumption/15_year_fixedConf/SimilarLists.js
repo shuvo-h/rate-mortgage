@@ -94,6 +94,46 @@ export const advantage15YearData = {
         "While regular payments will be higher, borrowers who opt for a 15-year loan structure can be free of that financial obligation in a much shorter amount of time, opening a path for new savings plans in addition to homeownership."
     ]
 }
+export const advantage30YearData = {
+    title:"Benefits of 30-year fixed-rate mortgages",
+    introduction:"As one of the most popular home financing options, 30-year fixed-rate mortgages present an array of benefits that other loan structures can’t offer. Let’s take a look at the four major advantages and how they might help you achieve your financial goals:",
+    terms:[
+        {
+            title:"Fixed interest rate",
+            answer:[
+                "Even in the face of drastic economic changes, the amount you pay each month is set in stone. This gives you a clearer picture of your finances from month to month. As we said above, ARM loans do not provide the same protection."
+            ]
+        },
+        {
+            title:"Lower mortgage payments",
+            answer:[
+                "Another major benefit of taking out a 30-year fixed-rate mortgage is the long repayment plan. Stretching out a mortgage over three decades brings down the monthly principal and interest payment you’ll be making, leaving room for other savings plans and investments.",
+
+                "Shorter term loans, such as 10 or 15-year fixed-rate mortgages leave the borrower with much less time to pay their lender back. This leads to much higher payments, which could hinder other savings plans."
+            ]
+        },
+        {
+            title:"Flexible payment limits",
+            answer:[
+                "After glancing at your amortization schedule, you’ll see that 30-year fixed mortgages come with required minimums that you’ll need to pay each month. However, this is only a minimum, and you do have the option to pay more.",
+
+                "Once you’ve settled into the rhythm of your monthly payments, you might find yourself with a few dollars left over. This extra cash can go towards your mortgage and help you pay off interest or gain equity at a much faster rate.",
+
+                "Paying more than your required payment is usually recommended for homeowners who plan to keep the property for a long period of time. This strategy could shrink your repayment plan from 30 years to 25. However, if you’re only staying in the home for 10 years, you will not have significantly reduced the loan’s principal and you won't reap the benefits of making those higher payments.",
+            ]
+        },
+
+        {
+            title: "Borrow more",
+            answer: [
+                "Making lower monthly payments means you might be able to afford more house than you would get with a 20- or 10-year loan. Not only do 30-year fixed-rate mortgages cost less month over month, but their long term structure also allows you to borrow more.",
+
+                "This means that applying for a 30-year mortgage will open up more options in the housing market and provide a broader array of properties to choose from."
+            ]
+        }
+    ],
+    conclusion:[]
+}
 
 export const disadvantage15YearData = {
     title:"Disadvantages of 15-year mortgages",
@@ -126,6 +166,33 @@ export const disadvantage15YearData = {
         "Possibly the biggest hurdle for borrowers interested in a 15-year mortgage is the higher price month to month. Given the shorter timespan of the loan, each payment will need to cover more principal in their scheduled payments than if the amortization schedule was stretched out longer.",
         "As a result, the monthly payment on 15-year mortgages are substantially higher, which might present a barrier for buyers on a tight budget."
     ]
+}
+
+
+export const disadvantage30YearData = {
+    title:"Disadvantages of 30-year mortgages",
+    introduction: "30-year fixed-rate mortgages might sound like a great option, but before you send an application, let’s discuss some of the drawbacks to this loan structure:",
+    terms:[
+        {
+            title:"Higher interest rates",
+            answer:[
+                "Throughout the 30 years of the mortgage's term, you’ll pay a substantial amount in interest. Monthly payments might be the most affordable for 30-year loans, but the amount you pay in interest is nearly twice as much as it would be for a 15-year structure.",
+
+                "This means that building any equity in the property takes a considerable amount of time, usually more than 10 years.",
+
+                "A fixed-rate mortgage also means you won't benefit from a downturn in market interest rates. While homeowners who may have opted for an adjustable rate mortgage see their monthly minimums decrease, yours will always stay the same."
+            ]
+        },
+        {
+            title:"Long-term living",
+            answer:[
+                "To take full advantage of the benefits 30-year fixed-rate mortgages offer, you’ll need to live in the home for a long time. After only 10 years, you will not have had enough time to build much equity in the property and you’ll miss out on the financial benefits of homeownership.",
+            ]
+        },
+    ],
+
+    conclusion: []
+
 }
 
 
@@ -181,4 +248,75 @@ export const rightFixed15 = {
         "To get started on your 15-year rate loan or other home financing plan, you can apply for a mortgage today.",
     ]
         
+}
+
+
+export const whatAfixedRate30 = {
+    title: "What is a 30-year fixed rate mortgage?",
+    list: [
+        "A 30-year fixed rate mortgage is a home loan structure that establishes an unchanging interest rate throughout the course of the loan. The interest rate charged on the outstanding principal balance does not change month to month, guaranteeing a stable payment plan.",
+
+        "Mortgage interest rates today are constantly fluctuating and providing new opportunities for prospective homebuyers to jump into the real estate market. When interest rates are low, demand for 30-year mortgages rates spikes. Homebuyers know that if they can strike while the iron is hot, they’ll secure financing for a new home at a low interest rate that will never change No matter how the economy or the real estate market evolves throughout the three decades of the loan’s term, the interest on fixed rate mortgages remains steady.",
+
+        "Opting for this loan structure means that 30-year mortgage rates today will not change for the full term of the loan. While some other mortgage structures adapt to current interest rates, the amount of interest on a fixed mortgage won’t budge. This certainty allows you to plan for your financial future without the risk of unexpected economic conditions impacting your mortgage payments.",
+
+        "Since these payment plans are spread over three decades, the amount paid each month is less compared to other shorter-term mortgages. A 15-year fixed rate mortgage , for example, gives you much less time to repay the loan. To make up for this shortened schedule, your monthly payments on a 15-year mortgage would be higher than if the plan was spread over 30 years.",
+
+        "Let’s take a closer look at interest and how it plays into 30-year mortgage rates."
+
+    ]
+}
+
+export const fixedRate30YearMortages = {
+    title: "30-year fixed rate mortgages and interest",
+    list: [
+        "While researching 30-year fixed mortgage rates, you’ll notice that the loan’s interest weighs heavily on your borrowing limits and repayment minimums. Calculated as a percentage of the full mortgage loan, the interest rate outlines the annual cost of financing a home purchase. Charging interest on a loan is a lender’s way of ensuring returns by mitigating some of the uncertainty around issuing a mortgage while giving the lender a return on the money that was lent.",
+
+        "As is the case with all mortgage loans, your initial payments will be largely devoted towards paying the interest due on the outstanding principal balance. You shouldn’t expect to gain much equity in the home during your first few years living there. Lenders will usually recommend that borrowers opt for a 30-year mortgage only if they plan on staying in the home for a long period of time.",
+
+        "Living on the property for only five years or less may be long enough to pay the interest due on the outstanding principal balance, but the loan balance itself will not have made much progress. Since you haven’t paid off a significant amount of the principal, you haven’t gained much equity in the property. This means that selling the home after only five years likely won’t allow you to profit from your real estate investment.",
+
+        "Even though your first few years will largely be spent paying the interest due on the outstanding principal balance on the loan, you’ll gradually start to increase the amount paid towards the loan’s principal. During the latter half of your lending agreement, you’ll gain more equity with each monthly mortgage payment as the remaining balance on your loan dwindles.",
+
+        "Before applying for a 30-year fixed rate mortgage you’ll need to decide how much interest you’re willing to pay. Interest on a 20-year mortgage, for example, is likely lower. This provides an opportunity to build equity at a faster pace while saving you thousands in interest once the loan is closed. However, monthly minimums on shorter-term loans are much higher, making 30-year mortgages much more affordable on a month to month basis."
+    ]
+}
+
+export const diifIntRateAPR = {
+    title: "What is the difference between interest rate and APR?",
+    list: [
+        "Another important figure you’ll come across while shopping for 30-year mortgage rates is the annual percentage rate or “APR.”",
+
+        "Not to be confused with interest, the APR is also expressed as a percentage of the overall loan amount. However, rather than signifying the annual cost of a mortgage, the APR outlines the amount to be paid each year in home loan expenses, factoring in the loan’s cost at the time of closing plus what you’ve paid in interest over the life of the mortgage",
+
+        "Developed as a way to provide accurate and transparent mortgage information to buyers, the APR lays out where your scheduled payments are going and allows consumers to compare loan scenarios from various lenders and understand who is really offering the best deal.",
+
+        "A home sale’s closing costs , mortgage insurance and loan origination fees all factor into the APR, providing the buyer with an overview of what they are paying month after month. As a part of the Federal Truth in Lending Act, lenders must disclose accurate APRs before the loan is finalized. This gives prospective buyers a solid basis for comparing their home buying options. For a better look at how your 30-year mortgage will be paid off over time, your lender will provide an amortization schedule."
+    ]
+}
+
+export const amortizationSche = {
+    title: "What is an amortization schedule?",
+    list: [
+        "A major advantage of a 30-year fixed mortgage is the security in knowing exactly how much you’ll be paying each month. The ability to predict your largest expense for up to the next 30 years provides a huge advantage in financial planning. Not only can you accurately predict the amount going towards your mortgage, but you’ll also know how much you’ll have left over to contribute towards other investments and savings accounts.",
+
+        "This predictability allows lenders to build a repayment plan known as an amortization schedule. Amortization refers to the process of steadily paying off a debt through regular payments over a period of time. For a fixed rate mortgage, building an amortization schedule is much simpler thanks to the locked-in interest rate and monthly minimum."
+    ]
+}
+
+export const diifBtwFixedAndAdjustable = {
+    title: "What’s the difference between fixed rate and adjustable rate mortgages?",
+    list: [
+        "Unlike a 30-year fixed rate mortgage, adjustable rate mortgages (ARMs) come with a fluctuating interest rate that rises or lowers along with market conditions.",
+
+        "Minimum monthly payments on these loans depend on external factors, and opting for this mortgage type is usually seen as a greater risk. When mortgage interest rates go up, so do the monthly payments on an ARM.",
+
+        "Homeowners can’t control the economy or shift the real estate market. If you apply for an ARM and these factors turn against your favor, you could end up paying thousands more in added interest after the ARM expires.",
+
+        "This also makes it difficult to predict how much money you’ll have for other expenses down the line. If the amount of interest suddenly spikes after your 5-year or 7-year ARM adjusts, you’ll have to adjust your finances. This makes ARMs a much more volatile lending option than 30-year fixed rate mortgages.",
+
+        "The major advantage of an adjustable rate mortgage is that you could end up saving money over time. The initial interest rates on these loans are typically lower than their fixed rate counterparts. If the mortgage rates continue to dip after the fixed rate period on your ARM expires and your rate adjusts, your rate could decrease even further, lowering your monthly mortgage payments.",
+
+        "Again, this depends entirely on the state of the economy and market trends. In addition to paying a steady rate of interest, 30-year fixed rate mortgages offer a number of financial advantages."
+    ]
 }

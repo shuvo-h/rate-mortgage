@@ -10,7 +10,7 @@ const list = [
 const Disclosure15 = () => {
     return (
         <section>
-            <h1>General Disclosures</h1>
+            <h2>General Disclosures</h2>
             <ul>
                 {
                     list.map((item,idx) => <li key={idx}>{item}</li>)
