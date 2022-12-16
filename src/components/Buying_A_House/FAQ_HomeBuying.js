@@ -396,7 +396,7 @@ const FAQ_HomeBuying = () => {
     } = useStaticQuery(faq_homebuy_QL);
     const [faq_15StepsAccordians,setFaq_15StepsAccordians] = useState([]);
     const [sixWaysSaveAccordians,setSixWaysSaveAccordians] = useState([]);
-    console.log(rentVsBuyImg,"rentVsBuyImg");
+    // console.log(rentVsBuyImg,"rentVsBuyImg");
     
     return (
         <div>
@@ -418,16 +418,19 @@ const FAQ_HomeBuying = () => {
                     {
                         FAQ_homeBuying.FAQ_list[0].answer.reasons.map((reason,idx)=>{
                                     const gatsImg = whybuynow_imgs.find(img=>img.name === reason.image)?.childImageSharp;
-                                    return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
-                                        <div>
-                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
-                                        </div>
-                                        <div className='ms-3'>
-                                            <h4>{reason.title}</h4>
-                                            {
-                                                reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                            }
+                                    // return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                                    return <div className={`col-12 col-md-6`} key={`reason${idx}`}>
+                                        <div style={{display:"grid", gridTemplateColumns:"60px 1fr", alignItems:"center"}}>
+                                            <div style={{minWidth:"60px",}}>
+                                                <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                            </div>
+                                            <div className='ms-3'>
+                                                <h4>{reason.title}</h4>
+                                                {
+                                                    reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                                }
 
+                                            </div>
                                         </div>
                                     </div>
                                 })
@@ -485,16 +488,19 @@ const FAQ_HomeBuying = () => {
                     {
                         FAQ_homeBuying.FAQ_list[2].answer.reasons.map((reason,idx)=>{
                             const gatsImg = howBuyHomeImgs.find(img=>img.name === reason.image)?.childImageSharp;
-                            return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
-                                <div>
-                                    <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
-                                </div>
-                                <div className='ms-5'>
-                                    <h4>{reason.title}</h4>
-                                    {
-                                        reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                    }
+                            // return <div className={`col-12 col-md-6 d-flex align-items-center`} key={`reason${idx}`}>
+                            return <div className={`col-12 col-md-6`} key={`reason${idx}`}>
+                                <div style={{display:"grid", gridTemplateColumns:"50px 1fr", alignItems:"center"}}>
+                                    <div style={{minWidth:"50px",}}>
+                                        <GatsbyImage style={{maxWidth:"60px"}} image={getImage(gatsImg)} ></GatsbyImage>
+                                    </div>
+                                    <div className='ms-5'>
+                                        <h4>{reason.title}</h4>
+                                        {
+                                            reason.text.map(reasonPara => <p key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                        }
 
+                                    </div>
                                 </div>
                             </div>
                         })
@@ -543,7 +549,7 @@ const FAQ_HomeBuying = () => {
                 </div>
             </section>
             <section className='my-5'>
-                <h2>{FAQ_homeBuying.FAQ_list[4].question}</h2>
+                <h2>{FAQ_homeBuying.FAQ_list[4].question}</h2> 
                 <div>
                     {
                         FAQ_homeBuying.FAQ_list[4].answer.introduction.map((para,idx)=><p style={{maxWidth:"100%"}} key={`para_${idx}`}>{para}</p>)
@@ -553,17 +559,19 @@ const FAQ_HomeBuying = () => {
                     {
                         FAQ_homeBuying.FAQ_list[4].answer.reasons.map((reason,idx)=>{
                                     const gatsImg = rentVsBuyImg.find(img=>img.name === reason.img)?.childImageSharp;
-                                    return <div className={`d-flex align-items-center`} key={`reason${idx}`}>
-                                        <div>
-                                            <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
-                                        </div>
-                                        <div className='ms-3'>
-                                            <h4>{reason.title}</h4>
-                                            {
-                                                reason.text.map(reasonPara => <p style={{maxWidth:"100%"}} key={`reasonPara_${idx}`}>{reasonPara}</p>)
-                                            }
-
-                                        </div>
+                                    // return <div className={`d-flex align-items-center`} key={`reason${idx}`}>
+                                    return <div style={{display:"grid", gridTemplateColumns:"50px 1fr", alignItems:"center"}} key={`reason${idx}`}>
+                                        
+                                            <div>
+                                                <GatsbyImage image={getImage(gatsImg)} ></GatsbyImage>
+                                            </div>
+                                            <div className='ms-3'>
+                                                <h4>{reason.title}</h4>
+                                                {
+                                                    reason.text.map(reasonPara => <p style={{maxWidth:"100%"}} key={`reasonPara_${idx}`}>{reasonPara}</p>)
+                                                }
+                                            </div>
+                                        
                                     </div>
                                 })
                     }

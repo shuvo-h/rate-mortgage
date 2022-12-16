@@ -49,7 +49,11 @@ const PurchaseForm = () => {
                         </div>)
                     }
                 </div>
-                <button className='border-0 mx-auto my-3 d-block bg-transparent fs-6' style={{fontWeight:"600"}} onClick={()=>setAdvancedFields(advancedFields.length ? []: purchaseFormOptions)}>Advanced Options <DownFullFillArrow width={20} height={20} />  </button> 
+                <button 
+                    className='border-0 mx-auto mb-5 mt-4 d-block bg-transparent fs-6' 
+                    style={{fontWeight:"600",}} 
+                    onClick={()=>setAdvancedFields(advancedFields.length ? []: purchaseFormOptions)}
+                >Advanced Options <DownFullFillArrow width={20} height={20} />  </button> 
             </div>
         </div>
     );

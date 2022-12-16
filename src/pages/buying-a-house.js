@@ -10,7 +10,6 @@ import FAQ_HomeBuying from '../components/Buying_A_House/FAQ_HomeBuying';
 import ToolsOptionsPricing from '../components/Buying_A_House/ToolsOptionsPricing';
 import TopHomeBuyAtricle from '../components/Buying_A_House/TopHomeBuyAtricle/TopHomeBuyAtricle';
 
-
 import Layout from '../components/Layout/layout';
 
 

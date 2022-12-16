@@ -22,9 +22,9 @@ export const LinkRegular = ({label,url="",style={}, className=""}) => {
     );
 };
 
-const ButtonRegular = ({label,style={}, className=""}) => {
+const ButtonRegular = ({label,style={}, className="",rounded=true}) => {
     return (
-        <button className={`${btn_common} bg-danger rounded  ${className}`} style={{...style}}>{label}</button>
+        <button className={`${btn_common} bg-danger ${rounded ? "rounded":""}  ${className}`} style={{...style}}>{label}</button>
     );
 };
 
