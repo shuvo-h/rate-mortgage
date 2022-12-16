@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {disclose_container} from "./index.module.css"
+
 const list = [
     `Sample payment does not include taxes, insurance or assessments. Mortgage Insurance Premium (MIP) is required for all FHA loans and Private Mortgage Insurance (PMI) is required for all conventional loans where the LTV is greater than 80%.`,
     `Mortgage interest rates shown are based on a 60-day rate lock period.`,
@@ -9,8 +11,8 @@ const list = [
 ]
 const Disclosure15 = () => {
     return (
-        <section>
-            <h1>General Disclosures</h1>
+        <section className={disclose_container}>
+            <h2>General Disclosures</h2>
             <ul>
                 {
                     list.map((item,idx) => <li key={idx}>{item}</li>)

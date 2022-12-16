@@ -1,9 +1,9 @@
 import React from 'react';
 
-const SimilarRenderer = ({data}) => {
+const SimilarRenderer = ({data, idString}) => {
     return (
-        <section>
-            <h1>{data.title}</h1>
+        <section id={idString}>
+            <h2>{data.title}</h2>
             <div>
                 {
                     data.list.map(item => <p key={item}>{item}</p>)
