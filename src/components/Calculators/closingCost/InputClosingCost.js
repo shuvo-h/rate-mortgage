@@ -1,11 +1,6 @@
 import React from 'react';
-import {calc_input} from "../calculators.module.css";
+import FormForCalc from '../FormForCalc';
 
-const windoOpener = (url) => {
-    if (url) {
-        window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=300");
-    }
-}
 
 
 const fields = [
@@ -31,7 +26,7 @@ const fields = [
         type: 'number',
         sign:"$",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NtWlCrip5sGNcomJ3fml_nFljZ2VEtXZ5ozUNdzwGojkCZ2VEtXZ5ozYNp2p2p2p2"
     },
     {
         title:"Interest rate",
@@ -39,7 +34,7 @@ const fields = [
         type: 'number',
         sign:"%",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NqmJEpnZ1sHhConh1Z21DrEBxr2sNpmJvllc2onhEs21ycjEGeTpxdjY2onhEs21yczF2p2p2p2o@"
     },
     {
         title:"Adjusted Origination Charges:",
@@ -52,7 +47,7 @@ const fields = [
         type: 'number',
         sign:"$",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NrHZ5pGd4onZ3pmV9rHl_tSp5sGNcomJ3fml_nFljZ2VEtXZ5ozUNdzwGojkCZ2VEtXZ5ozYNp2p2p2p2"
     },
     {
         title:"Charge For Specific Interest Rate",
@@ -60,17 +55,17 @@ const fields = [
         type: 'number',
         sign:"%",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NsWN5r3hDZ21DrEBxr2sNpmJvllc2onhEs21ycjEGeTpxdjY2onhEs21yczF2p2p2p2o@"
     },
     {
         title:"Other Settlement Services",
         type:"para_title",
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NjHh4pnZjpnhErWl9pmJEkGlCt21zpnc2qnd*jWV_pDF1r1NlkCpxtXhCqmYBfjoId2UFcypxtXhCqmYCfmp2p2p2pw@@"
     },
     {
         title:"Required services selected by lender:",
         type:"para_title",
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0Nk2lBtm1CpmhjpnZGqmd1sFd1rWlztWl0g31cpmJ0pnY2qnd*jWV_pDF1r1NlkCpxtXhCqmYBfjoId2UFcypxtXhCqmYCfmp2p2p2pw@@"
     },
     {
         title:"Appraisal",
@@ -78,7 +73,7 @@ const fields = [
         type: 'number',
         sign:"$",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NonRAs2V5sGV8Z21DrEBxr2sNpmJvllc2onhEs21ycjEGeTpxdjY2onhEs21yczF2p2p2p2o@"
     },
     {
         title:"Credit report",
@@ -139,7 +134,7 @@ const fields = [
     {
         title:"Required Services You Can Shop For:",
         type:"para_title",
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0Nk2lBtm1CpmhjpnZGqmd1sF1*tkdxr1d4rHRWrHY2qnd*jWV_pDF1r1NlkCpxtXhCqmYBfjoId2UFcypxtXhCqmYCfmp2p2p2pw@@"
     },
     {
         title:"Survey",
@@ -163,7 +158,7 @@ const fields = [
         type: 'number',
         sign:"$",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NsXZ*sWlCtX1Eonw2qnd*jWV_pDF1r1NlkCpxtXhCqmYBfjoId2UFcypxtXhCqmYCfmp2p2p2pw@@"
     },
     {
         title:"Yearly property insurance",
@@ -171,59 +166,18 @@ const fields = [
         type: 'number',
         sign:"$",
         value: 25000,
-        info_url:""
+        info_url:"https://partners.leadfusion.com/tools/guaranteedrate/gloss.fcs?param=pGB*sHdbpn0NqWN9pmNHr2lCsG1_sHlComJzpip5sGNcomJ3fml_nFljZ2VEtXZ5ozUNdzwGojkCZ2VEtXZ5ozYNp2p2p2p2"
     },
     
 ]
 
-const ElementRenderer = (elementInfo) =>{
-    switch (elementInfo.type) {
-        case "value":
-            
-            break;
-    
-        default:
-            return <input className={calc_input} style={{width:"120px", padding:0}} type={elementInfo.type} name={elementInfo.name} defaultValue={elementInfo.value} />
-    }
-}
 
-const SubmitBtn = () => <div>
-    <button>Submit <span></span></button>
-</div>
 
 const InputClosingCost = () => {
     return (
-        <form className='my-3' style={{color:"rgb(51,51,51)"}}>
-            {
-                fields.map(field =><div className='d-flex justify-content-between'  style={{fontSize:"12px",}}>
-                    {
-                        field.type === "para_title"
-                        ? <h6 style={{margin: "15px 0 4px 0"}}>{field.title}</h6>
-                        : <>
-                            <label htmlFor="" 
-                                style={{
-                                    color: field.info_url ? "blue" : "rgb(51,51,51)",
-                                    textDecoration: field.info_url ? "underline" : "none",
-                                    cursor: field.info_url ? "pointer" : "auto",
-                                }} 
-                                onClick={()=>windoOpener(field.info_url)}
-                            >
-                                {field.title}
-                            </label>
-                            <span>
-                                {field.sign === "$" ? field.sign :  ""}
-                                {
-                                    ElementRenderer(field)
-                                }
-                                {field.sign === "%" ? field.sign : <span>&nbsp;&nbsp;&nbsp;</span>}
-                            </span>
-                        </>
-                    }
-                </div>)
-            }
-            <SubmitBtn />
-        </form>
+        <FormForCalc formFieldData={fields} />
     );
 };
+
 
 export default InputClosingCost;

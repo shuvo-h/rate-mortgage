@@ -5,7 +5,7 @@ const CalculatorNav = ({navList=[],activeNav,setActiveNav}) => {
     
     return (
         <nav className={`${calc_nav} d-flex justify-content-center`}>
-            <div style={{position:"absolute", left:"50%",top:0, transform: "translateX(-50%)","-webkitTransform": "translateX(-50%)"}}>
+            <div style={{position:"absolute", left:"50%",top:0, transform: "translateX(-50%)","WebkitTransform": "translateX(-50%)"}}>
                 {
                     navList.map(navItem => <button 
                         className={calc_nav_btn} 
