@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 
@@ -20,18 +20,21 @@ const RecentMortgageArticle = ({recentMortgageArticle,recentArticle}) => {
     `)
     */
     return (
-        <div className='col-12 col-lg-4 card'>
-            
-            <div className="">
-            <div>
-                <GatsbyImage image={getImage(recentArticle.article_img.childImageSharp)} alt="" />
-            </div>
-            <h5 className="card-title p-3">{recentMortgageArticle.title}</h5>
-            <div className="card-body">
-                <p className="card-text">{recentMortgageArticle.short_para}</p>
-            </div>
-            </div>
-
+        <div className='col-12 col-lg-4'>
+            <Link className='text-decoration-none text-dark fw-normal' to=''>
+                <div className='px-1 px-md-2'>
+                    <div>
+                        <GatsbyImage 
+                            image={getImage(recentArticle.article_img.childImageSharp)} 
+                            alt="" 
+                        />
+                    </div>
+                    <h6 className="card-title py-3">{recentMortgageArticle.title}</h6>
+                    <div className="card-body">
+                        <p className="card-text">{recentMortgageArticle.short_para}</p>
+                    </div>
+                </div>
+            </Link>
         </div>
     );
 };

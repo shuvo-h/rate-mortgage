@@ -57,7 +57,11 @@ const RefineForm = () => {
                         </div>)
                     }
                 </div>
-                <button className='border-0 mx-auto my-3 d-block bg-transparent fs-6' style={{fontWeight:"600"}} onClick={()=>setAdvancedFields(advancedFields.length ? []: refineFormOptions)}>Advanced Options <DownFullFillArrow width={20} height={20} />  </button> 
+                <button 
+                    className='border-0 mx-auto mt-4 mb-5 d-block bg-transparent fs-6' 
+                    style={{fontWeight:"600"}} 
+                    onClick={()=>setAdvancedFields(advancedFields.length ? []: refineFormOptions)}
+                >Advanced Options <DownFullFillArrow width={20} height={20} />  </button> 
             </div>
         </div>
     );

@@ -33,7 +33,9 @@ const MortgageRates = () => {
             <TableOfContents />
             <RateQuestionsAns />
             <MortgageRateDiscalimar />
+            <hr className='horizontal' />
             <RecentMortgageArticles />
+            <hr className='horizontal' />
         </Layout> 
     );
 };

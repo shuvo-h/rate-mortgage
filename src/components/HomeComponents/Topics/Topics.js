@@ -1,21 +1,20 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { ActiveServiceFlagIcon, BeforeBuyTipsIcon, BuyHomeTipIcon, CreditCardIcon, FirstTimeBuyerTipIcon, HomeOwnerCashIcon, HomeValueIcon, MortgageProcessIcon } from '../../../utils/icons/HomePageIcons';
-import Topic from './Topic';
 import {digital_personel_img} from "../../index.module.css";
 
 
 
 const topics = [
-    {icon: <BuyHomeTipIcon width={40} height={40} />, title:"Buy a home tips", url:"/resources/home-buying-advice"},
-    {icon: <HomeOwnerCashIcon width={40} height={40} />, title:"Refinance tips",url:"/resources/home-refinancing-tips"},
-    {icon: <MortgageProcessIcon width={40} height={40} />, title:"Mortgage process",url:"/resources/mortgage-process-resources"},
-    {icon: <BeforeBuyTipsIcon width={40} height={40} />, title:"Before you buy tips",url:"/resources/top-things-not-to-do-before-buying-a-home"},
-    {icon: <HomeValueIcon width={40} height={40} />, title:"Home value",url:"/home-valuation"},
-    {icon: <ActiveServiceFlagIcon width={40} height={40} />, title:"Military options",url:"/va-loans"},
-    {icon: <CreditCardIcon width={40} height={40} />, title:"Less-than-perfect credit",url:"/resources/buying-a-home-with-bad-credit"},
-    {icon: <FirstTimeBuyerTipIcon width={40} height={40} />, title:"First-time homebuyer tips",url:"/resources/first-home-buyers"},
+    {icon: "home_window", title:"Buy a home tips", url:"/resources/home-buying-advice"},
+    {icon: "home_rotet", title:"Refinance tips",url:"/resources/home-refinancing-tips"},
+    {icon: "mortgage_process", title:"Mortgage process",url:"/resources/mortgage-process-resources"},
+    {icon: "Group23", title:"Before you buy tips",url:"/resources/top-things-not-to-do-before-buying-a-home"},
+    {icon: "Homevalue1.png", title:"Home value",url:"/home-valuation"},
+    {icon: "flag_us", title:"Military options",url:"/va-loans"},
+    {icon: "Credit_report", title:"Less-than-perfect credit",url:"/resources/buying-a-home-with-bad-credit"},
+    {icon: "home_man", title:"First-time homebuyer tips",url:"/resources/first-home-buyers"},
 ]
 
 
@@ -27,13 +26,23 @@ const topic_QL = graphql`
             gatsbyImageData
             }
         }
+
+        topic_icons: allFile(filter: {name: {in: ["home_window","home_rotet","mortgage_process","Group23","Homevalue1.png","flag_us","Credit_report","home_man"]}}) {
+            nodes {
+            childImageSharp {
+                gatsbyImageData
+            }
+            name
+            }
+        }
+
     }
 
 `;
 
 
 const Topics = () => {
-    const {topic_img} = useStaticQuery(topic_QL);
+    const {topic_img,topic_icons:{nodes:topic_iconsList}} = useStaticQuery(topic_QL);
     // console.log(topic_img);
 
     return (
@@ -43,7 +52,19 @@ const Topics = () => {
                 <div className='col-12 col-lg-6 '>
                     <div className='row g-2 g-md-4'>
                         {
-                            topics.map(topic => <Topic topic={topic} key={topic.title}></Topic>)
+                            topics.map((topic,idx) => {
+                                const img = topic_iconsList.find(iconEl => iconEl.name === topic.icon)?.childImageSharp;
+                                return <div className='col-6' key={idx}>
+                                    <Link className='text-decoration-none text-dark' to={topic.url}>
+                                        <div className='topic d-flex align-items-center h-100 p-1 p-sm-2 py-lg-4'>
+                                            <div>
+                                                <GatsbyImage image={getImage(img)} alt="" />
+                                            </div>
+                                            <h4 className='ms-2 fs-5'>{topic.title}</h4>
+                                        </div>
+                                    </Link>
+                                </div>
+                            })
                         }
                     </div>
                 </div>
