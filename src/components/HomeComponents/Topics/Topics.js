@@ -11,7 +11,7 @@ const topics = [
     {icon: "home_rotet", title:"Refinance tips",url:"/resources/home-refinancing-tips"},
     {icon: "mortgage_process", title:"Mortgage process",url:"/resources/mortgage-process-resources"},
     {icon: "Group23", title:"Before you buy tips",url:"/resources/top-things-not-to-do-before-buying-a-home"},
-    {icon: "Homevalue1.png", title:"Home value",url:"/home-valuation"},
+    {icon: "Homevalue1", title:"Home value",url:"/home-valuation"},
     {icon: "flag_us", title:"Military options",url:"/va-loans"},
     {icon: "Credit_report", title:"Less-than-perfect credit",url:"/resources/buying-a-home-with-bad-credit"},
     {icon: "home_man", title:"First-time homebuyer tips",url:"/resources/first-home-buyers"},
@@ -27,7 +27,7 @@ const topic_QL = graphql`
             }
         }
 
-        topic_icons: allFile(filter: {name: {in: ["home_window","home_rotet","mortgage_process","Group23","Homevalue1.png","flag_us","Credit_report","home_man"]}}) {
+        topic_icons: allFile(filter: {name: {in: ["home_window","home_rotet","mortgage_process","Group23","Homevalue1","flag_us","Credit_report","home_man"]}}) {
             nodes {
             childImageSharp {
                 gatsbyImageData
@@ -43,7 +43,7 @@ const topic_QL = graphql`
 
 const Topics = () => {
     const {topic_img,topic_icons:{nodes:topic_iconsList}} = useStaticQuery(topic_QL);
-    // console.log(topic_img);
+    // console.log(topic_iconsList);
 
     return (
         <section className="container">
@@ -56,11 +56,11 @@ const Topics = () => {
                                 const img = topic_iconsList.find(iconEl => iconEl.name === topic.icon)?.childImageSharp;
                                 return <div className='col-6' key={idx}>
                                     <Link className='text-decoration-none text-dark' to={topic.url}>
-                                        <div className='topic d-flex align-items-center h-100 p-1 p-sm-2 py-lg-4'>
-                                            <div>
+                                        <div className='topic d-md-flex align-items-center h-100 p-1 p-sm-2 py-lg-4'>
+                                            <div className='text-center'>
                                                 <GatsbyImage image={getImage(img)} alt="" />
                                             </div>
-                                            <h4 className='ms-2 fs-5'>{topic.title}</h4>
+                                            <h4 className='ms-2 fs-5 text-center text-md-left'>{topic.title}</h4>
                                         </div>
                                     </Link>
                                 </div>
