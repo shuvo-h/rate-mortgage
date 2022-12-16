@@ -4,17 +4,13 @@ import { Link } from "gatsby";
 
 import {other_mortage_container, mortage_container__inner, link_container, link_item} from "./index.module.css";
 
-const OtherMortgVs30Year = () => {
+const FixedMortageVsOther = () => {
   return (
     <section className={other_mortage_container}>
 
       <div className={mortage_container__inner}>
-        <h2>30-year fixed mortgages vs. other mortgage types</h2>
-
-        <p>
-          30-year fixed rate mortgages are a popular form of financing, but there are other mortgage 
-          opportunities at your disposal. Here’s a look at some alternative mortgage structures and 
-          how they might compliment your home buying needs.
+        <p style={{fontWeight: "bold", textAlign: "center"}}>
+          Adjustable rate mortgage vs. other mortgage types
         </p>
 
         <div className={link_container}>
@@ -34,4 +30,4 @@ const OtherMortgVs30Year = () => {
 
 }
 
-export default OtherMortgVs30Year;
+export default FixedMortageVsOther;
