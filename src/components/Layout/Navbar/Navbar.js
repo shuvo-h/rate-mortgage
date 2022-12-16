@@ -67,7 +67,7 @@ export const navMiddle = [
         url:"/",
         childs: [
             {
-                name:"Closing cost calculators", url:"/mortgage-calculators", 
+                name:"Mortgage Calculators", url:"/mortgage-calculators", 
                 sub_childs:[
                     {name:"Closing cost calculator", url:"/mortgage-calculators/closing-cost-calculator",},
                     {name:"Refinance calculator", url:"/mortgage-calculators/should-i-refinance-calculator",},
