@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import Layout from '../../../components/Layout/layout';
 
-import ContentList30 from '../../../components/MortgageRates/Assumption/15_year_fixedConf/ContentList30';
-import Advantage15Year from '../../../components/MortgageRates/Assumption/15_year_fixedConf/Advantage15Year';
-import Chart from '../../../components/chart/chart';
-import SimilarRenderer from '../../../components/MortgageRates/Assumption/15_year_fixedConf/WhatFixedRate15';
-import AmortizationChart from '../../../components/MortgageRates/Assumption/15_year_fixedConf/AmortizationChart';
-import Great30Rate from '../../../components/MortgageRates/Assumption/15_year_fixedConf/Great30Rate';
-import KnowMore from '../../../components/MortgageRates/Assumption/15_year_fixedConf/KnowMore';
-import OtherMortgVs30Year from '../../../components/MortgageRates/Assumption/15_year_fixedConf/OtherMortgVS30Year';
-import Disclosure30 from '../../../components/MortgageRates/Assumption/15_year_fixedConf/Disclosure30';
+import ContentList30 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/ContentList30';
+import Advantage15Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Advantage15Year';
+import Chart from '../../../components/Chart/Chart';
+import SimilarRenderer from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/WhatFixedRate15';
+import AmortizationChart from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/AmortizationChart';
+import Great30Rate from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Great30Rate';
+import KnowMore from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/KnowMore';
+import OtherMortgVs30Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/OtherMortgVS30Year';
+import Disclosure30 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Disclosure30';
 import {span_text, hidescroll} from "./index.module.css";
 
-import { whatAfixedRate30, fixedRate30YearMortages,disadvantage30YearData, diifIntRateAPR, amortizationSche, diifBtwFixedAndAdjustable, advantage30YearData } from '../../../components/MortgageRates/Assumption/15_year_fixedConf/SimilarLists';
+import { whatAfixedRate30, fixedRate30YearMortages,disadvantage30YearData, diifIntRateAPR, amortizationSche, diifBtwFixedAndAdjustable, advantage30YearData } from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/SimilarLists';
 
 const ThirtyYearFixedConforming = () => {
     const [percentage, setPercentage] = useState(0);
@@ -59,6 +59,8 @@ const ThirtyYearFixedConforming = () => {
                 <OtherMortgVs30Year />
 
                 <Disclosure30 />
+
+                <hr className='horizontal' />
             </div>
         </Layout>
     );

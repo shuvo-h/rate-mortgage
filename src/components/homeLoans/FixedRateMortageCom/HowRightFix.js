@@ -51,8 +51,6 @@ const HowRightFix = () => {
                     disClaimers.map((para,idx) => <p className={small_text} key={idx}>{para}</p>)
                 }
             </div>
-
-            <hr className='horizontal' />
         </section>
     );
 };

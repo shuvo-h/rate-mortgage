@@ -20,7 +20,7 @@ const OtherMortgVs30Year = () => {
         <div className={link_container}>
           <Link className={link_item} to="">15-year fixed conforming mortgage</Link>
           <Link className={link_item} to="">Jumbo mortgage</Link>
-          <Link className={link_item} to="">-year ARM conforming mortgage</Link>
+          <Link className={link_item} to="">5-year ARM conforming mortgage</Link>
           <Link className={link_item} to="">FHA conforming mortgage</Link>
 
           <Link className={link_item} to="">7-year ARM conforming mortgage</Link>

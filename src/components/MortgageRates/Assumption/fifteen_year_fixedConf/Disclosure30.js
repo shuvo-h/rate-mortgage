@@ -1,5 +1,7 @@
 import React  from "react";
 
+import {disclose_container} from "./index.module.css"
+
 const Disclosure30 = () => {
   return (
     <section style={{margin: "30px 0px"}}>
@@ -24,7 +26,7 @@ const Disclosure30 = () => {
 
       <h2>General Disclosures</h2>
 
-      <ul style={{marginLeft: "20px"}}>
+      <ul className={disclose_container} style={{marginLeft: "20px"}}>
         <li>
           Sample payment does not include taxes, insurance or assessments. Mortgage Insurance Premium (MIP) 
           is required for all FHA loans and Private Mortgage Insurance (PMI) is required for all conventional 

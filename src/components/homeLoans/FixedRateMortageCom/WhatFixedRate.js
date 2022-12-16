@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Chart from '../../chart/chart';
+import Chart from '../../Chart/Chart';
 
 import {text_container, list_container, span_text, dynamic_text, hidescroll} from "../styles.module.css"
 
