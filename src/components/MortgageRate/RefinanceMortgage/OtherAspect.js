@@ -47,7 +47,7 @@ const OtherAspect = () => {
             <h2>{other_aspect.title}</h2>
             <div>
                 {
-                    other_aspect.introduction.map(para => <div key={Math.random()}>
+                    other_aspect.introduction.map((para,idx) => <div key={idx}>
                         <h3>{para.sub_title}</h3>
                         <div>
                             {
@@ -66,7 +66,7 @@ const OtherAspect = () => {
             </div>
             <div>
                 {
-                    other_aspect.conclusion.map(para => <div key={Math.random()}>
+                    other_aspect.conclusion.map((para,idx) => <div key={idx}>
                         <h3>{para.sub_title}</h3>
                         <div>
                             {

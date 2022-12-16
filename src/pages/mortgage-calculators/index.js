@@ -9,34 +9,6 @@ import MortgageCalculator from '../../components/MortgageCalsCmp/mortgageCals/Mo
 import OptionsTools from '../../components/MortgageCalsCmp/mortgageCals/OptionsTools';
 
 
-const homeLoanCalculators = [
-    {
-        name:"Mortgage calculator",
-        url:"/mortgage-calculators"
-    },
-    {
-        name:"Home affordability calculator",
-        url:"/mortgage-calculators/how-much-home-can-i-buy-calculator"
-    },
-    {
-        name:"Closing cost calculator",
-        url:"/mortgage-calculators/closing-cost-calculator"
-    },
-    {
-        name:"Extra payment calculator",
-        url:"/mortgage-calculators/should-i-make-extra-payments-calculator"
-    },
-    {
-        name:"Refinance calculator",
-        url:"/mortgage-calculators/should-i-refinance-calculator"
-    },
-    {
-        name:"Mortgage points calculator",
-        url:"/mortgage-calculators/when-to-pay-points-to-lower-rate-calculator"
-    },
-]
-
-
 const calcDisclaimer = [
     "*Consumers are advised to obtain a Loan Estimate. Rates are subject to change and are dependent on credit and underwriting criteria. Your actual rate, payment and costs could be higher.",
     "** Savings, if any, vary based on the consumer’s credit profile, interest rate availability, and other factors. Contact Guaranteed Rate for current rates. Restrictions apply.",
@@ -76,12 +48,13 @@ const MortgageCalculators = () => {
                 </div>
             </div>
             <CalcFAQlist />
-            <CalculatorListCard calculatorList={homeLoanCalculators} title='Home loan calculators' />
+            <CalculatorListCard />
             <div className='my-5'>
                 {
                     calcDisclaimer.map((disclaimer,idx) => <small className='my-2 d-block' key={idx}>{disclaimer}</small>)
                 }
             </div>
+            <hr className='horizontal' />
         </Layout>
     );
 };
