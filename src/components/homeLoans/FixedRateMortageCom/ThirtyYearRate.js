@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {text_container} from "../styles.module.css"
-import Chart from '../../chart/chart';
+import Chart from '../../Chart/Chart';
 
 const ThirtyYearRate = () => {
     return (

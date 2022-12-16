@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import Layout from '../../../components/Layout/layout';
-import Advantage15Year from '../../../components/MortgageRates/Assumption/15_year_fixedConf/Advantage15Year';
-import ContentList15 from '../../../components/MortgageRates/Assumption/15_year_fixedConf/ContentList15';
-import Disclosure15 from '../../../components/MortgageRates/Assumption/15_year_fixedConf/Disclosure15';
-import ShortInfo from '../../../components/MortgageRates/Assumption/15_year_fixedConf/ShortInfo';
-import { advantage15YearData, average15yearRate, differenceFIxed_arm, disadvantage15YearData, howFindLow15Rate, mortgage_15vs30, refinancing_vs_purchase, rightFixed15, whatAfixedRate15, whatIsGood15Fixed } from '../../../components/MortgageRates/Assumption/15_year_fixedConf/SimilarLists';
-import SimilarRenderer from '../../../components/MortgageRates/Assumption/15_year_fixedConf/WhatFixedRate15';
-import Chart from '../../../components/chart/chart';
+import Advantage15Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Advantage15Year';
+import ContentList15 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/ContentList15';
+import Disclosure15 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Disclosure15';
+import ShortInfo from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/ShortInfo';
+import { advantage15YearData, average15yearRate, differenceFIxed_arm, disadvantage15YearData, howFindLow15Rate, mortgage_15vs30, refinancing_vs_purchase, rightFixed15, whatAfixedRate15, whatIsGood15Fixed } from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/SimilarLists';
+import SimilarRenderer from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/WhatFixedRate15';
+import Chart from '../../../components/Chart/Chart';
 
 import {span_text, hidescroll} from "./index.module.css";
 
