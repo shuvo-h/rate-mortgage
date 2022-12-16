@@ -100,16 +100,16 @@
   row-gap: 20px;
 }
 
-ul {
+.disclose_container {
   list-style: none;
 }
 
-ul li {
+.disclose_container li {
   position: relative;
   font-size: 12px;
 }
 
-ul li::before {
+.disclose_container li::before {
   content: "";
   font-size: 15px;
   font-weight: bold;

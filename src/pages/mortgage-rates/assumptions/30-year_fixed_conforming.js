@@ -59,6 +59,8 @@ const ThirtyYearFixedConforming = () => {
                 <OtherMortgVs30Year />
 
                 <Disclosure30 />
+
+                <hr className='horizontal' />
             </div>
         </Layout>
     );

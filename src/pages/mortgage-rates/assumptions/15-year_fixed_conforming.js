@@ -43,6 +43,7 @@ const YearFixedConforming = () => {
                 <SimilarRenderer data={rightFixed15} idString={"rightFixed15"} />
                 <ShortInfo />
                 <Disclosure15/>
+                <hr className='horizontal' />
             </div>
         </Layout>
     );

@@ -22,6 +22,7 @@ const FixedRateMortgage = () => {
             <WhoConsider />
             <OptionFixedRate />
             <HowRightFix />
+            <hr className='horizontal' />
         </Layout>
     );
 };
