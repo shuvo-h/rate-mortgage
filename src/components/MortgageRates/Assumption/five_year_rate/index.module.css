@@ -61,17 +61,17 @@
   font-size: 12px;
 }
 
-.disclose_container {
+.disclose_containerTwo {
   list-style: none;
   margin-left: 50px;
 }
 
-.disclose_container li {
+.disclose_containerTwo li {
   position: relative;
   font-size: 12px;
 }
 
-.disclose_container li::before {
+.disclose_containerTwo li::before {
   content: "";
   font-size: 15px;
   font-weight: bold;

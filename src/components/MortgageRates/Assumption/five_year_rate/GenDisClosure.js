@@ -1,13 +1,13 @@
 import React from "react";
 
-import {disclose_container} from "./index.module.css";
+import {disclose_containerTwo} from "./index.module.css";
 
 const GenDisClosure = () => {
   return (
     <section>
       <h2>General Disclosures</h2>
 
-      <ul className={disclose_container}>
+      <ul className={disclose_containerTwo}>
         <li>
           Sample payment does not include taxes, insurance or assessments. Mortgage Insurance Premium (MIP) 
           is required for all FHA loans and Private Mortgage Insurance (PMI) is required for all conventional 
