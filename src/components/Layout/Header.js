@@ -6,7 +6,7 @@ import NavBarDrawer from './Navbar/NavBarDrawer';
 
 const Header = () => {
     return (
-        <header>
+        <header className='position-relative' style={{minHeight:"60px"}}>
             <Navbar></Navbar>
             <NavBarDrawer />
         </header>

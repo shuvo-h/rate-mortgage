@@ -75,42 +75,46 @@ const contact_QL = graphql`
         }
         }
     }
-
-
 `;
 
+
 const ContactUs = () => {
-    const {contactData:{nodes}} = useStaticQuery(contact_QL);
-    // console.log(nodes.find(el => el.name === "Cancel")?.childImageSharp);
-    // console.log(nodes);
+    const {contactData:{nodes:helpImgs}} = useStaticQuery(contact_QL);
+    
     return (
         <Layout className='container'>
-            <h1>How can we help you today?</h1>
-            <p>Please choose from the options below.</p>
-            <div></div>
-            <div>
-                <h1>Have a question? Ask Joy, our Guaranteed Rate Virtual Assistant.</h1>
-            </div>
-            <div>
+            <h1 className='mb-2'>How can we help you today?</h1>
+            <p className='mt-0 fs-5'>Please choose from the options below.</p>
+            <div className='row g-3 my-4'>
                 {
-                    contact_list.map((contact,idx) => <div key={idx}>
-                        <div>
-                            <GatsbyImage image={getImage(nodes.find(el => el.name === contact.image_name?.trim())?.childImageSharp)} alt=""></GatsbyImage>
-                        </div>
-                        <div>
-                            <h3>{contact.title}</h3>
-                            <p>{contact.text}</p>
-                            <Link to={contact.btn.url}>{contact.btn.title}</Link>
+                    contact_list.map((contact,idx) => <div className='col-12 col-md-6 col-lg-4 my-4' key={idx}>
+                        <div className='d-grid align-items-center mx-md-4' style={{gridTemplateColumns:"80px 1fr"}}>
+                            <div>
+                                <GatsbyImage image={getImage(helpImgs.find(el => el.name === contact.image_name?.trim())?.childImageSharp)} alt=""></GatsbyImage>
+                            </div>
+                            <div>
+                                <h3>{contact.title}</h3>
+                                <p className='mt-4 mb-3'>{contact.text}</p>
+                                <Link 
+                                    className='linkSt text-decoration-none' 
+                                    style={{fontWeight:700, color:"#1885a9"}} 
+                                    to={contact.btn.url}
+                                >{contact.btn.title}</Link>
+                            </div>
                         </div>
                     </div>)
                 }
             </div>
-            <div>
+            <div className='my-2'>
                 <h1>Have a question? Ask Joy, our Guaranteed Rate Virtual Assistant.</h1>
+                <div>
+                    <iframe src="https://d3q7optkm4zx6c.cloudfront.net/index.html" width={"100%"} height={640} frameborder="0"></iframe>
+                </div>
             </div>
             <div>
-            <GatsbyImage image={getImage(nodes.find(el => el.name === "the-best"?.trim())?.childImageSharp)} alt=""></GatsbyImage>
+                <GatsbyImage image={getImage(helpImgs.find(el => el.name === "the-best"?.trim())?.childImageSharp)} alt=""></GatsbyImage>
             </div>
+            <hr className='container mx-auto horizontal' />
         </Layout>
     );
 };

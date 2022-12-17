@@ -1,7 +1,10 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage, StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import Layout from '../components/Layout/layout';
+import {horizontal_width} from "../styles/mix_styles.module.css";
+import {SlArrowRight,SlArrowLeft} from "react-icons/sl";
+import { ReactIcon } from '../components/common/ButtonRegular';
 
 const first_customer_text = [
     "When Guaranteed Rate began twenty two years ago, the mortgage industry was entirely set up for the lenders, at the expense of the people who were just trying to buy a home. It wasn’t right.",
@@ -51,35 +54,56 @@ const aboutUs_QL = graphql`
           }
         
     }
-  `;
+`;
+
+
 const AboutUs = () => {
-    const {way_img_list:{nodes}} = useStaticQuery(aboutUs_QL);
+    const {way_img_list:{nodes:about_icons}} = useStaticQuery(aboutUs_QL);
     // console.log(nodes);
     return (
         <Layout className='container'>
             <section>
-                <p>Overview</p>
-                <h1>We’re here to help you get your dream home.</h1>
+                <em>Overview</em>
+                <h1 className='mb-3'>We’re here to help you get your dream home.</h1>
                 <p>Our perfect combination of technology and human touch provides unparalleled value.</p>
-                <div>
-                    <StaticImage src='../assets/static-images/about_us/about_us_banner.png' alt='banner' />
-                    <button>Watch the video</button>
+
+                <div className='position-relative my-4'>
+                    <div>
+                        <StaticImage src='../assets/static-images/about_us/about_us_banner.png'  alt='' loading='eager' objectFit='cover' layout='constrained' />     
+                    </div>
+                    <div  className='position-absolute  top-50 start-50 translate-middle'>
+                        <div className='scaleHover'>
+                            <Link 
+                                className='bg-white px-5 py-2 fs-5 border-0 text-decoration-none' 
+                                style={{
+                                    zIndex:999, 
+                                    translate:"scale(1.5)", 
+                                    borderRadius:"var(--border-radius-medium)",
+                                    color: "var(--color-primary-body-dark)",
+                                    whiteSpace:"nowrap"
+                                }}
+                                to={""}
+                            >Watch the video</Link>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section>
-                <h1>Put the customer first.</h1>
+                <h2>Put the customer first.</h2>
                 <div>
                     {
-                        first_customer_text.map((text,idx) => <p key={idx}>{text}</p>)
+                        first_customer_text.map((text,idx) => <p className='mb-3' key={idx}>{text}</p>)
                     }
                 </div>
-                <div>
-                    <h1>97%</h1>
+                <div className='text-center'>
+                    <hr className={`container mx-auto horizontal ${horizontal_width} my-4`}  />
+                    <h1 className='font-weight-bolder' style={{fontSize:"70px"}}>97%</h1>
                     <h5>of our customers would refer us to their friends and families.*</h5>
+                    <hr className={`container mx-auto horizontal ${horizontal_width} my-4`}  />
                 </div>
             </section>
-            <section>
-                <h1>Deliver low, low rates with a streamlined process.</h1>
+            <section className='my-5'>
+                <h1 className='my-4'>Deliver low, low rates with a streamlined process.</h1>
                 <div>
                     {
                         deliverRate.map((text,idx) => <p key={idx}>{text}</p>)
@@ -88,21 +112,54 @@ const AboutUs = () => {
             </section>
 
             <section>
-                <h1>Get your mortgage, your way, anytime, anywhere.</h1>
+                <h1 className='mb-4'>Get your mortgage, your way, anytime, anywhere.</h1>
                 <p>We understand that choosing a mortgage is the biggest financial decision of your life, and we’re committed to making the process as seamless, friendly and financially valuable to you as possible.</p>
-                <div>
+                <div className='row'>
                     {
-                        way_time_list.map(way => <div key={way.title}>
-                            <div>
-                                <GatsbyImage image={getImage(nodes.find(el => el.name === way.img_name?.trim())?.childImageSharp)} alt=""></GatsbyImage>
-                            </div>
-                            <div>
-                                <h3>{way.title}</h3>
-                                <p>{way.text}</p>
+                        way_time_list.map(way => <div className='col-12 col-md-6 col-lg-3' key={way.title}>
+                            <div >
+                                <div className='border rounded text-center py-4'>
+                                    <GatsbyImage image={getImage(about_icons.find(el => el.name === way.img_name?.trim())?.childImageSharp)} alt=""></GatsbyImage>
+                                </div>
+                                <div>
+                                    <h5 className='my-3'>{way.title}</h5>
+                                    <p>{way.text}</p>
+                                </div>
                             </div>
                         </div>)
                     }
                 </div>
+                <div>
+                    <div className='d-flex justify-content-between'>
+                        <Link className='linkSt text-decoration-none' style={{}} to=''>
+                            <ReactIcon   size={12} >
+                                <SlArrowLeft />
+                            </ReactIcon>
+                            <span className='ms-1'>
+                                Careers
+                            </span>
+                        </Link>
+                        <Link className='linkSt text-decoration-none' to=''>
+                            <span className='me-1'>
+                                Purpose
+                            </span>
+                            <ReactIcon   size={12} >
+                                <SlArrowRight />
+                            </ReactIcon>
+                        </Link>
+                    </div>
+                    <div className='my-5 text-center'>
+                        <small className=''>
+                            *Data pulled from Guaranteed Rate’s Customer Satisfaction Surveys (2019 – 2020) and 
+                            <Link 
+                                className='linkSt'
+                                to='https://www.retently.com/blog/good-net-promoter-score/'
+                            > Retently’s </Link>
+                            2020 NPS Benchmarks.
+                        </small>
+                    </div>
+                </div>
+                <hr className='container mx-auto horizontal' />
             </section>
 
         </Layout>
