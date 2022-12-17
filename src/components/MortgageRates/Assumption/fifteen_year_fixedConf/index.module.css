@@ -22,6 +22,16 @@
   cursor: pointer;
 }
 
+.accordion_rotate {
+  display: flex;
+  justify-content: space-between;
+}
+
+.rotate_arrow {
+  transform: rotate(90deg);
+  transition: all .2s;
+}
+
 .border_bott {
   border-bottom: 1px #ccc solid;
   padding: 10px 0px;
@@ -102,6 +112,7 @@
 
 .disclose_container {
   list-style: none;
+  margin-left: 50px;
 }
 
 .disclose_container li {
@@ -117,10 +128,10 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: red;
+  background-color: #D13239;
   position: absolute;
-  left: -20px;
-  top: 8px;
+  left: -30px;
+  top: 5px;
 }
 
 @media screen and (max-width: 800px) {

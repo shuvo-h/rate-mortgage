@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import Layout from '../../../components/Layout/layout';
 
-import ContentList30 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/ContentList30';
 import Advantage15Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Advantage15Year';
 import Chart from '../../../components/Chart/Chart';
 import SimilarRenderer from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/WhatFixedRate15';
@@ -10,9 +9,60 @@ import Great30Rate from '../../../components/MortgageRates/Assumption/fifteen_ye
 import KnowMore from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/KnowMore';
 import OtherMortgVs30Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/OtherMortgVs30Year';
 import Disclosure30 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Disclosure30';
+import ContentList from '../../../components/resourcesCmp/ContentList/ContentList';
 import {span_text, hidescroll} from "./index.module.css";
 
 import { whatAfixedRate30, fixedRate30YearMortages,disadvantage30YearData, diifIntRateAPR, amortizationSche, diifBtwFixedAndAdjustable, advantage30YearData } from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/SimilarLists';
+
+
+const contentData = [
+    {
+        id: "whatAfixedRate30",
+        topic: "What is a 30-year fixed-rate mortgage?"
+    },
+
+    {
+        id: "30YearFixedRate",
+        topic: "30-year fixed-rate mortgages and interest"
+    },
+
+    {
+        id: "diffBtwIntAndAPR",
+        topic: "What is the difference between interest rate and APR?"
+    },
+
+    {
+        id: "amortizationSche",
+        topic: "What is an amortization schedule?"
+    },
+
+    {
+        id: "fixedRateAndAjustablle",
+        topic: "What’s the difference between fixed-rate and adjustable rate mortgages?"
+    },
+
+
+    {
+        id: "best30YearRate",
+        topic: "How do I get the best 30 year rate?"
+    },
+
+    {
+        id: "advantage30YearData",
+        topic: "Benefits of 30-year fixed-rate mortgages"
+    },
+
+    {
+        id: "disaddOf30yearFixed",
+        topic: "Disadvantages of 30-year fixed-rate mortgage"
+    },
+
+    {
+        id: "guaranteed30RateMortage",
+        topic: "Guaranteed Rate’s 30-Year Mortgage"
+    }
+]
+
 
 const ThirtyYearFixedConforming = () => {
     const [percentage, setPercentage] = useState(0);
@@ -34,7 +84,7 @@ const ThirtyYearFixedConforming = () => {
             </div>
 
             <div>
-                <ContentList30 />
+                <ContentList title={"Table of contents"} data={contentData} />
 
                 <SimilarRenderer data={whatAfixedRate30} idString={"whatAfixedRate30"} />
 
