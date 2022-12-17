@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
-import ButtonRegular from '../../common/ButtonRegular';
+import ButtonRegular, { LinkRegular } from '../../common/ButtonRegular';
 import RecentMortgageArticle from './RecentMortgageArticle';
 
 const RecentMortgageArticles = () => {
@@ -14,13 +14,11 @@ const RecentMortgageArticles = () => {
                 name
                 childImageSharp {
                     id
-                    gatsbyImageData(layout: CONSTRAINED)
+                    # gatsbyImageData(layout: CONSTRAINED)
+                    gatsbyImageData
                 }
             }
-
-        
-           
-
+            
         }
     `)
     
@@ -48,7 +46,7 @@ const RecentMortgageArticles = () => {
     
     return (
         <div className='my-5'>
-            <h2>Recent mortgage rates articles</h2>
+            <h2 className='text-center my-4'>Recent mortgage rates articles</h2>
             <div className='container'>
                 <div className='row g-2'>
                     {
@@ -57,7 +55,7 @@ const RecentMortgageArticles = () => {
                 </div>
             </div>
             <div className='d-flex justify-content-center my-5 pt-3'>
-                <ButtonRegular  label={"View all mortgage news articles"} className='bg-transparent px-3' />
+                <LinkRegular className='text-dark border-dark' url='' label={"View all mortgage news articles"} ></LinkRegular>
             </div>
         </div>
     );

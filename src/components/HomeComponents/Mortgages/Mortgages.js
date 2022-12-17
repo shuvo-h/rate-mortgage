@@ -1,7 +1,8 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { ActiveServiceFlagIcon, CreditHistoryIcon, HomeBuyerIcon, HomeOwnerCashIcon } from '../../../utils/icons/HomePageIcons';
-import MortgageCard from './MortgageCard';
+
 
 
 const mortgageData = {
@@ -9,14 +10,31 @@ const mortgageData = {
     viewBtn : "View all mortgage options",
     info:"Tell us about yourself.",
     mortgages: [
-        {icon: <ActiveServiceFlagIcon width={50} height={50} />, title:"I am an active service member",url:"/va-loans"},
-        {icon: <HomeBuyerIcon width={50} height={50} />, title:"I am a first-time home-buyer",url:"/buying-a-house"},
-        {icon: <CreditHistoryIcon width={50} height={50}  />, title:"I have a poor credit history",url:"/resources/buying-a-home-with-bad-credit"},
-        {icon: <HomeOwnerCashIcon width={50} height={50}  />, title:"I am a homeowner looking for cash",url:"/cash-out-refinance"},
+        {icon: "flag_us", title:"I am an active service member",url:"/va-loans"},
+        {icon: "home_man", title:"I am a first-time home-buyer",url:"/buying-a-house"},
+        {icon: "Credit_report", title:"I have a poor credit history",url:"/resources/buying-a-home-with-bad-credit"},
+        {icon: "home_rotet", title:"I am a homeowner looking for cash",url:"/cash-out-refinance"},
     ]
 }
 
+const mortgages_QL = graphql`
+    query mortgages_QL {
+        mortgage_icons: allFile(filter: {name: {in: ["flag_us","home_man","Credit_report","home_rotet"]}}) {
+            nodes {
+            childImageSharp {
+                gatsbyImageData
+            }
+            name
+            }
+        }
+    }
+
+`;
+
 const Mortgages = () => {
+    const {mortgage_icons:{nodes:mortgageIcons}} = useStaticQuery(mortgages_QL);
+    // console.log(mortgageIcons);
+
     return (
         <section className="container my-5">
             <div className='d-flex flex-wrap justify-content-between my-4'>
@@ -29,10 +47,23 @@ const Mortgages = () => {
 
             <div className='row g-4'>
                 {
-                    mortgageData.mortgages.map((mortgage,idx) =><MortgageCard mortgage={mortgage}  key={idx}></MortgageCard>)
+                    mortgageData.mortgages.map((mortgage,idx) =>{
+                        const img = mortgageIcons.find(iconEl => iconEl.name === mortgage.icon)?.childImageSharp;
+                        return <div className='col-6 col-md-3'>
+                            <Link className='linkSt text-decoration-none text-dark' to={mortgage.url}>
+                                <div className='mortgage_card d-flex flex-column justify-content-center'>
+                                    <div>
+                                        <GatsbyImage image={getImage(img)} alt="" />
+                                    </div>
+                                    <div>
+                                        <h4>{mortgage.title}</h4>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                    })
                 }
             </div>
-            <ActiveServiceFlagIcon width={50} height={50} />
         </section>
     );
 };

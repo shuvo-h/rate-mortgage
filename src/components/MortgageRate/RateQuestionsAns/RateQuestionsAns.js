@@ -1,10 +1,11 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import React from 'react';
 import {link_text_style, mortgageTyles } from "../mortgageCurrRate.module.css";
 import ButtonRegular from '../../common/ButtonRegular';
 import RateQ_A_section from './RateQ_A_section';
 import { HomeAffidabilityCalculatorIcon, ImproveFinanceIcon, ResearchIcon, WatchMarketIcon } from '../../../utils/icons/mixIcons';
 import { DollarsIcon, HomeValueIcon } from '../../../utils/icons/HomePageIcons';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 
 
@@ -165,17 +166,20 @@ const browData = [
     {
         title:"Mortgage payment calculator",
         url:"",
-        icon: <DollarsIcon width={40} height={40} />
+        // icon: <DollarsIcon width={40} height={40} />
+        icon:"Group291"
     },
     {
         title:"Home affordability calculator",
         url:"",
-        icon: <HomeValueIcon width={40} height={40} />
+        // icon: <HomeValueIcon width={40} height={40} />
+        icon:"Homevalue1"
     },
     {
         title:"Home refinance calculator",
         url:"",
-        icon: <HomeAffidabilityCalculatorIcon  width={40} height={40} />
+        // icon: <HomeAffidabilityCalculatorIcon  width={40} height={40} />
+        icon:"Group25Copy"
     },
 ]
 
@@ -193,22 +197,50 @@ const aspectLeaderQuestion = [
 
 const low_mortgage_rate = [
     { 
-        icon: <ImproveFinanceIcon />,
+        // icon: <ImproveFinanceIcon />,
+        icon:"Group16",
         title:"Improve finances",
         para:"Taking the necessary steps to improve your credit score or save for a substantial down payment will help you get a low mortgage rate when the timing is right to apply for a loan.",
     },
     { 
-        icon: <WatchMarketIcon />,
+        // icon: <WatchMarketIcon />,
+        icon:"Group1333",
         title:"Watch the market",
         para:"Once your credit and savings are ready to take on a home purchase, keep a close watch on the real estate market outlook and its predictions. This will help you recognize the best opportunity for a home purchase.",
     },
     { 
-        icon: <ResearchIcon />,
+        // icon: <ResearchIcon />,
+        icon:"Group23",
         title:"Research",
         para:"Meeting with multiple lenders and understanding the full scope of your borrowing limits will also help you understand average mortgage rates today and who can offer the best deal possible.",
     },
 ]
+
+const rateQuestion_QL = graphql`
+    query rateQuestion_QL {
+        borrowImgs: allFile(filter: {name: {in: ["Group291","Group25Copy","Homevalue1"]}}) {
+            nodes {
+            childImageSharp {
+                gatsbyImageData
+            }
+            name
+            }
+        }
+
+        low_mortgage_rate_imgs: allFile(filter: {name: {in: ["Group16","Group1333","Group23"]}}) {
+            nodes {
+            childImageSharp {
+                gatsbyImageData
+            }
+            name
+            }
+        }
+
+    }
+`;
 const RateQuestionsAns = () => {
+    const {borrowImgs:{nodes:borrow_imgList},low_mortgage_rate_imgs:{nodes:lowMrtgImgList}} = useStaticQuery(rateQuestion_QL);
+    // console.log(borrow_imgList);
     return (
         <div>
             <div>
@@ -217,24 +249,27 @@ const RateQuestionsAns = () => {
                 }
             </div>
             <div className='d-flex justify-content-center my-5'>
-                <ButtonRegular label={"Apply today"} className='border-0 text-light px-3 py-2' />
+                <ButtonRegular label={"Apply today"} className='border-0 text-light px-4 py-2' style={{borderRadius:"12px"}} rounded={false} />
             </div>
             <div>
-                <h2>How to find a low mortgage rate</h2>
+                <h2 className='my-2'>How to find a low mortgage rate</h2>
                 <p style={{maxWidth:"100%"}}>Getting a low mortgage rate requires a combination of timing and preparation. While external economic factors play a heavy role in what lenders can offer, improving your own financial situation before applying can go a long way in driving down interest rates.</p>
                 <div>
                     {
-                        low_mortgage_rate.map((lowRateInfo,idx) =><div className='d-flex align-items-center' key={idx}>
+                        low_mortgage_rate.map((lowRateInfo,idx) =>{
+                            const img = lowMrtgImgList.find(imgEl => imgEl.name === lowRateInfo.icon)?.childImageSharp;
+                            return <div className='d-flex align-items-center' key={idx}>
                             <div >
-                                <div style={{width:"fit-content", }}>
-                                    {lowRateInfo.icon}
+                                <div style={{minWidth:"50px"}}>
+                                    {/* {lowRateInfo.icon} */}
+                                    <GatsbyImage image={getImage(img)} alt='' />
                                 </div>
                             </div>
                             <div className='ms-3'>
                                 <h4 className='my-1'>{lowRateInfo.title}</h4>
                                 <p style={{maxWidth:"100%"}}>{lowRateInfo.para}</p>
                             </div>
-                        </div>)
+                        </div>})
                     }
                 </div>
             </div>
@@ -278,12 +313,18 @@ const RateQuestionsAns = () => {
                 <p>The amount you’ll be able to borrow depends heavily on your personal finances and credit history. Be sure to take a look at our mortgage calculators for a better idea of what you can expect to pay for a mortgage:</p>
                 <div className='row g-3'>
                         {
-                            browData.map(browInfo =><div className='col-12 col-sm-6 d-flex' key={browInfo.title}>
-                                <div>{browInfo.icon}</div>
-                                <div className='ms-3'>
-                                    <Link className={link_text_style}  to={browInfo.url}>{browInfo.title}</Link>
+                            browData.map(browInfo =>{
+                                const img = borrow_imgList.find(imgEl => imgEl.name === browInfo.icon)?.childImageSharp;
+                                return <div className='col-12 col-sm-6 d-flex' key={browInfo.title}>
+                                    {/* <div>{browInfo.icon}</div> */}
+                                    <div>
+                                        <GatsbyImage image={getImage(img)} alt='' />
+                                    </div>
+                                    <div className='ms-3'>
+                                        <Link className={link_text_style}  to={browInfo.url}>{browInfo.title}</Link>
+                                    </div>
                                 </div>
-                            </div>)
+                            })
                         }
                 </div>
             </div>

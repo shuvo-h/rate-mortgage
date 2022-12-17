@@ -36,7 +36,7 @@ const CompareCurrentRate = () => {
         <section className='my-5'>
             <p className='text-secondary m-0'>Mortgage rates today</p>
             <h1 className='my-2'>Compare current mortgage rates</h1>
-            <p style={{maxWidth:"100%"}}>Rates shown are based on loan assumptions provided by you. Your actual rate, payment and costs could be higher. Get an official Loan Estimate before choosing a loan. Take the next step by answering a few questions about your <Link className={personalRate_btn} to='/'> goals to get your personal rate</Link> </p>
+            <p style={{maxWidth:"100%"}}>Rates shown are based on loan assumptions provided by you. Your actual rate, payment and costs could be higher. Get an official Loan Estimate before choosing a loan. Take the next step by answering a few questions about your <Link className={personalRate_btn} to='/'> goals to get your personal rate.</Link> </p>
             <div>
                 <div className={`${purchase_refine_btns}`}>
                     <div className='d-flex justify-content-center'>
@@ -54,17 +54,27 @@ const CompareCurrentRate = () => {
             <div>
                 <div></div>
                 <div className='d-flex justify-content-center my-2'>
-                    <ButtonRegular label={"Check My Rates"} className="py-2 px-4 text-light border-0"></ButtonRegular>
+                    <ButtonRegular 
+                        label={"Check My Rates"} 
+                        className="py-1 px-5 text-light border-0" 
+                        rounded = {false}
+                        style={{borderRadius:"12px"}}
+                    ></ButtonRegular>
                 </div>
                 <div className='my-5 d-flex align-items-center justify-content-center'>
                     <DangerIcon width={18} height={18} />
-                    <p className='m-0 ms-3'>We apologize. Current market volatility has disabled our ability to show rates. To explore your personal rate for $200000, please answer just a few questions. No obligation or impact on credit score.</p>
+                    <p className='m-0 ms-3' style={{maxWidth:"650px"}}>We apologize. Current market volatility has disabled our ability to show rates. To explore your personal rate for $200000, please answer just a few questions. No obligation or impact on credit score.</p>
                 </div>
                 <div className='d-flex justify-content-center my-2'>
-                    <ButtonRegular label={"Explore Personal Rate"} className="py-2 px-4 text-light border-0"></ButtonRegular>
+                    <ButtonRegular 
+                        label={"Explore Personal Rate"} 
+                        className="py-1 px-5 text-light border-0"
+                        rounded = {false}
+                        style={{borderRadius:"12px"}}
+                    ></ButtonRegular>
                 </div>
             </div>
-            <div>
+            <div className='my-5'>
                 <AccordianSingle 
                     p_class='my-3'
                     p_style={{maxWidth:"100%", fontSize:"14px"}}
@@ -73,18 +83,22 @@ const CompareCurrentRate = () => {
                 />
             </div>
             <div className='py-3'>
-                <h2>Your personal rate will vary. It could be lower or higher. Check what you can qualify for.​</h2>
+                <h3 className='text-center'>Your personal rate will vary. It could be lower or higher. Check what you can qualify for.​</h3>
                 <div className='row g-2 my-4'>
                     <div className='col-12 col-md-6 d-flex flex-column align-items-center text-center'>
                         <div>
-                        <ButtonRegular label={"Get personal rate"} className="px-5 py-3 fs-4 text-light border-0"  />
-                        <p style={{maxWidth:"400px"}}>Tell us about your goals and we'll match you with an expert to explain your rate options.</p>
+                        <ButtonRegular label={"Get personal rate"} className="px-5 py-2 fs-4 text-light border-0"  />
+                        <p className='my-3' style={{maxWidth:"400px"}}>Tell us about your goals and we'll match you with an expert to explain your rate options.</p>
                         </div>
                     </div>
                     <div className='col-12 col-md-6 d-flex flex-column align-items-center text-center' >
                         <div>
-                            <ButtonRegular label={"Estimate mortgage payments"} className="px-2 px-lg-4 py-3 fs-4 text-danger bg-transparent border border-danger" style={{border:"1px solid", whiteSpace:"no-wrap"}} />
-                            <p style={{maxWidth:"400px"}}>Explore your potential future payments with digital calculator tools.</p>
+                            <ButtonRegular 
+                                label={"Estimate mortgage payments"} 
+                                className="px-2 px-lg-4 py-2 fs-4 text-danger bg-transparent border border-danger" 
+                                style={{border:"1px solid", whiteSpace:"no-wrap"}} 
+                            />
+                            <p className='my-3' style={{maxWidth:"400px"}}>Explore your potential future payments with digital calculator tools.</p>
                         </div>
                     </div>
                 </div>
