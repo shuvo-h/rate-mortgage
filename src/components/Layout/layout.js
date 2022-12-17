@@ -29,15 +29,13 @@ const Layout = ({ className="",children }) => {
   return (
     <>
       <Header />
-      <div style={{marginTop:"90px"}}>
-        <main className={className}>
-          {children}
-        </main>
-        <footer>
-          <Footer></Footer>
-          <BottomFooter />
-        </footer>
-      </div>
+      <main className={className}>
+        {children}
+      </main>
+      <footer>
+        <Footer></Footer>
+        <BottomFooter />
+      </footer>
     </>
   )
 }
