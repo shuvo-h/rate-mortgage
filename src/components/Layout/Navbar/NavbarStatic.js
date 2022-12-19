@@ -9,8 +9,12 @@ import {nav_container,nav_middle, nav_middle_items,  nav_middle_title, nav_child
 
 export const navMiddle = [
     {
-        name:"Current rates",
-        url:"/mortgage-rates",
+        name:"Home",
+        url:"/",
+    },
+    {
+        name:"About Us",
+        url:"/about_us",
     },
     {
         name:"Mortgages",
@@ -36,7 +40,7 @@ export const navMiddle = [
     },
     
     {
-        name:"Loan options",
+        name:"Loan Programms",
         url:"/",
         childs: [
             {
@@ -63,7 +67,7 @@ export const navMiddle = [
         ]
     },
     {
-        name:"Mortgage tools",
+        name:"Calculators",
         url:"/",
         childs: [
             {
@@ -79,6 +83,14 @@ export const navMiddle = [
             {name:"Home valuation tool", url:"/home-valuation",},
             {name:"House market research", url:"/research",},
         ]
+    },
+    {
+        name:"Testimonial",
+        url:"/",
+    },
+    {
+        name:"Contact Us",
+        url:"/contact-us",
     },
     
 ]
@@ -111,21 +123,22 @@ const navData_QL = graphql`
 
 
 
-const Navbar = () => {
+const NavbarStatic = () => {
     const {logo_img} = useStaticQuery(navData_QL);
     // console.log(logo_img);
     return (
-        <nav className={`${nav_container} d-none d-lg-flex`}>
+        <nav className={`${nav_container} d-none d-lg-flex justify-content-between`} style={{backgroundColor: "#164b88",color:"#fff"}}>
             <div>
-                <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)}  alt={"banner"}></GatsbyImage>
+                {/* <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)}  alt={"banner"}></GatsbyImage> */}
+                <h3>Example Text</h3>
             </div>
-            <div className='d-block m-auto'>
+            <div className='d-block'>
                 <div className={`${nav_middle}`}>
                     {
                         navMiddle.map(navItem => <div className={nav_middle_items} key={navItem.name}>
                             {
                                 navItem.url 
-                                ? <Link to={navItem.url} className={`text-decoration-none ${nav_middle_item}`}>
+                                ? <Link to={navItem.url} className={`text-decoration-none text-white ${nav_middle_item}`}>
                                         <span className={`${nav_middle_title} rotate_icon_parent position-relative`}>
                                             {navItem.name} 
                                             {navItem.childs?.length && <span className='rotate_icon ms-2'> <RightArrow width={10} height={10} /> </span>}
@@ -162,7 +175,7 @@ const Navbar = () => {
 
             </div>
 
-
+            {/*             
             <div className={`${nav_middle} ${nav_right}`}>
                 <Link className={`link_style ${get_start_btn}`} to={""}>Get started</Link>
                 {
@@ -170,62 +183,10 @@ const Navbar = () => {
                 }
                 <Link className={`link_style ${search_icon}`} to={"/site-search"}><SearchIcon></SearchIcon></Link>
             </div>
+             */}
 
         </nav>
     );
-
-    /*
-    return (
-        <nav className={`${nav_container} d-none d-lg-flex`}>
-            <div>
-                <GatsbyImage image={getImage(logo_img.childImageSharp.gatsbyImageData)}  alt={"banner"}></GatsbyImage>
-            </div>
-            <div className='d-block m-auto'>
-                <div className={`${nav_middle}`}>
-                    {
-                        navMiddle.map(navItem => <div className={nav_middle_items} key={navItem.name}>
-                            <Link to={navItem.url} className={`text-decoration-none ${nav_middle_item}`}>
-                                <span className={`${nav_middle_title} rotate_icon_parent position-relative`}>
-                                    {navItem.name} 
-                                    {navItem.childs?.length && <span className='rotate_icon ms-2'> <RightArrow width={10} height={10} /> </span>}
-                                </span>
-                            </Link>
-                            {
-                                navItem.childs && <div className={nav_childs_wrapper}>
-                                    <div className={nav_childs}>
-                                        {
-                                            navItem.childs && navItem.childs?.map(childNav => <div className={"nav_child"}  key={childNav.name}>
-                                                <Link className={`${"link_style"} ${nav_child_link}`} to={childNav.url}>{childNav.name}</Link>
-                                                <div className={"nav_subs"}>
-                                                    {
-                                                        childNav.sub_childs && childNav.sub_childs?.map(subChild =><Link className={`${"link_style"} ${nav_child_link} ${nav_sub}`} to={subChild.url} key={subChild.name}>{subChild.name}</Link>)
-                                                    }
-                                                </div>
-                                            </div>)
-                                        }
-                                    </div>
-                                </div>
-                            }
-                            
-                        </div>)
-                    }
-                </div> 
-
-            </div>
-
-
-            <div className={`${nav_middle} ${nav_right}`}>
-                <Link className={`link_style ${get_start_btn}`} to={""}>Get started</Link>
-                {
-                    navRight.map(navItem => <Link className={"link_style"} to={navItem.url} key={navItem.name}>{navItem.name}</Link>)
-                }
-                <Link className={`link_style ${search_icon}`} to={"/site-search"}><SearchIcon></SearchIcon></Link>
-            </div>
-
-        </nav>
-    );
-    */
-
 };
 
-export default Navbar;
+export default NavbarStatic;

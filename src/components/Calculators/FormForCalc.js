@@ -2,13 +2,8 @@ import React from 'react';
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import {calc_input} from "./calculators.module.css";
+import { windoOpener } from '../../utils/makeHyperText';
 
-
-const windoOpener = (url) => {
-    if (url) {
-        window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=300");
-    }
-}
 
 
 const ElementRenderer = (elementInfo) =>{
@@ -42,7 +37,7 @@ const cal_btn_Img = graphql`
 
 
 
-const SubmitBtn = ({isSubmitBtn=true}) => { 
+export const SubmitBtn = ({isSubmitBtn=true}) => { 
     const {submit_btn,term_btn} = useStaticQuery(cal_btn_Img);
 
     return <div className='my-4 d-flex flex-column align-items-end'>

@@ -2,6 +2,7 @@ import React from 'react';
 import CalculatorClosingCost from '../../components/Calculators/closingCost/CalculatorClosingCost';
 import CalculatorPageTitle from '../../components/common/CalculatorPageTitle';
 import Layout from '../../components/Layout/layout';
+import FaqClosingCost from '../../components/MortgageCalsCmp/ClosingCost/FaqClosingCost';
 
 const closingCalcTitleInfo = {
     title:"Closing Cost Calculator: How much are closing costs on a house?",
@@ -14,6 +15,7 @@ const ClosingCostCalculator = () => {
         <Layout className='container' >
             <CalculatorPageTitle title={closingCalcTitleInfo.title} info={closingCalcTitleInfo.info} />
             <CalculatorClosingCost />
+            <FaqClosingCost />
         </Layout>
     );
 };
