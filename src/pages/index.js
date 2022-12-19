@@ -10,12 +10,16 @@ import Topics from "../components/HomeComponents/Topics/Topics";
 import Layout from "../components/Layout/layout";
 import Seo from "../components/seo";
 import Banner from "../components/HomeComponents/Banner";
+import BannerStatic from "../components/HomeComponents/BannerStatic";
+import VisionRateSummary from "../components/HomeComponents/VisionRateSummary";
 
 
 const IndexPage = () => (
   <Layout>
     <div>
-      <Banner />
+      <BannerStatic />
+      {/* <Banner /> */}
+      <VisionRateSummary />
       <p className='container py-4 my-5 text-center fs-3 px-4' style={{backgroundColor:"#eff4f5"}}>Leave your slow, old-school bank in the dust. Join the future of mortgages. <span><a style={{fontWeight:"600", textDecoration:"none",color:"#6495ED"}} href="https://www.rate.com/redirect?dest=https://apply.guaranteedrate.com/apply/loan-purpose&icid=stickybar:getrates">Get personalized rates</a></span></p>
       <Calculator />
       <PurchaseWork />

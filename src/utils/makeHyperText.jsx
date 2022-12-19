@@ -48,3 +48,10 @@ export const makeHyperLink = (text='',url_List=[{name:"",url:""}],elementKey='',
   return paraElement;
 }
 
+
+
+export const windoOpener = (url) => {
+    if (url) {
+        window.open(url, "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,top=500,left=500,width=400,height=300");
+    }
+}

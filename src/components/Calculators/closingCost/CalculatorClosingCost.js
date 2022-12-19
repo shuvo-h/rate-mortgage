@@ -5,22 +5,11 @@ import HelpClosingCalc from './HelpClosingCalc';
 import InputClosingCost from './InputClosingCost';
 import CalcResults from './ResultsCalc';
 
-const closingCalcHelp = [
-    {
-        text:"There comes a time in the life of most homeowners when a drop in prevailing interest rates coupled with the prospect of reducing monthly mortgage payments makes too much sense not to explore; hence, the lure and the logic of a home refinance.",
-        urls:[
-            {
-                name:"",
-                url:""
-            }
-        ]
-    }
-]
 
 const closingNavList = ["inputs","results","help"];
 
 const CalculatorClosingCost = () => {
-    const [activeNav,setActiveNav] = useState(closingNavList[2]);
+    const [activeNav,setActiveNav] = useState(closingNavList[0]);
 
     return (
         <section style={{maxWidth:"fit-content",margin:"auto"}}>

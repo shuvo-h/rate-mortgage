@@ -186,7 +186,7 @@ const result_fields = [
 
 
 const CalcResults = () => {
-    console.log(SlArrowLeft);
+    // console.log(SlArrowLeft);
     return (
         <>
             <FormForCalc formFieldData={result_fields} isSubmitBtn={false} />
