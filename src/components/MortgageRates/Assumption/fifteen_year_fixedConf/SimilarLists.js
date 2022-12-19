@@ -135,6 +135,44 @@ export const advantage30YearData = {
     conclusion:[]
 }
 
+export const fiveARMvsTenARM = {
+    title: "5-year ARM rates vs. 10-year ARM rates",
+    introduction: "Let’s compare the 5-year ARM to the 10-year ARM. While both are adjustable rate mortgages, it should be quite apparent that one is twice as long as the other. This produces a few crucial differences worth examining:",
+    terms: [
+        {
+            title: "Lower interest rates",
+            answer: [
+                "Again, the 5-year ARM will typically have a lower interest rate out of all the ARMs, and it may even be markedly lower than the 10-year ARM.",       
+            ]
+        },
+
+        {
+            title: "Homebuyer incentive",
+            answer: [
+                "Low interest rates for a 5-year ARM as compared to a 10-year ARM mean that there could be a distinct incentive for homebuyers looking for immediate affordability to choose this loan. While they may have reservations about the back end of the loan, the typically attractive up-front interest rate offered in a 5-year ARM may prove to be a decisive factor in achieving homeownership."
+            ]
+        },
+
+        {
+            title: "More house",
+            answer: [
+                "With a generally lower interest rate which could result in lower monthly payments (for the first five years) the 5/6 ARM has an advantage over the 10/6 ARM: it could allow you to buy “more house” and secure a mortgage on the home of your dreams, not just the home you can afford."
+            ]
+        },
+
+        {
+            title: "Sell soon",
+            answer: [
+                "While there are ample reasons many borrowers seek out the 5-year ARM, the 10-year ARM certainly has its merits, especially on the back end of the loan. For example, more time in the back end (for a 30-year mortgage it would be 25 years; for a 15-year mortgage it would mean 10 years) creates additional risk for a prolonged rate increase. If you’re at all wary about your ARM adjusting upwards, a 5-year ARM provides an expansive territory for such concerns. A 10-year ARM somewhat mitigates that. Of course, refinancing into a fixed rate mortgage could potentially solve this problem altogether."
+            ]
+        }
+    ],
+
+    conclusion: [
+        "While there are ample reasons many borrowers seek out the 5-year ARM, the 10-year ARM certainly has its merits, especially on the back end of the loan. For example, more time in the back end (for a 30-year mortgage it would be 25 years; for a 15-year mortgage it would mean 10 years) creates additional risk for a prolonged rate increase. If you’re at all wary about your ARM adjusting upwards, a 5-year ARM provides an expansive territory for such concerns. A 10-year ARM somewhat mitigates that. Of course, refinancing into a fixed rate mortgage could potentially solve this problem altogether."
+    ]
+}
+
 export const disadvantage15YearData = {
     title:"Disadvantages of 15-year mortgages",
     introduction:"Of course, going with a 15-year fixed mortgage comes with its own disadvantages. Before deciding that this loan structure is the best option for you, be sure to understand some of the drawbacks that can come this type of mortgage:",
