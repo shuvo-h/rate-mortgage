@@ -7,7 +7,7 @@ import SimilarRenderer from '../../../components/MortgageRates/Assumption/fiftee
 import AmortizationChart from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/AmortizationChart';
 import Great30Rate from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Great30Rate';
 import KnowMore from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/KnowMore';
-import OtherMortgVs30Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/OtherMortgVs30Year';
+import OtherMortgVs30Year from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/OtherMortgVs30Year' ;
 import Disclosure30 from '../../../components/MortgageRates/Assumption/fifteen_year_fixedConf/Disclosure30';
 import ContentList from '../../../components/resourcesCmp/ContentList/ContentList';
 import {span_text, hidescroll} from "./index.module.css";
