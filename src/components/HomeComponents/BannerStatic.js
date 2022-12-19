@@ -1,7 +1,7 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
-import {banner_static_container} from "./banner_static.module.css";
+import {banner_static_container, logoST_lg} from "./banner_static.module.css";
 
 
 const bannerStatic_QL = graphql`
@@ -9,7 +9,7 @@ const bannerStatic_QL = graphql`
         logo_lg: file(name: {eq: "mort-logo-sample"}) {
             name
             childImageSharp {
-            gatsbyImageData (layout: CONSTRAINED)
+            gatsbyImageData 
             }
         }
         
@@ -23,8 +23,8 @@ const BannerStatic = () => {
         <section className={banner_static_container}>
             <div className='container row g-5 mx-auto py-4' >
                 <div className='co-12 col-md-6'>
-                    <div style={{maxWidth:"500px"}}>
-                        <GatsbyImage   image={getImage(logo_lg.childImageSharp)} layout="fullWidth" alt='' />
+                    <div  >
+                        <GatsbyImage className={logo_lg} image={getImage(logo_lg.childImageSharp)}  alt='' />
                     </div>
                 </div>
                 <div className='co-12 col-md-6 text-center'>

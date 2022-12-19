@@ -1,4 +1,6 @@
+import { Link } from 'gatsby';
 import React from 'react';
+import { makeHyperLink } from '../../../utils/makeHyperText';
 
 const faq_refinance_calc = {
     whatRefinanceCalc:{
@@ -1811,10 +1813,60 @@ const refinanceCalcDisclaimer = [
     "***If a cash-out refinance is chosen for debt consolidation, it can increase the time it takes to pay off the additional amount due to the fact it's lumped in with the borrower’s mortgage and paid off over the term of the loan."
 ]
 
+    const ListRendered = ({listEl,elIdx}) =>{
+        console.log(listEl);
+        return <div>
+            {listEl.list_title && !listEl.list_title_url && <h6>{listEl.list_title}</h6>}
+            {listEl.list_title && listEl.list_title_url && <h6><Link style={{textDecorationThickness:"1px"}} to={listEl.list_title_url}>{listEl.list_title}</Link></h6>}
+            {listEl.list_text && makeHyperLink(listEl.list_text,listEl.list_text_urls,`liPar-${elIdx}`,'linkSt')}
+        </div>
+    }
+
+    const FaqSectionRenderer = ({faqInfo}) =>{
+        return <section id={faqInfo.title}>
+            <h2>{faqInfo.title}</h2>
+            {
+                faqInfo.details.map((detailEl,idx) =>{
+                    return <div>
+                        {detailEl.sub_title && <h4>{detailEl.sub_title}</h4>}
+                        {detailEl.text && makeHyperLink(detailEl.text,detailEl.urls,idx,'linkSt')}
+                        {detailEl.short_list.length && detailEl.short_list?.map((listEl,lidx) =><ListRendered listEl={listEl} elIdx={lidx} key={`lid_${lidx}`} />)}
+                        
+                    </div>
+                })
+            }
+        </section>
+    }
+
 const FAQrefinanceCalc = () => {
+    const {whatRefinanceCalc, whatCostRefinance, howUseRefinance, worthRefinance, savingRefinance, whyRefinance, whyNotRefinance, refinanceVsPurchase, rateDifference, otherMortgageCalc, getRefinanceRate} = faq_refinance_calc;
+    
+    console.log(Object.entries(faq_refinance_calc).map(el=>el[0]));
+
     return (
         <section>
-            FAQrefinanceCalc
+            <section>
+                <h2 className='mb-3'>Mortgage refinancing FAQ</h2>
+                {
+                    Object.entries(faq_refinance_calc).map(el=>el[1].title).map(title => <Link className='linkSt d-block' to={`#${title}`}>{title}</Link>)
+                }
+            </section>
+            <section id={whatRefinanceCalc.title}>
+                <h2>{whatRefinanceCalc.title}</h2>
+                {
+                    whatRefinanceCalc.details.map((detailEl,idx) =>{
+                        return <div>
+                            {detailEl.sub_title && <h4>{detailEl.sub_title}</h4>}
+                            {detailEl.text && makeHyperLink(detailEl.text,detailEl.urls,idx,'linkSt')}
+                            {detailEl.short_list.length && detailEl.short_list?.map((listEl,lidx) =><ListRendered listEl={listEl} elIdx={lidx} key={`lid_${lidx}`} />)}
+                            
+                        </div>
+                    })
+                }
+            </section>
+            {
+                Object.entries(faq_refinance_calc).map(el=>el[0]).map(sectionProperty =><FaqSectionRenderer faqInfo={faq_refinance_calc[sectionProperty]} />)
+            }
         </section>
     );
 };
