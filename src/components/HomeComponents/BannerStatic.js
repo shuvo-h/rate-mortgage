@@ -1,13 +1,31 @@
-import { Link } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import React from 'react';
 import {banner_static_container} from "./banner_static.module.css";
 
+
+const bannerStatic_QL = graphql`
+    query bannerStatic_QL {
+        logo_lg: file(name: {eq: "mort-logo-sample"}) {
+            name
+            childImageSharp {
+            gatsbyImageData (layout: CONSTRAINED)
+            }
+        }
+        
+    }
+`;
+
+
 const BannerStatic = () => {
+    const {logo_lg} = useStaticQuery(bannerStatic_QL);
     return (
         <section className={banner_static_container}>
-            <div className='container row g-5 mx-auto py-4'>
+            <div className='container row g-5 mx-auto py-4' >
                 <div className='co-12 col-md-6'>
-                    <h2>LOGO WILL COME HERE COVERING THIS ALL SPACE</h2>
+                    <div style={{maxWidth:"500px"}}>
+                        <GatsbyImage   image={getImage(logo_lg.childImageSharp)} layout="fullWidth" alt='' />
+                    </div>
                 </div>
                 <div className='co-12 col-md-6 text-center'>
                     <h2>Start your Homeownership Journey with Us!</h2>
