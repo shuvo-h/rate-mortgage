@@ -11,9 +11,9 @@ const list = [
 ]
 const Disclosure15 = () => {
     return (
-        <section className={disclose_container}>
+        <section>
             <h2>General Disclosures</h2>
-            <ul>
+            <ul className={disclose_container}>
                 {
                     list.map((item,idx) => <li key={idx}>{item}</li>)
                 }

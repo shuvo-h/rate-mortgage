@@ -1,6 +1,7 @@
 import React from 'react';
 
-import CustomAccordion from './CustomAccordion';
+// import CustomAccordion from './CustomAccordion';
+import CustomAccordion from '../../../CustomAccordion/Accordion';
 
 const Advantage15Year = ({adDis_vantage, idString}) => {
     return (

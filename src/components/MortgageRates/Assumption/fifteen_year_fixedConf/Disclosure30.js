@@ -26,7 +26,7 @@ const Disclosure30 = () => {
 
       <h2>General Disclosures</h2>
 
-      <ul className={disclose_container} style={{marginLeft: "20px"}}>
+      <ul className={disclose_container}>
         <li>
           Sample payment does not include taxes, insurance or assessments. Mortgage Insurance Premium (MIP) 
           is required for all FHA loans and Private Mortgage Insurance (PMI) is required for all conventional 
