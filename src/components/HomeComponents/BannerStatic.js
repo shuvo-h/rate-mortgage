@@ -19,6 +19,7 @@ const bannerStatic_QL = graphql`
 
 const BannerStatic = () => {
     const {logo_lg} = useStaticQuery(bannerStatic_QL);
+    
     return (
         <section className={banner_static_container}>
             <div className='container row g-5 mx-auto py-4' >
